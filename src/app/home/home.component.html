@@ -1,0 +1,816 @@
+<section>
+  <div class="cust-container">
+    <div class="under-row">
+      <div class="coin-table">
+        <div class="table-header">
+          <div class="top-pagination">
+            <div class="pagination-box">
+              <span class="top-page-arrow">
+                <a href="#">
+                  <i class="fas fa-arrow-circle-left"></i>
+                </a>
+              </span>
+              <h6 class="top-pag-count">Page 1 of 16</h6>
+              <span class="top-page-arrow">
+                <a href="#">
+                  <i class="fas fa-arrow-circle-right"></i>
+                </a>
+              </span>
+            </div>
+          </div>
+
+          <div class="table-filter">
+            <div class="fiter-btn">
+              <span>
+                <a href="#" class="btn btn-filter" data-toggle="modal" data-target="#customize-table">Customize Table
+                  <i class="fas fa-tasks"></i>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="width-responsive">
+          <div class="main-table home-table">
+            <table id="coin-table" class="table">
+              <thead>
+                <tr>
+                  <th class="t-count">#</th>
+                  <th class="t-name">Name</th>
+                  <th class="t-coin-img" data-toggle="tooltip" data-placement="top" title="" data-original-title="Favorites">
+                    <span class="crown-img">
+                      <img src="../../assets/images/crown-white.svg">
+                    </span>
+                  </th>
+                  <th class="t-price" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price">Price</th>
+                  <th class="t-7dprice" data-toggle="tooltip" data-placement="top" title="" data-original-title="7 Day Price">7 Day Price</th>
+                  <th class="t-mrk-cap" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap">Mkt. Cap</th>
+                  <th class="t-team" data-toggle="tooltip" data-placement="top" title="" data-original-title="Team">Team</th>
+                  <th class="t-theory" data-toggle="tooltip" data-placement="top" title="" data-original-title="Theory">Theory.</th>
+                  <th class="t-tech" data-toggle="tooltip" data-placement="top" title="" data-original-title="Technology">Tech.</th>
+                  <th class="t-traction" data-toggle="tooltip" data-placement="top" title="" data-original-title="Traction">Traction</th>
+                  <th class="t-tam" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tam">TAM</th>
+                  <th class="t-token" data-toggle="tooltip" data-placement="top" title="" data-original-title="Token">Token</th>
+                  <th class="t-timing" data-toggle="tooltip" data-placement="top" title="" data-original-title="Timing">Timing</th>
+                  <th class="t-tran" data-toggle="tooltip" data-placement="top" title="" data-original-title="Trasformative">Tran.</th>
+                  <th class="t-gq">GQ
+                    <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="" data-original-title="GQ"></i>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="t-count">1</td>
+                  <td class="t-name">
+                    <a href="#">
+                      <div class="coin-name">
+                        <span class="coin-symbol">
+                          <img class="img-fluid" src="../../assets/images/crypto-currency/btc.svg">
+                        </span>
+
+                        <span class="coin-name-text">
+                          <h6>Bitcoin</h6>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td class="t-coin-img">
+                    <span class="crown-img">
+                      <img src="../../assets/images/crown.svg" class="img-fluid" />
+                    </span>
+                  </td>
+                  <td class="t-price">$ 9,246.53</td>
+                  <td class="t-7dprice" [chart]="chart"></td>
+                  <td class="t-mrk-cap">$ 153 B</td>
+                  <td class="t-team">8</td>
+                  <td class="t-theory">7</td>
+                  <td class="t-tech">6</td>
+                  <td class="t-traction">5</td>
+                  <td class="t-tam">9</td>
+                  <td class="t-token">8</td>
+                  <td class="t-timing">6</td>
+                  <td class="t-tran">10</td>
+                  <td class="t-gq">
+                    <div class="scoring-process" style="width:70%">87</div>
+                  </td>
+                </tr>
+
+                <div>
+                  <tr>
+                    <td class="t-count">2</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/eth.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Ethereum</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 668.60</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 153 B</td>
+                    <td class="t-team">10</td>
+                    <td class="t-theory">8</td>
+                    <td class="t-tech">9</td>
+                    <td class="t-traction">8</td>
+                    <td class="t-tam">9</td>
+                    <td class="t-token">7</td>
+                    <td class="t-timing">10</td>
+                    <td class="t-tran">10</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:90%">63</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">3</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/xrp.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Ripple</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 0.828282</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 2000 B</td>
+                    <td class="t-team">5</td>
+                    <td class="t-theory">6</td>
+                    <td class="t-tech">12</td>
+                    <td class="t-traction">5</td>
+                    <td class="t-tam">10</td>
+                    <td class="t-token">7</td>
+                    <td class="t-timing">8</td>
+                    <td class="t-tran">6</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:30%">80</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">4</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/bch.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Bitcoin Cash</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 1302.27</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 621 B</td>
+                    <td class="t-team">1</td>
+                    <td class="t-theory">5</td>
+                    <td class="t-tech">10</td>
+                    <td class="t-traction">6</td>
+                    <td class="t-tam">8</td>
+                    <td class="t-token">7</td>
+                    <td class="t-timing">4</td>
+                    <td class="t-tran">3</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:55%">15</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">5</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/eos.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>EOS</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 17.75</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 215 B</td>
+                    <td class="t-team">2</td>
+                    <td class="t-theory">1</td>
+                    <td class="t-tech">1</td>
+                    <td class="t-traction">5</td>
+                    <td class="t-tam">2</td>
+                    <td class="t-token">5</td>
+                    <td class="t-timing">1</td>
+                    <td class="t-tran">8</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:40%">99</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">6</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/ada.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Cardano</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 0.3432</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 625 B</td>
+                    <td class="t-team">7</td>
+                    <td class="t-theory">5</td>
+                    <td class="t-tech">4</td>
+                    <td class="t-traction">5</td>
+                    <td class="t-tam">3</td>
+                    <td class="t-token">6</td>
+                    <td class="t-timing">8</td>
+                    <td class="t-tran">2</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:68%">56</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">7</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/xlm.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Stellar</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 0.4436</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 235 B</td>
+                    <td class="t-team">6</td>
+                    <td class="t-theory">10</td>
+                    <td class="t-tech">5</td>
+                    <td class="t-traction">7</td>
+                    <td class="t-tam">10</td>
+                    <td class="t-token">3</td>
+                    <td class="t-timing">4</td>
+                    <td class="t-tran">5</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:63%">90</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">8</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/ltc.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Litecoin</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 145.66</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 150 B</td>
+                    <td class="t-team">3</td>
+                    <td class="t-theory">10</td>
+                    <td class="t-tech">2</td>
+                    <td class="t-traction">7</td>
+                    <td class="t-tam">7</td>
+                    <td class="t-token">1</td>
+                    <td class="t-timing">5</td>
+                    <td class="t-tran">4</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:52%">93</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">9</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/trx.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Tron</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 0.0910</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 100 B</td>
+                    <td class="t-team">1</td>
+                    <td class="t-theory">10</td>
+                    <td class="t-tech">4</td>
+                    <td class="t-traction">2</td>
+                    <td class="t-tam">5</td>
+                    <td class="t-token">8</td>
+                    <td class="t-timing">1</td>
+                    <td class="t-tran">6</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:43%">85</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">10</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/neo.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>NEO</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 82.22</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 200 B</td>
+                    <td class="t-team">10</td>
+                    <td class="t-theory">3</td>
+                    <td class="t-tech">5</td>
+                    <td class="t-traction">2</td>
+                    <td class="t-tam">8</td>
+                    <td class="t-token">7</td>
+                    <td class="t-timing">4</td>
+                    <td class="t-tran">9</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:43%">40</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">11</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/trx.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>TRON</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 668.60</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 153 B</td>
+                    <td class="t-team">10</td>
+                    <td class="t-theory">8</td>
+                    <td class="t-tech">9</td>
+                    <td class="t-traction">8</td>
+                    <td class="t-tam">9</td>
+                    <td class="t-token">7</td>
+                    <td class="t-timing">10</td>
+                    <td class="t-tran">10</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:90%">63</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">12</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/dash.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Dash</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 0.828282</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 2000 B</td>
+                    <td class="t-team">5</td>
+                    <td class="t-theory">6</td>
+                    <td class="t-tech">12</td>
+                    <td class="t-traction">5</td>
+                    <td class="t-tam">10</td>
+                    <td class="t-token">7</td>
+                    <td class="t-timing">8</td>
+                    <td class="t-tran">6</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:30%">80</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">13</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/xmr.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Monero</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 1302.27</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 621 B</td>
+                    <td class="t-team">1</td>
+                    <td class="t-theory">5</td>
+                    <td class="t-tech">10</td>
+                    <td class="t-traction">6</td>
+                    <td class="t-tam">8</td>
+                    <td class="t-token">7</td>
+                    <td class="t-timing">4</td>
+                    <td class="t-tran">3</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:55%">15</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">14</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/xem.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>NEM</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 17.75</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 215 B</td>
+                    <td class="t-team">2</td>
+                    <td class="t-theory">1</td>
+                    <td class="t-tech">1</td>
+                    <td class="t-traction">5</td>
+                    <td class="t-tam">2</td>
+                    <td class="t-token">5</td>
+                    <td class="t-timing">1</td>
+                    <td class="t-tran">8</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:40%">99</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">15</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/xvg.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Verge</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 0.3432</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 625 B</td>
+                    <td class="t-team">7</td>
+                    <td class="t-theory">5</td>
+                    <td class="t-tech">4</td>
+                    <td class="t-traction">5</td>
+                    <td class="t-tam">3</td>
+                    <td class="t-token">6</td>
+                    <td class="t-timing">8</td>
+                    <td class="t-tran">2</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:68%">56</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">16</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/btg.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Bitcoin Gold</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 0.4436</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 235 B</td>
+                    <td class="t-team">6</td>
+                    <td class="t-theory">10</td>
+                    <td class="t-tech">5</td>
+                    <td class="t-traction">7</td>
+                    <td class="t-tam">10</td>
+                    <td class="t-token">3</td>
+                    <td class="t-timing">4</td>
+                    <td class="t-tran">5</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:63%">90</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">17</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/etc.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Ethereum Classic</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 145.66</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 150 B</td>
+                    <td class="t-team">3</td>
+                    <td class="t-theory">10</td>
+                    <td class="t-tech">2</td>
+                    <td class="t-traction">7</td>
+                    <td class="t-tam">7</td>
+                    <td class="t-token">1</td>
+                    <td class="t-timing">5</td>
+                    <td class="t-tran">4</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:52%">93</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">18</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/qtum.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Qtum</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 0.0910</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 100 B</td>
+                    <td class="t-team">1</td>
+                    <td class="t-theory">10</td>
+                    <td class="t-tech">4</td>
+                    <td class="t-traction">2</td>
+                    <td class="t-tam">5</td>
+                    <td class="t-token">8</td>
+                    <td class="t-timing">1</td>
+                    <td class="t-tran">6</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:43%">85</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">19</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/zec.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Zcash</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 82.22</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 200 B</td>
+                    <td class="t-team">10</td>
+                    <td class="t-theory">3</td>
+                    <td class="t-tech">5</td>
+                    <td class="t-traction">2</td>
+                    <td class="t-tam">8</td>
+                    <td class="t-token">7</td>
+                    <td class="t-timing">4</td>
+                    <td class="t-tran">9</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:43%">40</div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="t-count">20</td>
+                    <td class="t-name">
+                      <a href="#">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/ae.svg">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>Aeternity</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </td>
+                    <td class="t-coin-img">
+                      <span class="crown-img">
+                        <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      </span>
+                    </td>
+                    <td class="t-price">$ 90.22</td>
+                    <td class="t-7dprice" [chart]="chart"></td>
+                    <td class="t-mrk-cap">$ 215 B</td>
+                    <td class="t-team">9</td>
+                    <td class="t-theory">7</td>
+                    <td class="t-tech">6</td>
+                    <td class="t-traction">3</td>
+                    <td class="t-tam">6</td>
+                    <td class="t-token">3</td>
+                    <td class="t-timing">5</td>
+                    <td class="t-tran">1</td>
+                    <td class="t-gq">
+                      <div class="scoring-process" style="width:50%">60</div>
+                    </td>
+                  </tr>
+                </div>
+
+              </tbody>
+            </table>
+
+            <div class="pagination">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <i class="fas fa-arrow-circle-left"></i>
+                    </a>
+                  </li>
+                  <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <i class="fas fa-arrow-circle-right"></i>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
