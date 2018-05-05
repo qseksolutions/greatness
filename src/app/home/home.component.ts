@@ -23,15 +23,15 @@ export class HomeComponent implements OnInit {
   private toasterService: ToasterService;
   public base_url: any = myGlobals.base_url;
   chart : any;
-  resonce : any;
+  i : 0;
+  resonce : any = [];
   chartdata: any = ['10, 5, 15, 16, 24, 20, 30, 32, 33, 35, 33, 40, 71, 78, 39, 66', '5, 10, 15, 20, 25, 30, 35, 40, 60, 10, 50, 40, 80,  10, 100','15, 30, 50, 2, 20, 30, 20, 60, 40, 1, 60, 40, 90'];
   constructor(private coinservice: CoinService, private router: Router, private http: Http, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe ) {
     this.toasterService = toasterService;
   }
 
   ngOnInit() {
-    console.log(this.chartdata);
-    for (let i = 0; i < this.chartdata.length; i++) {
+    for (let data of this.chartdata) {
       this.chart = new Chart({
         chart: {
           type: 'spline',
@@ -117,11 +117,11 @@ export class HomeComponent implements OnInit {
         exporting: { enabled: false },
         series: [{
           name: '$',
-          data: this.chartdata[i],
+          data: data,
         }],
       });
-      this.resonce[i]['chart'] = this.chart;
+      this.resonce[this.i]['customchart'] = this.chart;
+      this.i++;
     }
-    console.log(this.resonce);
   }
 }
