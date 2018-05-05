@@ -20,15 +20,27 @@ import { Chart } from 'angular-highcharts';
 export class CoinComponent implements OnInit {
 
   private toasterService: ToasterService;
+  
 
   chart: StockChart;
   spiderchart: Chart;
+  coin : any;
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private http: Http, private titleService: Title, private datePipe: DatePipe, private meta: Meta) {
     this.toasterService = toasterService;
   }
 
   ngOnInit() {
+    let curl = window.location.pathname;
+    let spliturl = curl.split('/');
+    let coin = spliturl[2];
+    this.coinservice.getsinglecoindatafromjson(coin).subscribe(resData => {
+      console.log(resData);
+      if (resData.status === true) {
+        this.coin = resData.data;
+      }
+    });
+
     this.chart = new StockChart({
       title: {
         text: '',
