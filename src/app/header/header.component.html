@@ -1,6 +1,6 @@
 <div class="container-wrapper">
-  <a class="btn btn-top-open" data-toggle="collapse" href="#topbar-add" role="button" aria-expanded="true" aria-controls="topbar-add"></a>
-  <div class="home-page-slider collapse show" id="topbar-add">
+  <a *ngIf="currpage" class="btn btn-top-open" data-toggle="collapse" href="#topbar-add" role="button" aria-expanded="true" aria-controls="topbar-add"></a>
+  <div *ngIf="currpage" class="home-page-slider collapse show" id="topbar-add">
     <div class="container">
       <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-7 m-auto">
@@ -26,6 +26,8 @@
       </div>
     </div>
   </div>
+
+  <div class="collapse"></div>
   <div class="top-header">
     <div class="coinvalue-box">
       <div class="value-list-box">
@@ -34,7 +36,7 @@
         <span class="coinlis-value"> Market Cap </span>
       </div>
     </div>
-
+  
     <div class="coinvalue-box">
       <div class="value-list-box">
         <h5 class="coinlist-name"> 1633 </h5>
@@ -42,7 +44,7 @@
         <span class="coinlis-value"> Coin Tracked</span>
       </div>
     </div>
-
+  
     <div class="coinvalue-box">
       <div class="value-list-box">
         <h5 class="coinlist-name"> 93 </h5>
@@ -50,7 +52,7 @@
         <span class="coinlis-value"> Exchanges </span>
       </div>
     </div>
-
+  
     <div class="coinvalue-box">
       <div class="value-list-box">
         <h5 class="coinlist-name"> 26.3 TB </h5>
@@ -58,16 +60,15 @@
         <span class="coinlis-value"> Data Points </span>
       </div>
     </div>
-
+  
     <div class="coinvalue-box">
       <div class="value-list-box">
         <h5 class="coinlist-name"> 7200+ </h5>
         <span class="double-dots">:</span>
-        <span class="coinlis-value"> Research Hours </span>
+        <span class="coinlis-value"> Hours Research </span>
       </div>
     </div>
   </div>
-
 
   <header id="header">
     <div class="header">
