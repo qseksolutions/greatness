@@ -24,14 +24,80 @@ export class HomeComponent implements OnInit {
   public base_url: any = myGlobals.base_url;
   chart: Chart;
   coindata : any;
-
+  selectcol : any = [];
+  column : any;
+  active : any = 1;
+  displaycolumn: any = ['rank', 'name', 'follow', 'price_usd', 'graph_7d', 'mc_usd', 'team', 'theory', 'technology', 'traction', 'tam', 'token', 'timing', 'trasformative', 'gq'];
+  tempcolumn : any = [];
+  newcolumn : any = [];
+  i : any = 0;
+  
   constructor(private coinservice: CoinService, private router: Router, private http: Http, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe ) {
     this.toasterService = toasterService;
+    // localStorage.removeItem('columns');
+    let columns = localStorage.getItem('columns'); 
+    if (columns == null || columns == '') {
+      localStorage.setItem('columns', JSON.stringify(this.displaycolumn));
+    }
+    let selectcolumn = JSON.parse(localStorage.getItem('columns')); 
+    let temparraydata = [];
+    selectcolumn.map(function (val, k) {
+      temparraydata[val] = val;
+    });
+    this.selectcol = temparraydata;
+  }
+
+  addremovecol(column) {
+    if (this.tempcolumn.find(item => item == column)){
+      let columns = this.tempcolumn;
+      columns.map(function (val, k) {
+        if (column == val) {
+          delete columns[k];
+        }
+      });
+      this.tempcolumn = columns;
+    }
+    else {
+      this.tempcolumn[this.i] = column;
+      this.i++;
+    }
+  }
+
+  savecolumn() {
+    let ncolumn = $.grep(this.tempcolumn, function (n) { return (n); });
+    this.tempcolumn = [];
+    let selcolumn = JSON.parse(localStorage.getItem('columns'));
+    let temparray = [];
+    selcolumn.map(function (val, k) {
+      if (ncolumn.find(item => item == val)) {
+        temparray[k] = val;
+        delete selcolumn[k];
+      }
+    });
+    let selectcolumn = $.grep(selcolumn, function (n) { return (n); });
+    let count = selectcolumn.length - 1;
+    ncolumn.map(function (val, k) {
+      if (temparray.find(item => item == val)) {
+        delete ncolumn[k];
+      }
+      else {
+        count++;
+        selectcolumn[count] = val;
+      }
+    });
+    let newcolumn = $.grep(this.tempcolumn, function (n) { return (n); });
+    localStorage.setItem('columns', JSON.stringify(selectcolumn));
+    let temparraydata = [];
+    selectcolumn.map(function (val, k) {
+      temparraydata[val] = val;
+    });
+    this.selectcol = temparraydata;
+    $('#customize-table').modal('toggle');
   }
 
   ngOnInit() {
     this.coinservice.getdatafromjson().subscribe(resData => {
-      console.log(resData);
+      // console.log(resData);
       if (resData.status === true) {
         this.coindata = resData.data;
       }

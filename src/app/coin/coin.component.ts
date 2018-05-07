@@ -10,7 +10,6 @@ import { DatePipe } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
 import * as moment from 'moment';
 import { Chart } from 'angular-highcharts';
-import  Highcharts  from 'highcharts-more-node'; 
 
 @Component({
   selector: 'app-coin',
