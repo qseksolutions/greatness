@@ -10,6 +10,7 @@ import { DatePipe } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
 import * as moment from 'moment';
 import { Chart } from 'angular-highcharts';
+import  Highcharts  from 'highcharts-more-node'; 
 
 @Component({
   selector: 'app-coin',
@@ -113,7 +114,7 @@ export class CoinComponent implements OnInit {
     this.spiderchart = new Chart({
       chart: {
         polar: true,
-        type: 'column',
+        type: 'area',
         backgroundColor: 'transparent',
       },
       title: {
