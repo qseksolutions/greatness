@@ -15,6 +15,7 @@ import { TimeAgoPipe } from 'time-ago-pipe';
 
 import highstock from 'highcharts/modules/stock.src';
 import exporting from 'highcharts/modules/exporting.src';
+import more from 'highcharts/highcharts-more.src';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -23,7 +24,7 @@ import { HomeComponent } from './home/home.component';
 import { CoinComponent } from './coin/coin.component';
 
 export function highchartsModules() {
-    return [ highstock, exporting ];
+    return [ highstock, exporting, more ];
 }
 
 @NgModule({
@@ -35,7 +36,7 @@ export function highchartsModules() {
         pathMatch: 'full'
       },
       {
-        path: 'cryptocurrency/:any',
+        path: 'coins/:any',
         component: CoinComponent,
         pathMatch: 'full'
       }

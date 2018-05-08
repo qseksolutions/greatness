@@ -11,11 +11,12 @@ $(function () {
                         type: 'spline',
                         margin: [0, 0, 0, 0],
                         style: {
-                            overflow: 'visible'
+                            overflow: 'auto'
                         },
                         backgroundColor: 'transparent',
                         width: 150,
-                        height: 25,
+                        height: 50
+
                     },
                     title: {
                         text: ''

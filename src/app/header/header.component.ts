@@ -8,7 +8,6 @@ import { defer } from 'q';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
-import { window } from 'rxjs/operator/window';
 
 @Component({
   selector: 'app-header',
@@ -20,9 +19,20 @@ export class HeaderComponent implements OnInit {
 
   private toasterService: ToasterService;
   public base_url: any = myGlobals.base_url;
+  currpage : any;
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService) {
     this.toasterService = toasterService;
+
+    let curl = window.location.pathname;
+    let spliturl = curl.split('/');
+    if (spliturl[1] != '') {
+      this.currpage = false;
+    }
+    else {
+      this.currpage = true;
+    }
+
   }
 
   ngOnInit() {
