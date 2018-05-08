@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
   private toasterService: ToasterService;
   public base_url: any = myGlobals.base_url;
   currpage : any;
+  globaldata: any;
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService) {
     this.toasterService = toasterService;
@@ -36,5 +37,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.coinservice.getglobaldata().subscribe(resData => {
+      // console.log(resData);
+      if (resData.status === true) {
+        this.globaldata = resData.data;
+      }
+    });
   }
 }

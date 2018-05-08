@@ -10,25 +10,42 @@ export class CoinService {
 
   api_url: any = myGlobals.api_url;
 
-  coindataapi: any = myGlobals.coindataapi;
+  /************************** Home Page ******************************/
+  coinglobal: any = myGlobals.coinglobal;
+
+  /************************** Single Page ******************************/
+  getsinglecoingraph: any = myGlobals.getsinglecoingraph;
 
   constructor(private http: Http) {
   }
 
+  /******************************************** Home Page **********************************************/
   getdatafromjson(): Observable<any> {
-    return this.http.get("http://35.176.71.92/api.greatness/coins.json").map((res: any) => res.json());
-  }
-  
-  getsinglecoindatafromjson(coin): Observable<any> {
-    return this.http.get("http://35.176.71.92/api.greatness/singlecoin/" + coin + ".json").map((res: any) => res.json());
+    return this.http.get("http://54.191.19.11/api/coins.json").map((res: any) => res.json());
   }
 
-  getcoindata() {
+  getglobaldata() {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
 
-    return this.http.get(this.api_url + this.coindataapi, options)
+    return this.http.get(this.api_url + this.coinglobal, options)
       .map((response: Response) => response.json());
+  }
 
+  /******************************************** Single Page **********************************************/
+  getsinglecoindatafromjson(coin): Observable<any> {
+    return this.http.get("http://54.191.19.11/api/singlecoin/" + coin + ".json").map((res: any) => res.json());
+  }
+
+  signlecoingraph(period, coin) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    const form = new URLSearchParams();
+    form.append('period', period);
+    form.append('coin', coin);
+
+    return this.http.post(this.api_url + this.getsinglecoingraph, form, options)
+      .map((response: Response) => response.json());
   }
 }

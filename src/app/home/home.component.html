@@ -48,7 +48,8 @@
                   <th class="t-change_24h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 24H%" *ngIf="selectcol.change_24h">24H</th>
                   <th class="t-change_7d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 7D%" *ngIf="selectcol.change_7d">7D</th>
                   <th class="t-change_30d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 30D%" *ngIf="selectcol.change_30d">30D</th>
-                  <th class="t-change_90d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 90D%" *ngIf="selectcol.change_90d">90D</th>
+                  <th class="t-one_year" data-toggle="tooltip" data-placement="top" title="" data-original-title="One year%" *ngIf="selectcol.one_year">1Y</th>
+                  <th class="t-all_time" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time%" *ngIf="selectcol.all_time">All time</th>
                   <th class="t-7dprice" data-toggle="tooltip" data-placement="top" title="" data-original-title="7 Day Price" *ngIf="selectcol.graph_7d">7 Day Chart</th>
                   <th class="t-mrk-cap" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap" *ngIf="selectcol.mc_usd">Mkt. Cap</th>
                   <th class="t-mrk-cap_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap in BTC" *ngIf="selectcol.mc_btc">Mkt. Cap BTC</th>
@@ -80,7 +81,7 @@
                 <tr *ngFor="let coin of coindata">
                   <td class="t-count" *ngIf="selectcol.rank">{{coin.rank}}</td>
                   <td class="t-name" *ngIf="selectcol.name">
-                    <a href="{{base_url}}coins/{{coin.id}}">
+                    <a href="{{base_url}}coins/{{coin.cc_id}}">
                       <div class="coin-name">
                         <span class="coin-symbol">
                           <img class="img-fluid" src="../../assets/images/crypto-currency/{{coin.symbol | lowercase}}.svg" onError="this.src='../../assets/images/not-found.png';">
@@ -94,28 +95,30 @@
                   </td>
                   <td class="t-symbol" *ngIf="selectcol.symbol">{{coin.symbol}}</td>
                   <td class="t-coin-img pointer" *ngIf="selectcol.follow">
-                    <span class="crown-img">
-                      <img class="img-fluid" src="../../assets/images/crown.svg" />
+                    <span class="crown-img" (click)="addtofavorite(coin.symbol)">
+                      <img class="img-fluid img_{{coin.symbol}}" src="../../assets/images/crown-fill.svg" *ngIf="favoritedata[coin.symbol] == coin.symbol"/>
+                      <img class="img-fluid img_{{coin.symbol}}" src="../../assets/images/crown.svg" *ngIf="favoritedata[coin.symbol] != coin.symbol"/>
                     </span>
                   </td>
                   <td class="t-price" *ngIf="selectcol.price_usd">${{coin.price_usd | number : '1.0-2'}}</td>
                   <td class="t-price_btc" *ngIf="selectcol.price_btc">{{coin.price_btc}}</td>
-                  <td class="t-change_1h" *ngIf="selectcol.change_1h">{{coin.percent_change_1h}}</td>
-                  <td class="t-change_24h" *ngIf="selectcol.change_24h">{{coin.percent_change_24h}}</td>
-                  <td class="t-change_7d" *ngIf="selectcol.change_7d">{{coin.percent_change_7d}}</td>
-                  <td class="t-change_30d" *ngIf="selectcol.change_30d">30</td>
-                  <td class="t-change_90d" *ngIf="selectcol.change_90d">90</td>
+                  <td class="t-change_1h" *ngIf="selectcol.change_1h" [ngClass]="coin.change_1h >= 0 ? 'text-green' : 'text-red'">{{coin.change_1h}}%</td>
+                  <td class="t-change_24h" *ngIf="selectcol.change_24h" [ngClass]="coin.change_24h >= 0 ? 'text-green' : 'text-red'">{{coin.change_24h}}%</td>
+                  <td class="t-change_7d" *ngIf="selectcol.change_7d" [ngClass]="coin.change_7d >= 0 ? 'text-green' : 'text-red'">{{coin.change_7d != null ? coin.change_7d + '%' : '-'}}</td>
+                  <td class="t-change_30d" *ngIf="selectcol.change_30d" [ngClass]="coin.change_30d >= 0 ? 'text-green' : 'text-red'">{{coin.change_30d != null ? coin.change_30d + '%' : '-'}}</td>
+                  <td class="t-one_year" *ngIf="selectcol.one_year" [ngClass]="coin.change_1y >= 0 ? 'text-green' : 'text-red'">{{coin.change_1y != null ? coin.change_1y + '%' : '-'}}</td>
+                  <td class="t-all_time" *ngIf="selectcol.all_time" [ngClass]="coin.change_all >= 0 ? 'text-green' : 'text-red'">{{coin.change_all != 0 ? coin.change_all + '%' : '-'}}</td>
                   <td class="t-7dprice" *ngIf="selectcol.graph_7d" [chart]="chart"></td>
-                  <td class="t-mrk-cap" *ngIf="selectcol.mc_usd">${{coin.market_cap_usd | number : '1.0-2'}}</td>
-                  <td class="t-mrk-cap_btc" *ngIf="selectcol.mc_btc">Mkt. Cap BTC</td>
-                  <td class="t-vol_24h_usd" *ngIf="selectcol.vol_24h_usd">{{coin['24h_volume_usd']}}</td>
-                  <td class="t-vol_24h_btc" *ngIf="selectcol.vol_24h_btc">Volumn 24H BTC</td>
-                  <td class="t-circu_supp" *ngIf="selectcol.circu_supp">{{coin.available_supply}}</td>
+                  <td class="t-mrk-cap" *ngIf="selectcol.mc_usd">${{coin.marketcap_usd | number : '1.0-2'}}</td>
+                  <td class="t-mrk-cap_btc" *ngIf="selectcol.mc_btc">{{coin.marketcap_btc | number : '1.0-2'}}</td>
+                  <td class="t-vol_24h_usd" *ngIf="selectcol.vol_24h_usd">${{coin['volume24h_usd'] | number : '1.0-2'}}</td>
+                  <td class="t-vol_24h_btc" *ngIf="selectcol.vol_24h_btc">{{coin.volume24h_btc}}</td>
+                  <td class="t-circu_supp" *ngIf="selectcol.circu_supp">{{coin.circulating_supply}}</td>
                   <td class="t-max_supp" *ngIf="selectcol.max_supp">{{coin.max_supply}}</td>
                   <td class="t-tot_supp" *ngIf="selectcol.tot_supp">{{coin.total_supply}}</td>
-                  <td class="t-age" *ngIf="selectcol.age">Age</td>
-                  <td class="t-all_time_usd" *ngIf="selectcol.all_time_usd">ATH(USD)</td>
-                  <td class="t-all_time_btc" *ngIf="selectcol.all_time_btc">ATH(BTC) BTC</td>
+                  <td class="t-age" *ngIf="selectcol.age">{{coin.age != null ? coin.age : '-'}}</td>
+                  <td class="t-all_time_usd" *ngIf="selectcol.all_time_usd">{{coin.alltime_high_usd != null ? '$'+coin.alltime_high_usd : '-'}}</td>
+                  <td class="t-all_time_btc" *ngIf="selectcol.all_time_btc">{{coin.alltime_high_btc != null ? coin.alltime_high_btc : '-'}}</td>
                   <td class="t-change_ath" *ngIf="selectcol.change_ath">% ATH</td>
                   <td class="t-change_ath_btc" *ngIf="selectcol.change_ath_btc">% BTC</td>
                   <td class="t-team" *ngIf="selectcol.team">{{coin.team}}</td>
@@ -127,7 +130,7 @@
                   <td class="t-timing" *ngIf="selectcol.timing">{{coin.timing}}</td>
                   <td class="t-tran" *ngIf="selectcol.trasformative">{{coin.transformative}}</td>
                   <td class="t-gq" *ngIf="selectcol.gq">
-                    <div class="scoring-process" [style.width.%]="coin.gq">{{coin.gq}}</div>
+                    <div class="scoring-process" [style.width.%]="coin.gq != null ? coin.gq : '0'">{{coin.gq}}</div>
                   </td>
                   <td class="t-ac_btn" *ngIf="selectcol.ac_btn">Action Button</td>
                 </tr>
@@ -191,142 +194,149 @@
               <ul class="list-unstyled control-group">
                 <li>
                   <label class="control control--checkbox">Mkt. Cap Rank (#)
-                      <input type="checkbox" (click)="addremovecol('rank')" [attr.checked]="selectcol.rank == 'rank' ? 'checked' : null" />
+                    <input type="checkbox" class="check_rank" (click)="addremovecol('rank')" [attr.checked]="selectcol.rank == 'rank' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Name
-                    <input type="checkbox" (click)="addremovecol('name')" [attr.checked]="selectcol.name == 'name' ? 'checked' : null" />
+                    <input type="checkbox" class="check_name" (click)="addremovecol('name')" [attr.checked]="selectcol.name == 'name' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Symbol
-                    <input type="checkbox" (click)="addremovecol('symbol')" [attr.checked]="selectcol.symbol == 'symbol' ? 'checked' : null" />
+                    <input type="checkbox" class="check_symbol" (click)="addremovecol('symbol')" [attr.checked]="selectcol.symbol == 'symbol' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Followed
-                    <input type="checkbox" (click)="addremovecol('follow')" [attr.checked]="selectcol.follow == 'follow' ? 'checked' : null" />
+                    <input type="checkbox" class="check_follow" (click)="addremovecol('follow')" [attr.checked]="selectcol.follow == 'follow' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Price in USD
-                    <input type="checkbox" (click)="addremovecol('price_usd')" [attr.checked]="selectcol.price_usd == 'price_usd' ? 'checked' : null" />
+                    <input type="checkbox" class="check_price_usd" (click)="addremovecol('price_usd')" [attr.checked]="selectcol.price_usd == 'price_usd' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Price in BTC
-                    <input type="checkbox" (click)="addremovecol('price_btc')" [attr.checked]="selectcol.price_btc == 'price_btc' ? 'checked' : null" />
+                    <input type="checkbox" class="check_price_btc" (click)="addremovecol('price_btc')" [attr.checked]="selectcol.price_btc == 'price_btc' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Change 1h %
-                    <input type="checkbox" (click)="addremovecol('change_1h')" [attr.checked]="selectcol.change_1h == 'change_1h' ? 'checked' : null" />
+                    <input type="checkbox" class="check_change_1h" (click)="addremovecol('change_1h')" [attr.checked]="selectcol.change_1h == 'change_1h' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Change 24h %
-                    <input type="checkbox" (click)="addremovecol('change_24h')" [attr.checked]="selectcol.change_24h == 'change_24h' ? 'checked' : null" />
+                    <input type="checkbox" class="check_change_24h" (click)="addremovecol('change_24h')" [attr.checked]="selectcol.change_24h == 'change_24h' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Change 7d %
-                    <input type="checkbox" (click)="addremovecol('change_7d')" [attr.checked]="selectcol.change_7d == 'change_7d' ? 'checked' : null" />
+                    <input type="checkbox" class="check_change_7d" (click)="addremovecol('change_7d')" [attr.checked]="selectcol.change_7d == 'change_7d' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Change 30d %
-                    <input type="checkbox" (click)="addremovecol('change_30d')" [attr.checked]="selectcol.change_30d == 'change_30d' ? 'checked' : null" />
+                    <input type="checkbox" class="check_change_30d" (click)="addremovecol('change_30d')" [attr.checked]="selectcol.change_30d == 'change_30d' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
-                  <label class="control control--checkbox">Change 90d %
-                    <input type="checkbox" (click)="addremovecol('change_90d')" [attr.checked]="selectcol.change_90d == 'change_90d' ? 'checked' : null" />
+                  <label class="control control--checkbox">One year %
+                    <input type="checkbox" class="check_one_year" (click)="addremovecol('one_year')" [attr.checked]="selectcol.one_year == 'one_year' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
-                  <label class="control control--checkbox">Mini-graphs 7d
-                    <input type="checkbox" (click)="addremovecol('graph_7d')" [attr.checked]="selectcol.graph_7d == 'graph_7d' ? 'checked' : null" />
+                  <label class="control control--checkbox">All time %
+                    <input type="checkbox" class="check_all_time" (click)="addremovecol('all_time')" [attr.checked]="selectcol.all_time == 'all_time' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
-                </li>            
+                </li>
               </ul>
 
               <ul class="list-unstyled control-group">
                 <li>
+                  <label class="control control--checkbox">Mini-graphs 7d
+                    <input type="checkbox" class="check_graph_7d" (click)="addremovecol('graph_7d')" [attr.checked]="selectcol.graph_7d == 'graph_7d' ? 'checked' : null"
+                    />
+                    <div class="control__indicator"></div>
+                  </label>
+                </li>
+                <li>
                   <label class="control control--checkbox">Market Cap in USD
-                    <input type="checkbox" (click)="addremovecol('mc_usd')" [attr.checked]="selectcol.mc_usd == 'mc_usd' ? 'checked' : null" />
+                    <input type="checkbox" class="check_mc_usd" (click)="addremovecol('mc_usd')" [attr.checked]="selectcol.mc_usd == 'mc_usd' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Market Cap in BTC
-                    <input type="checkbox" (click)="addremovecol('mc_btc')" [attr.checked]="selectcol.mc_btc == 'mc_btc' ? 'checked' : null" />
+                    <input type="checkbox" class="check_mc_btc" (click)="addremovecol('mc_btc')" [attr.checked]="selectcol.mc_btc == 'mc_btc' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">24h Vol in BTC
-                    <input type="checkbox" (click)="addremovecol('vol_24h_btc')" [attr.checked]="selectcol.vol_24h_btc == 'vol_24h_btc' ? 'checked' : null" />
+                    <input type="checkbox" class="check_vol_24h_btc" (click)="addremovecol('vol_24h_btc')" [attr.checked]="selectcol.vol_24h_btc == 'vol_24h_btc' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">24h Vol in USD
-                    <input type="checkbox" (click)="addremovecol('vol_24h_usd')" [attr.checked]="selectcol.vol_24h_usd == 'vol_24h_usd' ? 'checked' : null" />
+                    <input type="checkbox" class="check_vol_24h_usd" (click)="addremovecol('vol_24h_usd')" [attr.checked]="selectcol.vol_24h_usd == 'vol_24h_usd' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Circulating Supply
-                    <input type="checkbox" (click)="addremovecol('circu_supp')" [attr.checked]="selectcol.circu_supp == 'circu_supp' ? 'checked' : null" />
+                    <input type="checkbox" class="check_circu_supp" (click)="addremovecol('circu_supp')" [attr.checked]="selectcol.circu_supp == 'circu_supp' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Max. Supply
-                    <input type="checkbox" (click)="addremovecol('max_supp')" [attr.checked]="selectcol.max_supp == 'max_supp' ? 'checked' : null" />
+                    <input type="checkbox" class="check_max_supp" (click)="addremovecol('max_supp')" [attr.checked]="selectcol.max_supp == 'max_supp' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Total Supply
-                    <input type="checkbox" (click)="addremovecol('tot_supp')" [attr.checked]="selectcol.tot_supp == 'tot_supp' ? 'checked' : null" />
+                    <input type="checkbox" class="check_tot_supp" (click)="addremovecol('tot_supp')" [attr.checked]="selectcol.tot_supp == 'tot_supp' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Age (months)
-                    <input type="checkbox" (click)="addremovecol('age')" [attr.checked]="selectcol.age == 'age' ? 'checked' : null" />
+                    <input type="checkbox" class="check_age" (click)="addremovecol('age')" [attr.checked]="selectcol.age == 'age' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">All time high in USD
-                    <input type="checkbox" (click)="addremovecol('all_time_usd')" [attr.checked]="selectcol.all_time_usd == 'all_time_usd' ? 'checked' : null" />
+                    <input type="checkbox" class="check_all_time_usd" (click)="addremovecol('all_time_usd')" [attr.checked]="selectcol.all_time_usd == 'all_time_usd' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">All time high in BTC
-                    <input type="checkbox" (click)="addremovecol('all_time_btc')" [attr.checked]="selectcol.all_time_btc == 'all_time_btc' ? 'checked' : null" />
+                    <input type="checkbox" class="check_all_time_btc" (click)="addremovecol('all_time_btc')" [attr.checked]="selectcol.all_time_btc == 'all_time_btc' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">% change from ATH
-                    <input type="checkbox" (click)="addremovecol('change_ath')" [attr.checked]="selectcol.change_ath == 'change_ath' ? 'checked' : null" />
+                    <input type="checkbox" class="check_change_ath" (click)="addremovecol('change_ath')" [attr.checked]="selectcol.change_ath == 'change_ath' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
@@ -335,67 +345,67 @@
               <ul class="list-unstyled control-group">
                 <li>
                   <label class="control control--checkbox">% change from ATH (BTC)
-                    <input type="checkbox" (click)="addremovecol('change_ath_btc')" [attr.checked]="selectcol.change_ath_btc == 'change_ath_btc' ? 'checked' : null" />
+                    <input type="checkbox" class="check_change_ath_btc" (click)="addremovecol('change_ath_btc')" [attr.checked]="selectcol.change_ath_btc == 'change_ath_btc' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Team
-                    <input type="checkbox" (click)="addremovecol('team')" [attr.checked]="selectcol.team == 'team' ? 'checked' : null" />
+                    <input type="checkbox" class="check_team" (click)="addremovecol('team')" [attr.checked]="selectcol.team == 'team' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Theory
-                    <input type="checkbox" (click)="addremovecol('theory')" [attr.checked]="selectcol.theory == 'theory' ? 'checked' : null" />
+                    <input type="checkbox" class="check_theory" (click)="addremovecol('theory')" [attr.checked]="selectcol.theory == 'theory' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Technology
-                    <input type="checkbox" (click)="addremovecol('technology')" [attr.checked]="selectcol.technology == 'technology' ? 'checked' : null" />
+                    <input type="checkbox" class="check_technology" (click)="addremovecol('technology')" [attr.checked]="selectcol.technology == 'technology' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Traction
-                    <input type="checkbox" (click)="addremovecol('traction')" [attr.checked]="selectcol.traction == 'traction' ? 'checked' : null" />
+                    <input type="checkbox" class="check_traction" (click)="addremovecol('traction')" [attr.checked]="selectcol.traction == 'traction' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">TAM
-                    <input type="checkbox" (click)="addremovecol('tam')" [attr.checked]="selectcol.tam == 'tam' ? 'checked' : null" />
+                    <input type="checkbox" class="check_tam" (click)="addremovecol('tam')" [attr.checked]="selectcol.tam == 'tam' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Token
-                    <input type="checkbox" (click)="addremovecol('token')" [attr.checked]="selectcol.token == 'token' ? 'checked' : null" />
+                    <input type="checkbox" class="check_token" (click)="addremovecol('token')" [attr.checked]="selectcol.token == 'token' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Timing
-                    <input type="checkbox" (click)="addremovecol('timing')" [attr.checked]="selectcol.timing == 'timing' ? 'checked' : null" />
+                    <input type="checkbox" class="check_timing" (click)="addremovecol('timing')" [attr.checked]="selectcol.timing == 'timing' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Trasformative
-                    <input type="checkbox" (click)="addremovecol('trasformative')" [attr.checked]="selectcol.trasformative == 'trasformative' ? 'checked' : null" />
+                    <input type="checkbox" class="check_trasformative" (click)="addremovecol('trasformative')" [attr.checked]="selectcol.trasformative == 'trasformative' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">GQ
-                    <input type="checkbox" (click)="addremovecol('gq')" [attr.checked]="selectcol.gq == 'gq' ? 'checked' : null" />
+                    <input type="checkbox" class="check_gq" (click)="addremovecol('gq')" [attr.checked]="selectcol.gq == 'gq' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>
                 <li>
                   <label class="control control--checkbox">Action buttons
-                    <input type="checkbox" (click)="addremovecol('ac_btn')" [attr.checked]="selectcol.ac_btn == 'ac_btn' ? 'checked' : null" />
+                    <input type="checkbox" class="check_ac_btn" (click)="addremovecol('ac_btn')" [attr.checked]="selectcol.ac_btn == 'ac_btn' ? 'checked' : null" />
                     <div class="control__indicator"></div>
                   </label>
                 </li>

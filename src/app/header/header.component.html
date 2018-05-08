@@ -28,10 +28,10 @@
   </div>
 
   <div class="collapse"></div>
-  <div class="top-header">
+  <div class="top-header" *ngIf="globaldata">
     <div class="coinvalue-box">
       <div class="value-list-box">
-        <h5 class="coinlist-name"> 430.6 B </h5>
+        <h5 class="coinlist-name"> ${{globaldata.quotes.USD.total_market_cap | number : '1.0-2'}} </h5>
         <span class="double-dots">:</span>
         <span class="coinlis-value"> Market Cap </span>
       </div>
@@ -39,7 +39,7 @@
   
     <div class="coinvalue-box">
       <div class="value-list-box">
-        <h5 class="coinlist-name"> 1633 </h5>
+        <h5 class="coinlist-name"> {{globaldata.active_cryptocurrencies}} </h5>
         <span class="double-dots">:</span>
         <span class="coinlis-value"> Coin Tracked</span>
       </div>
