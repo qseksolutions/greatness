@@ -930,59 +930,6 @@ li:hover .dropdown-menu {
 
 /*custom-table*/
 
-.main-table .table thead tr,
-.main-table .table tbody tr{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-}
-
-.t-count{
-    width: 50px;
-}
-
-.t-name{
-    width: 150px;
-}
-
-.t-coin-img{
-    width: 50px;
-}
-
-.t-price{
-    width: 100px;
-}
-
-.t-7dprice {
-    width: 150px;
-    text-align: center;
-}
-
-tbody .t-7dprice{
-    padding: 10px 0px !important
-}
-
-.t-mrk-cap{
-    width: 130px;
-}
-
-.t-team ,
-.t-theory,
-.t-tech,
-.t-traction,
-.t-tam,
-.t-timing,
-.t-tran,
-.t-token {
-    width: 85px;
-}
-
-.t-gq{
-    width: 150px;
-    padding: 0px;
-    text-align: center;
-}
-
 tbody .t-gq{
     padding: 0px;
     text-align: right;
