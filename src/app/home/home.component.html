@@ -44,12 +44,12 @@
                   </th>
                   <th class="t-price" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price" *ngIf="selectcol.price_usd">Price</th>
                   <th class="t-price_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price BTC" *ngIf="selectcol.price_btc">Price BTC</th>
-                  <th class="t-change_1h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 1H%" *ngIf="selectcol.change_1h">1H</th>
-                  <th class="t-change_24h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 24H%" *ngIf="selectcol.change_24h">24H</th>
-                  <th class="t-change_7d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 7D%" *ngIf="selectcol.change_7d">7D</th>
-                  <th class="t-change_30d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 30D%" *ngIf="selectcol.change_30d">30D</th>
-                  <th class="t-one_year" data-toggle="tooltip" data-placement="top" title="" data-original-title="One year%" *ngIf="selectcol.one_year">1Y</th>
-                  <th class="t-all_time" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time%" *ngIf="selectcol.all_time">All time</th>
+                  <th class="t-change_1h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 1H%" *ngIf="selectcol.change_1h">1H(%)</th>
+                  <th class="t-change_24h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 24H%" *ngIf="selectcol.change_24h">24H(%)</th>
+                  <th class="t-change_7d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 7D%" *ngIf="selectcol.change_7d">7D(%)</th>
+                  <th class="t-change_30d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 30D%" *ngIf="selectcol.change_30d">30D(%)</th>
+                  <th class="t-one_year" data-toggle="tooltip" data-placement="top" title="" data-original-title="One year%" *ngIf="selectcol.one_year">1Y(%)</th>
+                  <th class="t-all_time" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time%" *ngIf="selectcol.all_time">All Time(%)</th>
                   <th class="t-7dprice" data-toggle="tooltip" data-placement="top" title="" data-original-title="7 Day Price" *ngIf="selectcol.graph_7d">7 Day Chart</th>
                   <th class="t-mrk-cap" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap" *ngIf="selectcol.mc_usd">Mkt. Cap</th>
                   <th class="t-mrk-cap_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap in BTC" *ngIf="selectcol.mc_btc">Mkt. Cap BTC</th>
@@ -59,12 +59,12 @@
                   <th class="t-max_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Max Supply" *ngIf="selectcol.max_supp">Max Supply</th>
                   <th class="t-tot_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Total Supply" *ngIf="selectcol.tot_supp">Total Supply</th>
                   <th class="t-age" data-toggle="tooltip" data-placement="top" title="" data-original-title="Age" *ngIf="selectcol.age">Age</th>
-                  <th class="t-all_time_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time USD" *ngIf="selectcol.all_time_usd">All time USD</th>
-                  <th class="t-all_time_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time BTC" *ngIf="selectcol.all_time_btc">All time BTC</th>
+                  <th class="t-all_time_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time USD" *ngIf="selectcol.all_time_usd">ATH(USD)</th>
+                  <th class="t-all_time_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time BTC" *ngIf="selectcol.all_time_btc">ATH(BTC)</th>
                   <th class="t-change_ath" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH" *ngIf="selectcol.change_ath">% change from ATH</th>
                   <th class="t-change_ath_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH (BTC)" *ngIf="selectcol.change_ath_btc">% change from ATH (BTC)</th>
                   <th class="t-team" data-toggle="tooltip" data-placement="top" title="" data-original-title="Team" *ngIf="selectcol.team">Team</th>
-                  <th class="t-theory" data-toggle="tooltip" data-placement="top" title="" data-original-title="Theory" *ngIf="selectcol.theory">Theory.</th>
+                  <th class="t-theory" data-toggle="tooltip" data-placement="top" title="" data-original-title="Theory" *ngIf="selectcol.theory">Theory</th>
                   <th class="t-tech" data-toggle="tooltip" data-placement="top" title="" data-original-title="Technology" *ngIf="selectcol.technology">Tech.</th>
                   <th class="t-traction" data-toggle="tooltip" data-placement="top" title="" data-original-title="Traction" *ngIf="selectcol.traction">Traction</th>
                   <th class="t-tam" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tam" *ngIf="selectcol.tam">TAM</th>
@@ -102,12 +102,12 @@
                   </td>
                   <td class="t-price" *ngIf="selectcol.price_usd">${{coin.price_usd | number : '1.0-2'}}</td>
                   <td class="t-price_btc" *ngIf="selectcol.price_btc">{{coin.price_btc}}</td>
-                  <td class="t-change_1h" *ngIf="selectcol.change_1h" [ngClass]="coin.change_1h >= 0 ? 'text-green' : 'text-red'">{{coin.change_1h}}%</td>
-                  <td class="t-change_24h" *ngIf="selectcol.change_24h" [ngClass]="coin.change_24h >= 0 ? 'text-green' : 'text-red'">{{coin.change_24h}}%</td>
-                  <td class="t-change_7d" *ngIf="selectcol.change_7d" [ngClass]="coin.change_7d >= 0 ? 'text-green' : 'text-red'">{{coin.change_7d != null ? coin.change_7d + '%' : '-'}}</td>
-                  <td class="t-change_30d" *ngIf="selectcol.change_30d" [ngClass]="coin.change_30d >= 0 ? 'text-green' : 'text-red'">{{coin.change_30d != null ? coin.change_30d + '%' : '-'}}</td>
-                  <td class="t-one_year" *ngIf="selectcol.one_year" [ngClass]="coin.change_1y >= 0 ? 'text-green' : 'text-red'">{{coin.change_1y != null ? coin.change_1y + '%' : '-'}}</td>
-                  <td class="t-all_time" *ngIf="selectcol.all_time" [ngClass]="coin.change_all >= 0 ? 'text-green' : 'text-red'">{{coin.change_all != 0 ? coin.change_all + '%' : '-'}}</td>
+                  <td class="t-change_1h" *ngIf="selectcol.change_1h" [ngClass]="coin.change_1h >= 0 ? 'text-green' : 'text-red'">{{coin.change_1h | number : '1.0-2'}}%</td>
+                  <td class="t-change_24h" *ngIf="selectcol.change_24h" [ngClass]="coin.change_24h >= 0 ? 'text-green' : 'text-red'">{{coin.change_24h | number : '1.0-2'}}%</td>
+                  <td class="t-change_7d" *ngIf="selectcol.change_7d" [ngClass]="coin.change_7d >= 0 ? 'text-green' : 'text-red'">{{coin.change_7d | number : '1.0-2'}}%</td>
+                  <td class="t-change_30d" *ngIf="selectcol.change_30d" [ngClass]="coin.change_30d >= 0 ? 'text-green' : 'text-red'">{{coin.change_30d | number : '1.0-2'}}%</td>
+                  <td class="t-one_year" *ngIf="selectcol.one_year" [ngClass]="coin.change_1y >= 0 ? 'text-green' : 'text-red'">{{coin.change_1y | number : '1.0-2'}}%</td>
+                  <td class="t-all_time" *ngIf="selectcol.all_time" [ngClass]="coin.change_all >= 0 ? 'text-green' : 'text-red'">{{coin.change_all | number : '1.0-2'}}%</td>
                   <td class="t-7dprice" *ngIf="selectcol.graph_7d" [chart]="chart"></td>
                   <td class="t-mrk-cap" *ngIf="selectcol.mc_usd">${{coin.marketcap_usd | number : '1.0-2'}}</td>
                   <td class="t-mrk-cap_btc" *ngIf="selectcol.mc_btc">{{coin.marketcap_btc | number : '1.0-2'}}</td>

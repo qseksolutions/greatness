@@ -91,6 +91,7 @@ export class CoinComponent implements OnInit {
       series: [{
         name: 'Ethereum',
         data: [5, 8, 6, 7, 2, 8, 4, 5],
+        color: '#04b290'
       }]
     });
   }
@@ -162,7 +163,7 @@ export class CoinComponent implements OnInit {
                 }
               },
             },
-            {
+            /* {
               title: {
                 text: "Market Cap",
                 style: {
@@ -175,7 +176,7 @@ export class CoinComponent implements OnInit {
                 y: -5
               },
               opposite: false,
-            },
+            }, */
           ],
           chart: {
             backgroundColor: 'transparent'
@@ -206,14 +207,11 @@ export class CoinComponent implements OnInit {
               },
               yAxis: 0,
             },
-            {
+            /* {
               name: 'Market Cap',
               type: 'area',
               color: '#7cb5ec',
               data: this.market_cap,
-              /* area: {
-                threshold: null,
-              }, */
               tooltip: {
                 shared: false,
                 backgroundColor: 'rgba(247,247,247,0.85)',
@@ -230,7 +228,7 @@ export class CoinComponent implements OnInit {
                 ]
               },
               yAxis: 1,
-            }
+            } */
           ]
         });
       }
