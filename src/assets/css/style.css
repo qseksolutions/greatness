@@ -659,6 +659,13 @@ li:hover .dropdown-menu {
      header-slider
                   -start---*/
 
+svg{
+    overflow:visible !important;
+}
+.highcharts-container{
+    overflow:visible !important;
+}                  
+
 .home-page-slider {
     position: relative;
     background-image: url(../images/topbar-bg.jpg);
@@ -813,6 +820,7 @@ li:hover .dropdown-menu {
 .main-table thead {
     background-color: #04b290;
     color: #fff;
+    z-index: 5;
 
 }
 
@@ -866,7 +874,7 @@ li:hover .dropdown-menu {
 
 .coin-symbol {
     padding-right: 10px;
-    width: 25%;
+    width: 35px;
     height: auto;
 }
 
@@ -885,18 +893,10 @@ li:hover .dropdown-menu {
     text-overflow: ellipsis;
 }
 
-.fixed{
-    top: 0;
-    position: fixed;
-    width: calc(100% - 60px);
-    display: none;
-    border: none;
-    z-index: 5;
-}
-
-.fixed thead {
-    background-color: #04b290;
-    box-shadow: 0 3px 2px rgba(0,0,0,0.15);
+.lr-sticky-header {
+    transition: all 0.6s;
+    right: 30px;
+    
 }
 
 .crown-img {
@@ -932,78 +932,6 @@ li:hover .dropdown-menu {
 
 /*custom-table*/
 
-.main-table .table thead tr,
-.main-table .table tbody tr{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-}
-
-.t-count{
-    min-width: 50px;
-}
-
-.t-name{
-    min-width: 150px;
-    max-width: 150px;
-}
-
-.t-price_btc{
-    min-width: 150px;
-}
-.t-symbol {
-    min-width: 100px;
-}
-
-.t-mrk-cap_btc{
-    min-width: 120px;
-}
-
-.t-change_1h,
-.t-change_24h,
-.t-change_7d,
-.t-change_30d,
-.t-all_time_usd ,
-.t-all_time_btc {
-    min-width: 120px;
-}
-.t-coin-img,
-.t-age{
-    min-width: 50px;
-}
-
-.t-price
-{
-    min-width: 100px;
-    max-width: 100px;
-}
-
-.t-7dprice ,
-.t-max_supp ,
-.t-tot_supp ,
-.t-change_ath {
-    min-width: 150px;
-    text-align: center;
-}
-
-.t-change_ath_btc {
-    width: 180px;
-}
-
-tbody .t-7dprice{
-    padding: 10px 0px !important
-}
-
-.t-mrk-cap ,
-.t-vol_24h_btc,
-.t-vol_24h_usd {
-    min-width: 135px;
-}
-
-.t-circu_supp {
-    min-width: 140px;
-}
-
 .t-team ,
 .t-theory,
 .t-tech,
@@ -1012,13 +940,28 @@ tbody .t-7dprice{
 .t-timing,
 .t-tran,
 .t-token {
-    min-width: 80px;
+    width: 5%;
+}
+
+.t-7dprice {
+    min-width: 150px;
+    max-width: 170px;
+    width: 150px;
+}
+
+tbody .t-7dprice{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
 .t-gq{
-    min-width: 150px;
+    width: 7%;
     padding: 0px;
     text-align: center;
+}
+
+.t-gq {
+    min-width: 100px;
 }
 
 tbody .t-gq{
@@ -1033,6 +976,7 @@ tbody .t-gq{
     background-color: rgba(4, 178, 144, 0.5);
     color: #fff;
     min-width: 45px;
+    min-height: 50px;
 }
 
 /*custom-table*/
