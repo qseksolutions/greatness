@@ -130,7 +130,7 @@
                   <td class="t-timing" *ngIf="selectcol.timing">{{coin.timing}}</td>
                   <td class="t-tran" *ngIf="selectcol.trasformative">{{coin.transformative}}</td>
                   <td class="t-gq" *ngIf="selectcol.gq">
-                    <div class="scoring-process" [style.width.%]="coin.gq != null ? coin.gq : '0'">{{coin.gq}}</div>
+                    <div class="scoring-process" [style.width.%]="coin.algo_score != null ? coin.algo_score : '0'">{{coin.algo_score | number:'1.0-0'}}</div>
                   </td>
                   <td class="t-ac_btn" *ngIf="selectcol.ac_btn">Action Button</td>
                 </tr>

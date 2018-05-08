@@ -45,3 +45,4 @@ src/assets/js/dataTables.bootstrap4.js
 src/assets/js/jquery.dataTables.js
 dist.zip
 cryptoprices.zip
+src/app/global.ts
