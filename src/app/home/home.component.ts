@@ -95,6 +95,17 @@ export class HomeComponent implements OnInit {
     $('#customize-table').modal('toggle');
   }
 
+  resetcolumn() {
+    localStorage.setItem('columns', JSON.stringify(this.displaycolumn));
+    let selectcolumn = JSON.parse(localStorage.getItem('columns'));
+    let temparraydata = [];
+    selectcolumn.map(function (val, k) {
+      temparraydata[val] = val;
+    });
+    this.selectcol = temparraydata;
+    $('#customize-table').modal('toggle');
+  }
+
   ngOnInit() {
     this.coinservice.getdatafromjson().subscribe(resData => {
       // console.log(resData);

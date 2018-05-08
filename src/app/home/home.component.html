@@ -93,9 +93,9 @@
                     </a>
                   </td>
                   <td class="t-symbol" *ngIf="selectcol.symbol">{{coin.symbol}}</td>
-                  <td class="t-coin-img" *ngIf="selectcol.follow">
+                  <td class="t-coin-img pointer" *ngIf="selectcol.follow">
                     <span class="crown-img">
-                      <img src="../../assets/images/crown.svg" class="img-fluid" />
+                      <img class="img-fluid" src="../../assets/images/crown.svg" />
                     </span>
                   </td>
                   <td class="t-price" *ngIf="selectcol.price_usd">${{coin.price_usd | number : '1.0-2'}}</td>
@@ -406,7 +406,7 @@
       </div>
       <div class="modal-footer">
         <div>
-          <button type="button" class="btn btn-default">Reset</button>
+          <button type="button" class="btn btn-default" (click)="resetcolumn()">Reset</button>
         </div>
         <div>
           <button type="button" class="btn btn-primary" (click)="savecolumn()">Save</button>
