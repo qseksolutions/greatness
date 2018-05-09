@@ -10,18 +10,47 @@ export class CoinService {
 
   api_url: any = myGlobals.api_url;
 
+  /*************************** Header,Category Page ************************************/
+  categorylist: any = myGlobals.categorylist;
+  categoryfilter: any = myGlobals.categoryfilter;
+
   /************************** Home Page ******************************/
   coinglobal: any = myGlobals.coinglobal;
 
   /************************** Single Page ******************************/
   getsinglecoingraph: any = myGlobals.getsinglecoingraph;
+  getsinglecoin: any = myGlobals.getsinglecoin;
 
   constructor(private http: Http) {
   }
 
   /******************************************** Home Page **********************************************/
+  getcategorylist() {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.api_url + this.categorylist, options)
+      .map((response: Response) => response.json());
+  }
+
+  getcategorywisedata(category) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    const form = new URLSearchParams();
+    form.append('slug', category);
+
+    return this.http.post(this.api_url + this.categoryfilter, form, options)
+      .map((response: Response) => response.json());
+  }
+  
+  /******************************************** Home Page **********************************************/
   getdatafromjson(): Observable<any> {
     return this.http.get("http://54.191.19.11/api/coins.json").map((res: any) => res.json());
+  }
+  
+  getalldatafromjson(): Observable<any> {
+    return this.http.get("http://54.191.19.11/api/coins_all.json").map((res: any) => res.json());
   }
 
   getglobaldata() {
@@ -37,6 +66,14 @@ export class CoinService {
     return this.http.get("http://54.191.19.11/api/singlecoin/" + coin + ".json").map((res: any) => res.json());
   }
 
+  getsingledata(coin) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.api_url + this.getsinglecoin + '?coin_id=' + coin, options)
+      .map((response: Response) => response.json());
+  }
+  
   signlecoingraph(period, coin) {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });

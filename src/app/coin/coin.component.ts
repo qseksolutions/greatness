@@ -37,63 +37,65 @@ export class CoinComponent implements OnInit {
     let curl = window.location.pathname;
     let spliturl = curl.split('/');
     let coin = spliturl[2];
-    this.coinservice.getsinglecoindatafromjson(coin).subscribe(resData => {
+    this.coinservice.getsingledata(coin).subscribe(resData => {
       console.log(resData);
       if (resData.status === true) {
         this.coin = resData.data;
-      }
-    });
-    this.graphone();
-
-    this.spiderchart = new Chart({
-      chart: {
-        polar: true,
-        type: 'area',
-        backgroundColor: 'transparent',
-      },
-      credits: {
-        enabled: false
-      },
-      title: {
-        text: '',
-        style: {
-          display: 'none'
-        }
-      },
-      exporting: {
-        buttons: {
-          contextButton: {
+        this.spiderchart = new Chart({
+          chart: {
+            polar: true,
+            type: 'area',
+            backgroundColor: 'transparent',
+          },
+          credits: {
             enabled: false
           },
-        }
-      },
-      pane: {
-        size: '80%'
-      },
-      xAxis: {
-        categories: ['Team Experience', 'Theoritical Soundness', 'Total Addressable Market', 'Technological Progress', 'Traction', 'Transformative Potential', 'Token Economics', 'Timing'],
-        tickmarkPlacement: 'on',
-        lineWidth: 0
-      },
-      yAxis: {
-        lineWidth: 0,
-        min: 0,
-      },
-      tooltip: {
-        shared: true,
-        pointFormat: '<span style="color:{series.color}"> : <b>{point.y:,.0f}</b></span>'
-      },
-      legend: {
-        align: 'center',
-        verticalAlign: 'bottom',
-        layout: 'horizontal'
-      },
-      series: [{
-        name: 'Ethereum',
-        data: [5, 8, 6, 7, 2, 8, 4, 5],
-        color: '#04b290'
-      }]
+          title: {
+            text: '',
+            style: {
+              display: 'none'
+            }
+          },
+          exporting: {
+            buttons: {
+              contextButton: {
+                enabled: false
+              },
+            }
+          },
+          /* pane: {
+            size: '80%'
+          }, */
+          xAxis: {
+            categories: ['Team Experience', 'Theoritical Soundness', 'Total Addressable Market', 'Technological Progress', 'Traction', 'Transformative Potential', 'Token Economics', 'Timing'],
+            tickmarkPlacement: 'on',
+            lineWidth: 0
+          },
+          yAxis: {
+            tickInterval: 1
+          },
+          /* tooltip: {
+            shared: true,
+            pointFormat: '<span style="color:{series.color}"> : <b>{point.y:,.0f}</b></span>'
+          }, */
+          
+          legend: {
+            align: 'center',
+            verticalAlign: 'bottom',
+            layout: 'horizontal'
+          },
+          series: [{
+            name: 'Data',
+            data: [this.coin.team, this.coin.theory, this.coin.tam, this.coin.technology, this.coin.traction, this.coin.transformative, this.coin.token, this.coin.timing],
+            color: '#04b290'
+          }]
+        });
+      }
+      else {
+        this.coin =  '';
+      }
     });
+    this.graphone();    
   }
 
   graphone() {

@@ -22,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { CoinComponent } from './coin/coin.component';
+import { CategoryComponent } from './category/category.component';
 
 export function highchartsModules() {
     return [ highstock, exporting, more ];
@@ -38,6 +39,11 @@ export function highchartsModules() {
       {
         path: 'coins/:any',
         component: CoinComponent,
+        pathMatch: 'full'
+      },
+      {
+        path: 'category/:any',
+        component: CategoryComponent,
         pathMatch: 'full'
       }
     ]),
@@ -57,7 +63,8 @@ export function highchartsModules() {
     HeaderComponent,
     HomeComponent,
     CoinComponent,
-    TimeAgoPipe
+    TimeAgoPipe,
+    CategoryComponent
   ],
   providers: [HttpClient,TranslateModule,
     { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules }

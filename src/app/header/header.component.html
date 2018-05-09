@@ -148,60 +148,11 @@
                 <div class="submenu right-menu">
                   <h4>Categories</h4>
                   <ul class="list-unstyled">
-                    <li class="">
-                      <a href="#">Digital currency</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Platform</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Smart contracts</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Payments</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Privacy</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Gaming</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Token issuance</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Marketplace</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Real world assets</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Anonymity</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Trading</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Build dapps</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Exchange</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Unclear</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Gambling</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Multi-currency wallet</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Payments service provider</a>
-                    </li>
-                    <li class="">
-                      <a href="#">Blockchain as a service</a>
-                    </li>
+                    <ng-container *ngFor="let cat of categorylist">
+                      <li class="" *ngIf="cat.is_main == 1">
+                        <a [routerLink]=" ['/category/', cat.category_slug]">{{cat.category_name}}</a>
+                      </li>
+                    </ng-container>
                   </ul>
                 </div>
               </div>
