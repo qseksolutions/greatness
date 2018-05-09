@@ -940,7 +940,8 @@ svg{
 .t-timing,
 .t-tran,
 .t-token {
-    width: 5%;
+    min-width: 75px;
+    text-align: center;
 }
 
 .t-7dprice {
@@ -979,6 +980,9 @@ tbody .t-gq{
     min-height: 50px;
 }
 
+.width-responsive{
+    overflow: auto;
+}
 /*custom-table*/
 /*---
 	 home-table

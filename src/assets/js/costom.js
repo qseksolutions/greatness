@@ -1,8 +1,4 @@
 
-var tables = document.getElementsByTagName('table');
-  lrStickyHeader(tables[0]);
-  lrStickyHeader(tables[1]);
-  lrStickyHeader(tables[2], {parent: document.getElementById('scrollPanel')});
 
 $('.selectpicker').select2();
 
