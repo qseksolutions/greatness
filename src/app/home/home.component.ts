@@ -238,6 +238,11 @@ export class HomeComponent implements OnInit {
          data: [10, 5, 15, 16, 24, 20, 30, 32, 33, 35, 33, 40, 71, 78, 39, 66],
          }],
       });
+      // setTimeout(() => {
+      //   $('#coin-table').DataTable({
+      //     fixedHeader: true
+      //   });
+      // }, 10000);
    }
 
    isImage(src) {
