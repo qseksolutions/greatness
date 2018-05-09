@@ -20,6 +20,10 @@ $('body').on('mouseenter mouseleave','.dropdown',function(e){
 
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
-})  
+});
+
+setTimeout(function(){
+	
+}, 2000);
 
 

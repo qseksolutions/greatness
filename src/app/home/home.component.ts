@@ -147,6 +147,9 @@ export class HomeComponent implements OnInit {
          // console.log(resData);
          if (resData.status === true) {
             this.coindata = resData.data;
+            setTimeout(() => {
+              $('.sparkliness1').sparkline('html', { lineWidth: 2, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#04b290', height: 30, fillColor: '#ffffff' });
+            }, 1000);
          }
       });
 
@@ -259,13 +262,13 @@ export class HomeComponent implements OnInit {
    }
 
    errorHandler(event, name) {
-      const imgurl = 'assets/currency-25/' + name.toLowerCase() + '.png';
+     const imgurl = 'assets/images/currency-25/' + name.toLowerCase() + '.png';
       this.isImage(imgurl).then(function (test) {
          // tslint:disable-next-line:triple-equals
          if (test == true) {
             return event.target.src = imgurl;
          } else {
-            return event.target.src = 'assets/currency-25/not-found-25.png';
+           return event.target.src = 'assets/images/currency-25/not-found-25.png';
          }
       });
    }
