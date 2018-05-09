@@ -17,7 +17,7 @@
                     <div class="single-coin-box coin-price">
                         <div class="currency-price">
                             <h4>${{coin.price_usd | number : '1.0-2'}}</h4>
-                            <span class="value-perce" [ngClass]="coin.percent_change_24h > 0 ? 'text-green' : 'text-red'">( {{coin.percent_change_24h}}%)</span>
+                            <span class="value-perce" [ngClass]="coin.change_24h > 0 ? 'text-green' : 'text-red'">( {{coin.change_24h}}%)</span>
                         </div>
                         <div class="crypto-price">
                             <h5>{{coin.price_btc}} BTC</h5>
@@ -27,19 +27,19 @@
 
                     <div class="single-coin-box coin-marketcap">
                         <label>Market Cap</label>
-                        <h5>${{coin.market_cap_usd | number : '1.0-2'}}</h5>
+                        <h5>${{coin.marketcap_usd | number : '1.0-2'}}</h5>
                     </div>
 
                     <div class="single-coin-box coin-marketcap">
                         <label>24h Vol</label>
-                        <h5>${{coin['24h_volume_usd'] | number : '1.0-2'}}</h5>
+                        <h5>${{coin['volume24h_usd'] | number : '1.0-2'}}</h5>
                     </div>
 
                     <div class="single-coin-box coin-marketcap">
                         <label>GQ
                             <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="" data-original-title="GQ"></i>
                         </label>
-                        <h5>86 (#19) </h5>
+                        <h5>{{coin.algo_score | number : '1.0'}}(#19)</h5>
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
                                     <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                         <div class="card">
                                             <div class="card-detaile">
-                                                <h3 class="card-title">GQ: 86(#19)</h3>
+                                                <h3 class="card-title">GQ: {{coin.algo_score | number : '1.0'}}(#19)</h3>
                                                 <div class="card-chart">
                                                     <div [chart]="spiderchart"></div>
                                                 </div>

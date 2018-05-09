@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   public base_url: any = myGlobals.base_url;
   currpage : any;
   globaldata: any;
+  categorylist: any;
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService) {
     this.toasterService = toasterService;
@@ -41,6 +42,13 @@ export class HeaderComponent implements OnInit {
       // console.log(resData);
       if (resData.status === true) {
         this.globaldata = resData.data;
+      }
+    });
+    
+    this.coinservice.getcategorylist().subscribe(resData => {
+      // console.log(resData);
+      if (resData.status === true) {
+        this.categorylist = resData.data;
       }
     });
   }
