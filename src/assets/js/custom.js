@@ -1,5 +1,4 @@
 
-
 $('.selectpicker').select2();
 
 // $('.dark-theme-btn').on('click', function() {
@@ -22,3 +21,5 @@ $('body').on('mouseenter mouseleave','.dropdown',function(e){
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })  
+
+
