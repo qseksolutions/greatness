@@ -32,12 +32,26 @@ export class HomeComponent implements OnInit {
   i : any = 0;
   start : any = 0;
   cuurentpage : any = 0;
+  graphLoad: any = 0;
+  sorton: any;
+  sortby: any;
   displaycolumn: any = ['rank', 'name', 'follow', 'price_usd', 'graph_7d', 'mc_usd', 'team', 'theory', 'technology', 'traction', 'tam', 'token', 'timing', 'trasformative', 'gq'];
   
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe ) {
       this.toasterService = toasterService;
       // localStorage.removeItem('columns');
       // localStorage.removeItem('favorites');
+      this.sorton = localStorage.getItem('sorton');
+      this.sortby = localStorage.getItem('sortby');
+      if (this.sorton === null || this.sorton === 'null') {
+        localStorage.setItem('sorton', 'rank');
+        this.sorton = localStorage.getItem('sorton');
+      }
+      if (this.sortby === null || this.sortby === 'null') {
+        localStorage.setItem('sortby', 'asc');
+        this.sortby = localStorage.getItem('sortby');
+      }
+      
       let columns = localStorage.getItem('columns'); 
       if (columns == null || columns == '') {
          localStorage.setItem('columns', JSON.stringify(this.displaycolumn));
@@ -163,9 +177,34 @@ export class HomeComponent implements OnInit {
     this.gettabledata(this.start);
   }
 
+  orderingColumn(column, order) {
+    this.graphLoad = 0;
+    this.sorton = localStorage.getItem('sorton');
+    this.sortby = localStorage.getItem('sortby');
+    /* alert(this.sorton + ' -> ' + column);
+    alert(typeof (this.sorton) + ' -> ' + typeof(column));
+    alert(this.sortby + ' -> ' + order); */
+    if (this.sorton === column) {
+      if (this.sortby === 'asc') {
+        localStorage.setItem('sortby', 'desc');
+        // this.sortby = localStorage.getItem('sortby');
+        // alert('if ' + this.sortby);
+      } else {
+        localStorage.setItem('sortby', 'asc');
+        // alert('else ' + this.sortby);
+      }
+    } else {
+      localStorage.setItem('sorton', column);
+      localStorage.setItem('sortby', order);
+    }
+    this.gettabledata(this.start);
+  }
+
   gettabledata(start) {
+    this.sorton = localStorage.getItem('sorton');
+    this.sortby = localStorage.getItem('sortby');
     this.showloader = true;
-    this.coinservice.getallcoindata(start).subscribe(resData => {
+    this.coinservice.getallcoindata(start, this.sorton, this.sortby).subscribe(resData => {
       // console.log(resData);
       if (resData.status === true) {
         this.showloader = false;
@@ -173,6 +212,7 @@ export class HomeComponent implements OnInit {
         let totalpage = resData.totalCount / 50;
         this.pagecount = Math.ceil(totalpage);
         setTimeout(() => {
+          this.graphLoad = 1;
           $('.sparkliness1').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#00940b', height: 30, fillColor: '#ffffff' });
           $('.sparkliness2').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#ef0000', height: 30, fillColor: '#ffffff' });
         }, 1000);

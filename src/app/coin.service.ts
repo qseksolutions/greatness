@@ -63,11 +63,11 @@ export class CoinService {
       .map((response: Response) => response.json());
   }
   
-  getallcoindata(start) {
+  getallcoindata(start, sorton, sortby) {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
 
-    return this.http.get(this.api_url + this.coinlist + '?start=' + start, options)
+    return this.http.get(this.api_url + this.coinlist + '?start=' + start + '&sort=' + sorton + '&order=' + sortby, options)
       .map((response: Response) => response.json());
   }
 
