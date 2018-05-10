@@ -1177,8 +1177,8 @@ svg{
 
 .scroll-container {
     max-width: 2600px;
-    min-width: 1158.2px;
-    width: 1158.2px;
+    min-width: 1000px;
+    width: 1000px;
 }
 
 .table-row.fixed-row.sticky-header:after {
