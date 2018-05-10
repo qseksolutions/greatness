@@ -957,12 +957,14 @@ svg{
 }
 
 .t-name {
-    min-width: 180px;
+    min-width: 200px;
+    max-width: 200px;
 
 }
 
 .t-price {
     min-width: 90px;
+
 }
 
 .t-price_btc {
