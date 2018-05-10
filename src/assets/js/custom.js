@@ -22,8 +22,4 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 });
 
-setTimeout(function(){
-	
-}, 2000);
-
 

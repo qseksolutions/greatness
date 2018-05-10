@@ -42,7 +42,7 @@
                 </div>
               </div>
               
-              <div class="table-row scrollable-row">
+              <div class="table-row scrollable-row notfixed-header">
                 <div>
                   <div class="cell t-symbol" data-toggle="tooltip" data-placement="top" title="" data-original-title="Symbol" *ngIf="selectcol.symbol">Symbol</div>
                   <div class="cell t-price" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price" *ngIf="selectcol.price_usd">Price</div>
@@ -83,8 +83,13 @@
 
               <div class="clearfix"></div>
 
-              <div class="table-body">
-
+              <div class="table-body" *ngIf="showloader">
+                <img class="img-fluid" src="../../assets/images/loader.gif" style="max-width: 200px; margin-left: 27%;" />
+              </div>
+              <div class="table-body" *ngIf="!showloader && coindata == ''">
+                <p style="width:200px;margin-top:10%;margin-left:27%;">No Data Found </p>
+              </div>
+              <div class="table-body" *ngIf="!showloader && coindata != ''">
                 <div class="fixed-column">
                   <div  *ngFor="let coin of coindata">
                     <div class="cell t-count" *ngIf="selectcol.rank">{{coin.rank}}</div>
@@ -120,9 +125,9 @@
                         <div class="cell t-change_1h" *ngIf="selectcol.change_1h" [ngClass]="coin.change_1h >= 0 ? 'text-green' : 'text-red'">{{coin.change_1h | number : '1.0-2'}}%</div>
                         <div class="cell t-change_24h" *ngIf="selectcol.change_24h" [ngClass]="coin.change_24h >= 0 ? 'text-green' : 'text-red'">{{coin.change_24h | number : '1.0-2'}}%</div>
                         <div class="cell t-change_7d" *ngIf="selectcol.change_7d" [ngClass]="coin.change_7d >= 0 ? 'text-green' : 'text-red'">{{coin.change_7d | number : '1.0-2'}}%</div>
-                        <div class="cell t-change_30d" *ngIf="selectcol.change_30d" [ngClass]="coin.change_30d >= 0 ? 'text-green' : 'text-red'">{{coin.change_30d | number : '1.0-2'}}%</div>
-                        <div class="cell t-one_year" *ngIf="selectcol.one_year" [ngClass]="coin.change_1y >= 0 ? 'text-green' : 'text-red'">{{coin.change_1y | number : '1.0-2'}}%</div>
-                        <div class="cell t-all_time" *ngIf="selectcol.all_time" [ngClass]="coin.change_all >= 0 ? 'text-green' : 'text-red'">{{coin.change_all | number : '1.0-2'}}%</div>
+                        <div class="cell t-change_30d" *ngIf="selectcol.change_30d" [ngClass]="coin.change_30d >= 0 ? 'text-green' : 'text-red'">{{((coin.price_usd-coin.change_30d)/coin.price_usd)*100 | number : '1.0-2'}}%</div>
+                        <div class="cell t-one_year" *ngIf="selectcol.one_year" [ngClass]="coin.change_1y >= 0 ? 'text-green' : 'text-red'">{{((coin.price_usd-coin.change_1y)/coin.price_usd)*100 | number : '1.0-2'}}%</div>
+                        <div class="cell t-all_time" *ngIf="selectcol.all_time" [ngClass]="coin.change_all >= 0 ? 'text-green' : 'text-red'">{{((coin.price_usd-coin.change_all)/coin.price_usd)*100 | number : '1.0-2'}}%</div>
                         <!-- <div class="cell t-7dprice" *ngIf="selectcol.graph_7d" [chart]="chart"></div> -->
                         <div class="cell t-7dprice" *ngIf="selectcol.graph_7d">
                           <span class="sparkliness1" sparkType="line" sparkBarColor="red"> {{coin.price_7d}} </span>
@@ -161,7 +166,7 @@
             </div>
 
 
-            <div class="pagination">
+            <div class="pagination" *ngIf="!showloader && coindata == ''">
               <nav aria-label="Page navigation example">
                 <ul class="pagination">
                   <li class="page-item">

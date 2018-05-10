@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   public base_url: any = myGlobals.base_url;
   chart: Chart;
   coindata : any;
+  showloader : any;
   selectcol : any = [];
   tempcolumn : any = [];
   favoritedata : any = [];
@@ -143,9 +144,11 @@ export class HomeComponent implements OnInit {
    }
 
    ngOnInit() {      
+     this.showloader = true;
       this.coinservice.getdatafromjson().subscribe(resData => {
          // console.log(resData);
          if (resData.status === true) {
+           this.showloader = false;
             this.coindata = resData.data;
             setTimeout(() => {
               $('.sparkliness1').sparkline('html', { lineWidth: 2, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#04b290', height: 30, fillColor: '#ffffff' });
