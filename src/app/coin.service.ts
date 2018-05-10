@@ -33,12 +33,13 @@ export class CoinService {
       .map((response: Response) => response.json());
   }
 
-  getcategorywisedata(category) {
+  getcategorywisedata(category,page) {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
 
     const form = new URLSearchParams();
     form.append('slug', category);
+    form.append('start', page);
 
     return this.http.post(this.api_url + this.categoryfilter, form, options)
       .map((response: Response) => response.json());
