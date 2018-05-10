@@ -30,6 +30,7 @@ export class CategoryComponent implements OnInit {
   showloader: any;
   categorylist: any;
   categorydata: any;
+  graphLoad: any = 0;
   totalcategory: any;
   selectcol: any = [];
   tempcolumn: any = [];
@@ -192,8 +193,10 @@ export class CategoryComponent implements OnInit {
       if (responce.status === true) {
         this.showloader = false;
         this.coindata = responce.data;
-        setTimeout(() => {
-          $('.sparkliness1').sparkline('html', { lineWidth: 2, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#04b290', height: 30, fillColor: '#ffffff' });
+         setTimeout(() => {
+           this.graphLoad = 1;
+          $('.sparkliness1').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#00940b', height: 30, fillColor: '#ffffff' });
+          $('.sparkliness2').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#ef0000', height: 30, fillColor: '#ffffff' });
         }, 1000);
         let totalpage = responce.totalCount / 50;
         this.pagecount = Math.ceil(totalpage);
@@ -214,10 +217,7 @@ export class CategoryComponent implements OnInit {
           }
         }); */
       }
-      else {
-        this.showloader = false;
-        this.coindata = '';
-      }
+     
     });
 
     $(document).on('click', '.showmore', function () {
