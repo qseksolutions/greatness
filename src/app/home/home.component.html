@@ -82,7 +82,7 @@
                   <a [routerLink]=" ['/coins/', coin.cc_id]">
                     <div class="coin-name">
                       <span class="coin-symbol">
-                        <img class="img-fluid" src="../../assets/images/crypto-currency/{{coin.symbol | lowercase}}.svg" onError="this.src='../../assets/images/not-found.png';">
+                        <img class="img-fluid" src="../../assets/images/crypto-currency/{{coin.symbol | lowercase}}.svg" (error)="errorHandler($event,coin.symbol)">
                       </span>
 
                       <span class="coin-name-text">
@@ -106,7 +106,10 @@
                 <div class="cell t-change_30d" *ngIf="selectcol.change_30d" [ngClass]="coin.change_30d >= 0 ? 'text-green' : 'text-red'">{{coin.change_30d | number : '1.0-2'}}%</div>
                 <div class="cell t-one_year" *ngIf="selectcol.one_year" [ngClass]="coin.change_1y >= 0 ? 'text-green' : 'text-red'">{{coin.change_1y | number : '1.0-2'}}%</div>
                 <div class="cell t-all_time" *ngIf="selectcol.all_time" [ngClass]="coin.change_all >= 0 ? 'text-green' : 'text-red'">{{coin.change_all | number : '1.0-2'}}%</div>
-                <div class="cell t-7dprice" *ngIf="selectcol.graph_7d" [chart]="chart"></div>
+                <!-- <div class="cell t-7dprice" *ngIf="selectcol.graph_7d" [chart]="chart"></div> -->
+                <div class="cell t-7dprice" *ngIf="selectcol.graph_7d">
+                  <span class="sparkliness1" sparkType="line" sparkBarColor="red"> {{coin.price_7d}} </span>
+                </div>
                 <div class="cell t-mrk-cap" *ngIf="selectcol.mc_usd">${{coin.marketcap_usd | number : '1.0-2'}}</div>
                 <div class="cell t-mrk-cap_btc" *ngIf="selectcol.mc_btc">{{coin.marketcap_btc | number : '1.0-2'}}</div>
                 <div class="cell t-vol_24h_usd" *ngIf="selectcol.vol_24h_usd">${{coin['volume24h_usd'] | number : '1.0-2'}}</div>
