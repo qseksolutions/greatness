@@ -42,126 +42,144 @@
         <div class="width-responsive" *ngIf="selectcol">
           <div class="main-table home-table">
             <div class="table">
-              <div class="fixed-row">
+              <div class="table-row fixed-row">
                 <div class="cell t-count" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rank" *ngIf="selectcol.rank">#</div>
                 <div class="cell t-name" data-toggle="tooltip" data-placement="top" title="" data-original-title="Name" *ngIf="selectcol.name">Name</div>
-                <div class="cell t-symbol" data-toggle="tooltip" data-placement="top" title="" data-original-title="Symbol" *ngIf="selectcol.symbol">Symbol</div>
                 <div class="cell t-coin-img" data-toggle="tooltip" data-placement="top" title="" data-original-title="Favorites" *ngIf="selectcol.follow">
                   <span class="crown-img">
                     <img src="../../assets/images/crown-white.svg">
                   </span>
                 </div>
-                <div class="cell t-price" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price" *ngIf="selectcol.price_usd">Price</div>
-                <div class="cell t-price_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price BTC" *ngIf="selectcol.price_btc">Price BTC</div>
-                <div class="cell t-change_1h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 1H%" *ngIf="selectcol.change_1h">1H(%)</div>
-                <div class="cell t-change_24h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 24H%" *ngIf="selectcol.change_24h">24H(%)</div>
-                <div class="cell t-change_7d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 7D%" *ngIf="selectcol.change_7d">7D(%)</div>
-                <div class="cell t-change_30d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 30D%" *ngIf="selectcol.change_30d">30D(%)</div>
-                <div class="cell t-one_year" data-toggle="tooltip" data-placement="top" title="" data-original-title="One year%" *ngIf="selectcol.one_year">1Y(%)</div>
-                <div class="cell t-all_time" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time%" *ngIf="selectcol.all_time">All Time(%)</div>
-                <div class="cell t-7dprice" data-toggle="tooltip" data-placement="top" title="" data-original-title="7 Day Price" *ngIf="selectcol.graph_7d">7 Day Chart</div>
-                <div class="cell t-mrk-cap" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap" *ngIf="selectcol.mc_usd">Mkt. Cap</div>
-                <div class="cell t-mrk-cap_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap in BTC"
-                  *ngIf="selectcol.mc_btc">Mkt. Cap BTC</div>
-                <div class="cell t-vol_24h_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="Volumn 24H USD"
-                  *ngIf="selectcol.vol_24h_usd">Volumn 24H</div>
-                <div class="cell t-vol_24h_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Volumn 24H BTC"
-                  *ngIf="selectcol.vol_24h_btc">Vol. 24H BTC</div>
-                <div class="cell t-circu_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Circulating Supply"
-                  *ngIf="selectcol.circu_supp">Circulating Supply</div>
-                <div class="cell t-max_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Max Supply" *ngIf="selectcol.max_supp">Max Supply</div>
-                <div class="cell t-tot_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Total Supply" *ngIf="selectcol.tot_supp">Total Supply</div>
-                <div class="cell t-age" data-toggle="tooltip" data-placement="top" title="" data-original-title="Age" *ngIf="selectcol.age">Age</div>
-                <div class="cell t-all_time_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time USD" *ngIf="selectcol.all_time_usd">ATH(USD)</div>
-                <div class="cell t-all_time_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time BTC" *ngIf="selectcol.all_time_btc">ATH(BTC)</div>
-                <div class="cell t-change_ath" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH"
-                  *ngIf="selectcol.change_ath">% change from ATH</div>
-                <div class="cell t-change_ath_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH (BTC)"
-                  *ngIf="selectcol.change_ath_btc">% change from ATH (BTC)</div>
-                <div class="cell t-team" data-toggle="tooltip" data-placement="top" title="" data-original-title="Team" *ngIf="selectcol.team">Team</div>
-                <div class="cell t-theory" data-toggle="tooltip" data-placement="top" title="" data-original-title="Theory" *ngIf="selectcol.theory">Theory</div>
-                <div class="cell t-tech" data-toggle="tooltip" data-placement="top" title="" data-original-title="Technology" *ngIf="selectcol.technology">Tech.</div>
-                <div class="cell t-traction" data-toggle="tooltip" data-placement="top" title="" data-original-title="Traction" *ngIf="selectcol.traction">Traction</div>
-                <div class="cell t-tam" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tam" *ngIf="selectcol.tam">TAM</div>
-                <div class="cell t-token" data-toggle="tooltip" data-placement="top" title="" data-original-title="Token" *ngIf="selectcol.token">Token</div>
-                <div class="cell t-timing" data-toggle="tooltip" data-placement="top" title="" data-original-title="Timing" *ngIf="selectcol.timing">Timing</div>
-                <div class="cell t-tran" data-toggle="tooltip" data-placement="top" title="" data-original-title="Trasformative" *ngIf="selectcol.trasformative">Tran.</div>
-                <div class="cell t-gq" *ngIf="selectcol.gq">GQ
-                  <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="" data-original-title="GQ"></i>
-                </div>
-                <div class="cell t-ac_btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Action Button" *ngIf="selectcol.ac_btn">Action Button</div>
               </div>
-              <div class="table-body" *ngIf="showloader">
-                <img class="img-fluid" src="../../assets/images/loader.gif" style="max-width: 200px; margin-left: 290%;" />
-              </div>
-              <ng-container *ngIf="!showloader && coindata == ''">
-                <div class="table-body" *ngIf="coindata == ''">
-                  <p style="width:200px;margin-top:10%;margin-left:300%;">No Data Found </p>
-                </div>
-              </ng-container>
-              <ng-container *ngIf="!showloader && coindata != ''">
-                <div *ngFor="let coin of coindata" class="table-body">
-                  <div class="cell t-count" *ngIf="selectcol.rank">{{coin.rank}}</div>
-                  <div class="cell t-name" *ngIf="selectcol.name">
-                    <a [routerLink]=" ['/coins/', coin.cc_id]">
-                      <div class="coin-name">
-                        <span class="coin-symbol">
-                          <img class="img-fluid" src="../../assets/images/crypto-currency/{{coin.symbol | lowercase}}.svg" (error)="errorHandler($event,coin.symbol)">
-                        </span>
 
-                        <span class="coin-name-text">
-                          <h6>{{coin.name}}</h6>
-                        </span>
-                      </div>
-                    </a>
+              <div class="table-row scrollable-row">
+                <div>
+                  <div class="cell t-symbol" data-toggle="tooltip" data-placement="top" title="" data-original-title="Symbol" *ngIf="selectcol.symbol">Symbol</div>
+                  <div class="cell t-price" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price" *ngIf="selectcol.price_usd">Price</div>
+                  <div class="cell t-price_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price BTC" *ngIf="selectcol.price_btc">Price BTC</div>
+                  <div class="cell t-change_1h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 1H%" *ngIf="selectcol.change_1h">1H(%)</div>
+                  <div class="cell t-change_24h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 24H%" *ngIf="selectcol.change_24h">24H(%)</div>
+                  <div class="cell t-change_7d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 7D%" *ngIf="selectcol.change_7d">7D(%)</div>
+                  <div class="cell t-change_30d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 30D%" *ngIf="selectcol.change_30d">30D(%)</div>
+                  <div class="cell t-one_year" data-toggle="tooltip" data-placement="top" title="" data-original-title="One year%" *ngIf="selectcol.one_year">1Y(%)</div>
+                  <div class="cell t-all_time" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time%" *ngIf="selectcol.all_time">All Time(%)</div>
+                  <div class="cell t-7dprice" data-toggle="tooltip" data-placement="top" title="" data-original-title="7 Day Price" *ngIf="selectcol.graph_7d">7 Day Chart</div>
+                  <div class="cell t-mrk-cap" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap" *ngIf="selectcol.mc_usd">Mkt. Cap</div>
+                  <div class="cell t-mrk-cap_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap in BTC"
+                    *ngIf="selectcol.mc_btc">Mkt. Cap BTC</div>
+                  <div class="cell t-vol_24h_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="Volumn 24H USD"
+                    *ngIf="selectcol.vol_24h_usd">Volumn 24H</div>
+                  <div class="cell t-vol_24h_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Volumn 24H BTC"
+                    *ngIf="selectcol.vol_24h_btc">Vol. 24H BTC</div>
+                  <div class="cell t-circu_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Circulating Supply"
+                    *ngIf="selectcol.circu_supp">Circulating Supply</div>
+                  <div class="cell t-max_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Max Supply" *ngIf="selectcol.max_supp">Max Supply</div>
+                  <div class="cell t-tot_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Total Supply" *ngIf="selectcol.tot_supp">Total Supply</div>
+                  <div class="cell t-age" data-toggle="tooltip" data-placement="top" title="" data-original-title="Age" *ngIf="selectcol.age">Age</div>
+                  <div class="cell t-all_time_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time USD" *ngIf="selectcol.all_time_usd">ATH(USD)</div>
+                  <div class="cell t-all_time_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time BTC" *ngIf="selectcol.all_time_btc">ATH(BTC)</div>
+                  <div class="cell t-change_ath" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH"
+                    *ngIf="selectcol.change_ath">% change from ATH</div>
+                  <div class="cell t-change_ath_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH (BTC)"
+                    *ngIf="selectcol.change_ath_btc">% change from ATH (BTC)</div>
+                  <div class="cell t-team" data-toggle="tooltip" data-placement="top" title="" data-original-title="Team" *ngIf="selectcol.team">Team</div>
+                  <div class="cell t-theory" data-toggle="tooltip" data-placement="top" title="" data-original-title="Theory" *ngIf="selectcol.theory">Theory</div>
+                  <div class="cell t-tech" data-toggle="tooltip" data-placement="top" title="" data-original-title="Technology" *ngIf="selectcol.technology">Tech.</div>
+                  <div class="cell t-traction" data-toggle="tooltip" data-placement="top" title="" data-original-title="Traction" *ngIf="selectcol.traction">Traction</div>
+                  <div class="cell t-tam" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tam" *ngIf="selectcol.tam">TAM</div>
+                  <div class="cell t-token" data-toggle="tooltip" data-placement="top" title="" data-original-title="Token" *ngIf="selectcol.token">Token</div>
+                  <div class="cell t-timing" data-toggle="tooltip" data-placement="top" title="" data-original-title="Timing" *ngIf="selectcol.timing">Timing</div>
+                  <div class="cell t-tran" data-toggle="tooltip" data-placement="top" title="" data-original-title="Trasformative" *ngIf="selectcol.trasformative">Tran.</div>
+                  <div class="cell t-gq" *ngIf="selectcol.gq">GQ
+                    <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="" data-original-title="GQ"></i>
                   </div>
-                  <div class="cell t-symbol" *ngIf="selectcol.symbol">{{coin.symbol}}</div>
-                  <div class="cell t-coin-img pointer" *ngIf="selectcol.follow">
-                    <span class="crown-img" (click)="addtofavorite(coin.symbol)">
-                      <img class="img-fluid img_{{coin.symbol}}" src="../../assets/images/crown-fill.svg" *ngIf="favoritedata[coin.symbol] == coin.symbol"
-                      />
-                      <img class="img-fluid img_{{coin.symbol}}" src="../../assets/images/crown.svg" *ngIf="favoritedata[coin.symbol] != coin.symbol"
-                      />
-                    </span>
-                  </div>
-                  <div class="cell t-price" *ngIf="selectcol.price_usd">${{coin.price_usd | number : '1.0-2'}}</div>
-                  <div class="cell t-price_btc" *ngIf="selectcol.price_btc">{{coin.price_btc}}</div>
-                  <div class="cell t-change_1h" *ngIf="selectcol.change_1h" [ngClass]="coin.change_1h >= 0 ? 'text-green' : 'text-red'">{{coin.change_1h | number : '1.0-2'}}%</div>
-                  <div class="cell t-change_24h" *ngIf="selectcol.change_24h" [ngClass]="coin.change_24h >= 0 ? 'text-green' : 'text-red'">{{coin.change_24h | number : '1.0-2'}}%</div>
-                  <div class="cell t-change_7d" *ngIf="selectcol.change_7d" [ngClass]="coin.change_7d >= 0 ? 'text-green' : 'text-red'">{{coin.change_7d | number : '1.0-2'}}%</div>
-                  <div class="cell t-change_30d" *ngIf="selectcol.change_30d" [ngClass]="coin.change_30d >= 0 ? 'text-green' : 'text-red'">{{((coin.price_usd - coin.change_30d)/coin.price_usd)*100 | number : '1.0-2'}}%</div>
-                  <div class="cell t-one_year" *ngIf="selectcol.one_year" [ngClass]="coin.change_1y >= 0 ? 'text-green' : 'text-red'">{{((coin.price_usd - coin.change_1y)/coin.price_usd)*100 | number : '1.0-2'}}%</div>
-                  <div class="cell t-all_time" *ngIf="selectcol.all_time" [ngClass]="coin.change_all >= 0 ? 'text-green' : 'text-red'">{{coin.change_all | number : '1.0-2'}}%</div>
-                  <!-- <div class="cell t-7dprice" *ngIf="selectcol.graph_7d" [chart]="chart"></div> -->
-                  <div class="cell t-7dprice" *ngIf="selectcol.graph_7d">
-                    <span class="sparkliness1" sparkType="line" sparkBarColor="red"> {{coin.price_7d}} </span>
-                  </div>
-                  <div class="cell t-mrk-cap" *ngIf="selectcol.mc_usd">${{coin.marketcap_usd | number : '1.0-2'}}</div>
-                  <div class="cell t-mrk-cap_btc" *ngIf="selectcol.mc_btc">{{coin.marketcap_btc | number : '1.0-2'}}</div>
-                  <div class="cell t-vol_24h_usd" *ngIf="selectcol.vol_24h_usd">${{coin['volume24h_usd'] | number : '1.0-2'}}</div>
-                  <div class="cell t-vol_24h_btc" *ngIf="selectcol.vol_24h_btc">{{coin.volume24h_btc}}</div>
-                  <div class="cell t-circu_supp" *ngIf="selectcol.circu_supp">{{coin.circulating_supply}}</div>
-                  <div class="cell t-max_supp" *ngIf="selectcol.max_supp">{{coin.max_supply}}</div>
-                  <div class="cell t-tot_supp" *ngIf="selectcol.tot_supp">{{coin.total_supply}}</div>
-                  <div class="cell t-age" *ngIf="selectcol.age">{{coin.age != null ? coin.age : '-'}}</div>
-                  <div class="cell t-all_time_usd" *ngIf="selectcol.all_time_usd">{{coin.alltime_high_usd != null ? '$'+coin.alltime_high_usd : '-'}}</div>
-                  <div class="cell t-all_time_btc" *ngIf="selectcol.all_time_btc">{{coin.alltime_high_btc != null ? coin.alltime_high_btc : '-'}}</div>
-                  <div class="cell t-change_ath" *ngIf="selectcol.change_ath">% ATH</div>
-                  <div class="cell t-change_ath_btc" *ngIf="selectcol.change_ath_btc">% BTC</div>
-                  <div class="cell t-team" *ngIf="selectcol.team">{{coin.team}}</div>
-                  <div class="cell t-theory" *ngIf="selectcol.theory">{{coin.theory}}</div>
-                  <div class="cell t-tech" *ngIf="selectcol.technology">{{coin.technology}}</div>
-                  <div class="cell t-traction" *ngIf="selectcol.traction">{{coin.traction}}</div>
-                  <div class="cell t-tam" *ngIf="selectcol.tam">{{coin.tam}}</div>
-                  <div class="cell t-token" *ngIf="selectcol.token">{{coin.token}}</div>
-                  <div class="cell t-timing" *ngIf="selectcol.timing">{{coin.timing}}</div>
-                  <div class="cell t-tran" *ngIf="selectcol.trasformative">{{coin.transformative}}</div>
-                  <div class="cell t-gq" *ngIf="selectcol.gq">
-                    <div class="scoring-process" [style.width.%]="coin.algo_score != null ? coin.algo_score : '0'">{{coin.algo_score | number:'1.0-0'}}</div>
-                  </div>
-                  <div class="cell t-ac_btn" *ngIf="selectcol.ac_btn">Action Button</div>
+                  <div class="cell t-ac_btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Action Button" *ngIf="selectcol.ac_btn">Action Button</div>
                 </div>
-              </ng-container>
+              </div>
+
+              <div class="clearfix"></div>
+              <div class="table-body" *ngIf="showloader">
+                <img class="img-fluid" src="../../assets/images/loader.gif" style="max-width: 200px; margin-left: 40%;" />
+              </div>
+              <div class="table-body" *ngIf="!showloader && coindata == ''">
+                <p style="width:200px;margin-top:10%;margin-left:40%;">No Data Found </p>
+              </div>
+              <div class="table-body" *ngIf="!showloader && coindata != ''">
+                <div class="fixed-column">
+                  <div *ngFor="let coin of coindata">
+                    <div class="cell t-count" *ngIf="selectcol.rank">{{coin.rank}}</div>
+                    <div class="cell t-name" *ngIf="selectcol.name">
+                      <a [routerLink]=" ['/coins/', coin.cc_id]">
+                        <div class="coin-name">
+                          <span class="coin-symbol">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/{{coin.symbol | lowercase}}.svg" (error)="errorHandler($event,coin.symbol)">
+                          </span>
+
+                          <span class="coin-name-text">
+                            <h6>{{coin.name}}</h6>
+                          </span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="cell t-coin-img pointer" *ngIf="selectcol.follow">
+                      <span class="crown-img" (click)="addtofavorite(coin.symbol)">
+                        <img class="img-fluid img_{{coin.symbol}}" src="../../assets/images/crown-fill.svg" *ngIf="favoritedata[coin.symbol] == coin.symbol"
+                        />
+                        <img class="img-fluid img_{{coin.symbol}}" src="../../assets/images/crown.svg" *ngIf="favoritedata[coin.symbol] != coin.symbol"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="scrollable-column">
+                  <div class="scroll-viewport">
+                    <div class="scroll-container">
+                      <div *ngFor="let coin of coindata">
+                        <div class="cell t-symbol" *ngIf="selectcol.symbol">{{coin.symbol}}</div>
+                        <div class="cell t-price" *ngIf="selectcol.price_usd">${{coin.price_usd | number : '1.0-2'}}</div>
+                        <div class="cell t-price_btc" *ngIf="selectcol.price_btc">{{coin.price_btc}}</div>
+                        <div class="cell t-change_1h" *ngIf="selectcol.change_1h" [ngClass]="coin.change_1h >= 0 ? 'text-green' : 'text-red'">{{coin.change_1h | number : '1.0-2'}}%</div>
+                        <div class="cell t-change_24h" *ngIf="selectcol.change_24h" [ngClass]="coin.change_24h >= 0 ? 'text-green' : 'text-red'">{{coin.change_24h | number : '1.0-2'}}%</div>
+                        <div class="cell t-change_7d" *ngIf="selectcol.change_7d" [ngClass]="coin.change_7d >= 0 ? 'text-green' : 'text-red'">{{coin.change_7d | number : '1.0-2'}}%</div>
+                        <div class="cell t-change_30d" *ngIf="selectcol.change_30d" [ngClass]="coin.change_30d >= 0 ? 'text-green' : 'text-red'">{{coin.change_30d | number : '1.0-2'}}%</div>
+                        <div class="cell t-one_year" *ngIf="selectcol.one_year" [ngClass]="coin.change_1y >= 0 ? 'text-green' : 'text-red'">{{coin.change_1y | number : '1.0-2'}}%</div>
+                        <div class="cell t-all_time" *ngIf="selectcol.all_time" [ngClass]="coin.change_all >= 0 ? 'text-green' : 'text-red'">{{coin.change_all | number : '1.0-2'}}%</div>
+                        <!-- <div class="cell t-7dprice" *ngIf="selectcol.graph_7d" [chart]="chart"></div> -->
+                        <div class="cell t-7dprice" *ngIf="selectcol.graph_7d">
+                          <span class="sparkliness1" sparkType="line" sparkBarColor="red"> {{coin.price_7d}} </span>
+                        </div>
+                        <div class="cell t-mrk-cap" *ngIf="selectcol.mc_usd">${{coin.marketcap_usd | number : '1.0-2'}}</div>
+                        <div class="cell t-mrk-cap_btc" *ngIf="selectcol.mc_btc">{{coin.marketcap_btc | number : '1.0-2'}}</div>
+                        <div class="cell t-vol_24h_usd" *ngIf="selectcol.vol_24h_usd">${{coin['volume24h_usd'] | number : '1.0-2'}}</div>
+                        <div class="cell t-vol_24h_btc" *ngIf="selectcol.vol_24h_btc">{{coin.volume24h_btc}}</div>
+                        <div class="cell t-circu_supp" *ngIf="selectcol.circu_supp">{{coin.circulating_supply}}</div>
+                        <div class="cell t-max_supp" *ngIf="selectcol.max_supp">{{coin.max_supply}}</div>
+                        <div class="cell t-tot_supp" *ngIf="selectcol.tot_supp">{{coin.total_supply}}</div>
+                        <div class="cell t-age" *ngIf="selectcol.age">{{coin.age != null ? coin.age : '-'}}</div>
+                        <div class="cell t-all_time_usd" *ngIf="selectcol.all_time_usd">{{coin.alltime_high_usd != null ? '$'+coin.alltime_high_usd : '-'}}</div>
+                        <div class="cell t-all_time_btc" *ngIf="selectcol.all_time_btc">{{coin.alltime_high_btc != null ? coin.alltime_high_btc : '-'}}</div>
+                        <div class="cell t-change_ath" *ngIf="selectcol.change_ath">% ATH</div>
+                        <div class="cell t-change_ath_btc" *ngIf="selectcol.change_ath_btc">% BTC</div>
+                        <div class="cell t-team" *ngIf="selectcol.team">{{coin.team}}</div>
+                        <div class="cell t-theory" *ngIf="selectcol.theory">{{coin.theory}}</div>
+                        <div class="cell t-tech" *ngIf="selectcol.technology">{{coin.technology}}</div>
+                        <div class="cell t-traction" *ngIf="selectcol.traction">{{coin.traction}}</div>
+                        <div class="cell t-tam" *ngIf="selectcol.tam">{{coin.tam}}</div>
+                        <div class="cell t-token" *ngIf="selectcol.token">{{coin.token}}</div>
+                        <div class="cell t-timing" *ngIf="selectcol.timing">{{coin.timing}}</div>
+                        <div class="cell t-tran" *ngIf="selectcol.trasformative">{{coin.transformative}}</div>
+                        <div class="cell t-gq" *ngIf="selectcol.gq">
+                          <div class="scoring-process" [style.width.%]="coin.algo_score != null ? coin.algo_score : '0'">{{coin.algo_score | number:'1.0-0'}}</div>
+                        </div>
+                        <div class="cell t-ac_btn" *ngIf="selectcol.ac_btn">Action Button</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="clearfix"></div>
+              </div>
             </div>
 
             <div class="pagination" *ngIf="!showloader && coindata != ''">
