@@ -20,14 +20,13 @@ setTimeout(function(){
 
     $('.scroll-viewport').on('scroll', function() {
         var left = $(this).scrollLeft();
-        var left = left;
         $('.notfixed-header').css('position','relative');
         $('.notfixed-header').css('left', -left);
     });
 
     $('.scroll-viewport').on('scroll', function() {
         var left = $(this).scrollLeft();
-        var left = left - 331;
+        var left = left - 330;
         $('.fixed-header').css('left', -left);
     });  
 
@@ -38,5 +37,5 @@ setTimeout(function(){
         if (scroll >= 556) sticky.addClass('sticky-header');
         else sticky.removeClass('sticky-header');
     });
-}, 3000);
+}, 5000);
 

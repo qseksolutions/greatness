@@ -939,6 +939,11 @@ svg{
 
 }
 
+.main-table .table .table-row .cell{
+    background-color: #5e696f;
+
+}
+
 .t-count {
     min-width: 50px;
     text-align: center;
@@ -1115,8 +1120,9 @@ svg{
 
 .table-row {
     display: table-header-group;
-    background-color: #5e696f;
     color: #fff;
+    position: relative;
+    z-index: 2;
 }
 
 .table-body {
@@ -1140,14 +1146,16 @@ svg{
     top: 0;
     z-index: 5;
     right: 30px;
-    left: 331px;
-    width: calc(100% - 361px) !important;
+    left: 330px;
+    width: calc(100% - 360px) !important;
     display: table;
     transition: all ease-in-out 0.5;
 
 }
 
-
+.notfixed-header{
+    position: relative;
+}
 
 .sticky-header{
     position: fixed;
@@ -1167,18 +1175,13 @@ svg{
 .scrollable-row ,
 .scrollable-column{
     float: right;
-    width: calc(100% - 301px);
+    width: calc(100% - 300px);
+    z-index: 1;
 
 }
 .scroll-viewport{
     overflow: auto;
 }
-
-/* .scroll-container {
-    max-width: 2600px;
-    min-width: 1000px;
-    width: 100%;
-} */
 
 .table-row.fixed-row.sticky-header:after {
     position: absolute;
@@ -1188,6 +1191,10 @@ svg{
     width: 30px;
     height: 45px;
     background-color: #fff;
+}
+
+.sparkliness1{
+    font-size: 0px; 
 }
 /*custom-table*/
 /*---
