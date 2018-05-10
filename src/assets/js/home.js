@@ -21,3 +21,4 @@ $(window).scroll(function(){
     if (scroll >= 556) sticky.addClass('sticky-header');
     else sticky.removeClass('sticky-header');
 });
+
