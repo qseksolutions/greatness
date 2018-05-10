@@ -1194,6 +1194,14 @@ svg{
 .sparkliness2{
     font-size: 0px; 
 }
+
+.graphloader {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+
+}
 /*custom-table*/
 /*---
 	 home-table
