@@ -1,5 +1,10 @@
 $(function() {
 
+    var maintable = $('.main-table').width();
+    var fixedcolumn = $('.fixed-column').width();
+    var fixedwidth = maintable - fixedcolumn;
+    $('.scroll-viewport').css('width',fixedwidth+'px');
+
     $(window).scroll(function(){
         var sticky = $('.scrollable-row'),
         scroll = $(window).scrollTop();

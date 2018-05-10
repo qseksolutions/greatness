@@ -1175,11 +1175,11 @@ svg{
     overflow: auto;
 }
 
-.scroll-container {
+/* .scroll-container {
     max-width: 2600px;
     min-width: 1000px;
     width: 100%;
-}
+} */
 
 .table-row.fixed-row.sticky-header:after {
     position: absolute;
