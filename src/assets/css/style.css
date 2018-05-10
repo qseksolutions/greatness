@@ -1196,10 +1196,18 @@ svg{
 }
 
 .graphloader {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     display: block;
     margin: 0 auto;
+
+}
+
+.common-loader {
+    display: block;
+    width: 60px;
+    margin: auto;
+    margin-top: 20px;
 
 }
 /*custom-table*/
