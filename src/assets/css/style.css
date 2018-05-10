@@ -931,7 +931,7 @@ svg{
 
 /*custom-table*/
 
-.main-table .table .fixed-row .cell, .main-table .table .table-body  .cell {
+.main-table .table .table-row .cell, .main-table .table .table-body  .cell {
     border: none;
     border-bottom: solid 1px #e3e3e3;
     border-right: 1px solid #e3e3e3;
@@ -940,7 +940,7 @@ svg{
 
 }
 
-.main-table .table .fixed-row .cell:last-child, .main-table .table .table-body  .cell:last-child {
+.main-table .table .table-row.scrollable-row  .cell:last-child, .main-table .table .table-body .scrollable-column  .cell:last-child {
     border-right: 0px;
 
 }
@@ -948,6 +948,11 @@ svg{
 .t-count {
     min-width: 50px;
     text-align: center;
+
+}
+
+.t-symbol {
+    min-width: 70px;
 
 }
 
@@ -1033,7 +1038,9 @@ svg{
 }
 
 .t-all_time_btc {
-    min-width: 90px;
+    min-width: 110px;
+    max-width: 110px;
+    width: 110px;
 
 }
 
@@ -1105,16 +1112,16 @@ svg{
 }
 
 .width-responsive {
-    overflow: auto;
+    overflow: hidden;
 }
 
 .table{
     display: table;
 }
 
-.fixed-row {
+.table-row {
     display: table-header-group;
-    background-color: #04b290;
+    background-color: #5e696f;
     color: #fff;
 }
 
@@ -1130,16 +1137,61 @@ svg{
     padding-right: 10px;
 }
 
+.table-body .cell{
+    height: 52px;
+}
+
 .fixed-header{
     position: fixed;
     top: 0;
     z-index: 5;
     right: 30px;
-    left: 30px;
-    width: calc(100% - 60px);
+    left: 331px;
+    width: calc(100% - 361px) !important;
     display: table;
 }
 
+
+.sticky-header{
+    position: fixed;
+    top: 0;
+    left: 30px;
+    z-index: 45;
+    width: 19.85% !important;
+}
+
+.fixed-row ,
+.fixed-column {
+    float: left;
+    width: 300px;
+
+}
+
+.scrollable-row ,
+.scrollable-column{
+    float: right;
+    width: calc(100% - 301px);
+
+}
+.scroll-viewport{
+    overflow: auto;
+}
+
+.scroll-container {
+    max-width: 2600px;
+    min-width: 1158.2px;
+    width: 1158.2px;
+}
+
+.table-row.fixed-row.sticky-header:after {
+    position: absolute;
+    left: -31px;
+    top: 0;
+    content: "";
+    width: 30px;
+    height: 45px;
+    background-color: #fff;
+}
 /*custom-table*/
 /*---
 	 home-table
