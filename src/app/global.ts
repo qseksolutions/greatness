@@ -9,6 +9,7 @@ export const categoryfilter = 'categoryfilter';
 
 /*************************** Home Page ************************************/
 export const coinglobal = 'coinglobal';
+export const coinlist = 'coinlist';
 
 /*************************** Single Page ************************************/
 export const getsinglecoingraph = 'getsinglecoingraph';

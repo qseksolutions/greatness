@@ -5,37 +5,38 @@ setTimeout(function(){
     $('.scroll-viewport').css('width',fixedwidth+'px');
 
     $(window).scroll(function(){
-        var sticky = $('.scrollable-row'),
+        var sticky = $('.header-fix'),
         scroll = $(window).scrollTop();
-
+        var scrolldiv = $('.scrollable-row');
         if (scroll >= 556) {
+            scrolldiv.addClass('fixed-scroll');
             sticky.addClass('fixed-header');
-            sticky.removeClass('notfixed-header');
+            // sticky.removeClass('notfixed-header');
         }
         else {
-            sticky.addClass('notfixed-header');
+            // sticky.addClass('notfixed-header');
+            scrolldiv.removeClass('fixed-scroll');
             sticky.removeClass('fixed-header');
         }
     });
 
-    $('.scroll-viewport').on('scroll', function() {
+    /*$('.scroll-viewport').on('scroll', function() {
         var left = $(this).scrollLeft();
-        $('.notfixed-header').css('position','relative');
         $('.notfixed-header').css('left', -left);
-    });
+    });*/
 
     $('.scroll-viewport').on('scroll', function() {
         var left = $(this).scrollLeft();
-        var left = left - 330;
-        $('.fixed-header').css('left', -left);
+        var left = left;
+        $('.fixed-scroll').css('left', -left);
     });  
 
-    $(window).scroll(function(){
+    /*$(window).scroll(function(){
         var sticky = $('.fixed-row'),
         scroll = $(window).scrollTop();
 
         if (scroll >= 556) sticky.addClass('sticky-header');
         else sticky.removeClass('sticky-header');
-    });
-}, 5000);
+    });*/
+}, 3000);
 

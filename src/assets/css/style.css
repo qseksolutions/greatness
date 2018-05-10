@@ -1146,7 +1146,7 @@ svg{
     top: 0;
     z-index: 5;
     right: 30px;
-    left: 330px;
+    left: 30px;
     width: calc(100% - 360px) !important;
     display: table;
     transition: all ease-in-out 0.5;

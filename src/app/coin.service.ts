@@ -16,6 +16,7 @@ export class CoinService {
 
   /************************** Home Page ******************************/
   coinglobal: any = myGlobals.coinglobal;
+  coinlist: any = myGlobals.coinlist;
 
   /************************** Single Page ******************************/
   getsinglecoingraph: any = myGlobals.getsinglecoingraph;
@@ -59,6 +60,14 @@ export class CoinService {
     const options = new RequestOptions({ headers: headers });
 
     return this.http.get(this.api_url + this.coinglobal, options)
+      .map((response: Response) => response.json());
+  }
+  
+  getallcoindata(start) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.api_url + this.coinlist + '?start=' + start, options)
       .map((response: Response) => response.json());
   }
 
