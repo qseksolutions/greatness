@@ -1154,7 +1154,6 @@ svg{
     top: 0;
     left: 30px;
     z-index: 45;
-    width: 19.85% !important;
     transition: all ease-in-out 0.5;
 }
 
