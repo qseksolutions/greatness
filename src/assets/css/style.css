@@ -941,22 +941,62 @@ svg{
 
 .main-table .table .table-row .cell{
     background-color: #5e696f;
+    cursor: pointer;
 
 }
+.t-count,
+.t-symbol,
+.t-name,
+.t-price,
+.t-price-btc,
+.t-change_1h ,
+.t-change_24h,
+.t-change_7d,
+.t-change_30d,
+.t-one_year,
+.t-all_time ,
+.t-mrk-cap,
+.t-mrk-cap_btc,
+.t-vol_24h_usd,
+.t-vol_24h_btc,
+.t-circu_supp,
+.t-max_supp ,
+.t-tot_supp,
+.t-age,
+.t-all_time_usd,
+.t-all_time_btc,
+.t-change_ath ,
+.t-change_ath_btc,
+.t-ac_btn,
+.t-team ,
+.t-theory,
+.t-tech,
+.t-traction,
+.t-tam,
+.t-timing,
+.t-tran,
+.t-token {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 
 .t-count {
-    min-width: 50px;
+    max-width: 55px;
+    min-width: 55px;
     text-align: center;
 
 }
 
 .t-symbol {
     min-width: 70px;
+    max-width: 70px;
 
 }
 
 .t-coin-img{
-    min-width: 50px;
+    min-width: 45px;
+    max-width: 45px;
 
 }
 
@@ -968,11 +1008,14 @@ svg{
 
 .t-price {
     min-width: 90px;
+    max-width: 90px;
+    text-align: right;
 
 }
 
 .t-price_btc {
     min-width: 120px;
+    max-width: 120px;
 
 }
 
@@ -982,79 +1025,86 @@ svg{
 .t-change_30d,
 .t-one_year {
     min-width: 90px;
-
+    max-width: 90px;
 }
 
 .t-all_time {
     min-width: 100px;
+    max-width: 100px;
 
 }
 
 .t-mrk-cap {
     min-width: 140px;
+    max-width: 140px;
+    text-align: right;
 
 }
 
 .t-mrk-cap_btc {
     min-width: 110px;
+    max-width: 110px;
 
 }
 
 .t-vol_24h_usd {
     min-width: 130px;
-
+    max-width: 130px;
 
 }
 
 .t-vol_24h_btc {
     min-width: 110px;
+    max-width: 110px;
 
 }
 
 .t-circu_supp {
     min-width: 140px;
+    max-width: 140px;
 
 }
 
-.t-max_supp {
-    min-width: 120px;
-
-}
-
+.t-max_supp,
 .t-tot_supp {
     min-width: 120px;
+    max-width: 120px;
 
 }
 
 .t-age {
     min-width: 60px;
+    max-width: 60px;
 
 }
 
 .t-all_time_usd {
     min-width: 90px;
+    max-width: 90px;
 
 }
 
 .t-all_time_btc {
     min-width: 110px;
     max-width: 110px;
-    width: 110px;
 
 }
 
 .t-change_ath {
     min-width: 150px;
+    max-width: 150px;
 
 }
 
 .t-change_ath_btc {
     min-width: 190px;
+    max-width: 190px;
 
 }
 
 .t-ac_btn {
     min-width: 110px;
+    max-width: 110px;
 
 }
 
@@ -1067,6 +1117,7 @@ svg{
 .t-tran,
 .t-token {
     min-width: 75px;
+    max-width: 110px;
     text-align: center;
 }
 
@@ -1101,13 +1152,15 @@ svg{
 
 .scoring-process {
     margin-right: auto;
-    padding: 15px;
     height: 100%;
     background-color: rgba(4, 178, 144, 0.5);
-    color: #fff;
-    min-width: 45px;
     min-height: 50px;
-    text-align: left;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 .width-responsive {
@@ -1209,6 +1262,12 @@ svg{
     margin: auto;
     margin-top: 20px;
 }
+
+.header-fix {
+    overflow: hidden;
+
+}
+
 /*custom-table*/
 /*---
 	 home-table
@@ -1701,11 +1760,102 @@ span.footer_logo {
 /*---
      faq
         -end---*/
-
-
-@media (max-width: 992px){
-    
-}
 .pointer {
 	cursor: pointer;
-}     
+
+}   
+
+
+
+@media (max-width: 1199.98px) {
+    .coinvalue-box{
+        padding: 5px 5px;
+        width: auto;
+        -ms-flex: 1;
+        flex: 1;
+    }
+
+    .top-header{
+        padding: 0px 15px;
+
+    }
+
+    .coinlist-name ,
+    .coinlis-value{
+        white-space: nowrap;
+    
+    }
+
+}
+
+@media (max-width: 991.98px) {
+    .top-header{
+        padding: 0px 5px;
+    }
+
+}
+
+@media (max-width: 767.98px) {
+    .cust-container{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .header-fix.fixed-header:after{
+        width: 5px;
+        left: -5px;
+    }
+
+    .fixed-header ~ .table-body:after{
+        width: 5px;
+    }
+
+    .fixed-header{
+        left: 5px;
+        right: 5px;
+        width: calc(100% - 10px);
+    }
+
+    .t-name {
+        min-width: 150px;
+        max-width: 150px;
+    }
+
+    .fixed-row, .fixed-column{
+        width: 250px;
+    }
+
+    .scrollable-row, .scrollable-column{
+        width: calc(100% - 250px);
+    }
+
+    .top-header{
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+
+    }
+
+    .coinvalue-box{
+        -ms-flex: initial;
+        flex: initial;
+        width: 50%;
+    }
+
+    .coinvalue-box:last-child{
+        border-right:solid 1px #ffffff; 
+    
+    }
+
+    .coinvalue-box:nth-child(2n + 2) {
+        border-right: none;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+
+}
+
+@media (max-width: 320.98px) {
+
+
+}
