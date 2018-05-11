@@ -204,72 +204,62 @@
                         <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
                       </span>
                     </div>
-                    <div class="cell pointer t-change_ath" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH"
-                      *ngIf="selectcol.change_ath">
-                      % change from ATH
+                    <div class="cell pointer t-change_ath" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH" *ngIf="selectcol.change_ath">
+                      % ATH
                     </div>
-                    <div class="cell pointer t-change_ath_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH (BTC)"
-                      *ngIf="selectcol.change_ath_btc">
-                      % change from ATH (BTC)
+                    <div class="cell pointer t-change_ath_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH (BTC)" *ngIf="selectcol.change_ath_btc">
+                      % ATH (BTC)
                     </div>
-                    <div class="cell pointer t-team" data-toggle="tooltip" data-placement="top" title="" data-original-title="Team" *ngIf="selectcol.team"
-                      (click)="orderingColumn('team','desc')">
+                    <div class="cell pointer t-team" data-toggle="tooltip" data-placement="top" title="" data-original-title="Team Experience" *ngIf="selectcol.team" (click)="orderingColumn('team','desc')">
                       Team
                       <span class="tablearrow" *ngIf="sorton == 'team'">
                         <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
                       </span>
                     </div>
-                    <div class="cell pointer t-theory" data-toggle="tooltip" data-placement="top" title="" data-original-title="Theory" *ngIf="selectcol.theory"
-                      (click)="orderingColumn('theory','desc')">
+                    <div class="cell pointer t-theory" data-toggle="tooltip" data-placement="top" title="" data-original-title="Theoritical Soundness" *ngIf="selectcol.theory" (click)="orderingColumn('theory','desc')">
                       Theory
                       <span class="tablearrow" *ngIf="sorton == 'theory'">
                         <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
                       </span>
                     </div>
-                    <div class="cell pointer t-tech" data-toggle="tooltip" data-placement="top" title="" data-original-title="Technology" *ngIf="selectcol.technology"
-                      (click)="orderingColumn('technology','desc')">
+                    <div class="cell pointer t-tech" data-toggle="tooltip" data-placement="top" title="" data-original-title="Technological Progress" *ngIf="selectcol.technology" (click)="orderingColumn('technology','desc')">
                       Tech.
                       <span class="tablearrow" *ngIf="sorton == 'technology'">
                         <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
                       </span>
                     </div>
-                    <div class="cell pointer t-traction" data-toggle="tooltip" data-placement="top" title="" data-original-title="Traction" *ngIf="selectcol.traction"
-                      (click)="orderingColumn('traction','desc')">
+                    <div class="cell pointer t-traction" data-toggle="tooltip" data-placement="top" title="" data-original-title="Traction" *ngIf="selectcol.traction" (click)="orderingColumn('traction','desc')">
                       Traction
                       <span class="tablearrow" *ngIf="sorton == 'traction'">
                         <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
                       </span>
                     </div>
-                    <div class="cell pointer t-tam" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tam" *ngIf="selectcol.tam"
-                      (click)="orderingColumn('tam','desc')">
+                    <div class="cell pointer t-tam" data-toggle="tooltip" data-placement="top" title="" data-original-title="Total Addressable Market" *ngIf="selectcol.tam" (click)="orderingColumn('tam','desc')">
                       TAM
                       <span class="tablearrow" *ngIf="sorton == 'tam'">
                         <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
                       </span>
                     </div>
-                    <div class="cell pointer t-token" data-toggle="tooltip" data-placement="top" title="" data-original-title="Token" *ngIf="selectcol.token"
-                      (click)="orderingColumn('token','desc')">
+                    <div class="cell pointer t-token" data-toggle="tooltip" data-placement="top" title="" data-original-title="Token Economics" *ngIf="selectcol.token" (click)="orderingColumn('token','desc')">
                       Token
                       <span class="tablearrow" *ngIf="sorton == 'token'">
                         <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
                       </span>
                     </div>
-                    <div class="cell pointer t-timing" data-toggle="tooltip" data-placement="top" title="" data-original-title="Timing" *ngIf="selectcol.timing"
-                      (click)="orderingColumn('timing','desc')">
+                    <div class="cell pointer t-timing" data-toggle="tooltip" data-placement="top" title="" data-original-title="Timing" *ngIf="selectcol.timing" (click)="orderingColumn('timing','desc')">
                       Timing
                       <span class="tablearrow" *ngIf="sorton == 'timing'">
                         <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
                       </span>
                     </div>
-                    <div class="cell pointer t-tran" data-toggle="tooltip" data-placement="top" title="" data-original-title="Trasformative"
-                      *ngIf="selectcol.trasformative" (click)="orderingColumn('transformative','desc')">
+                    <div class="cell pointer t-tran" data-toggle="tooltip" data-placement="top" title="" data-original-title="Transformative Potential" *ngIf="selectcol.trasformative" (click)="orderingColumn('transformative','desc')">
                       Tran.
                       <span class="tablearrow" *ngIf="sorton == 'transformative'">
                         <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
