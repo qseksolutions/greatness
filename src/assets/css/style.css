@@ -993,16 +993,17 @@ svg{
 }
 
 
-.t-count {
+.cell.t-count {
     max-width: 55px;
     min-width: 55px;
     text-align: center;
 
 }
 
-.t-symbol {
+.cell.t-symbol {
     min-width: 70px;
     max-width: 70px;
+    text-align: left;
 
 }
 
@@ -1748,6 +1749,19 @@ svg{
     font-size: 16px;
     color: #000000;
 
+}
+
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+
+}
+
+.gutter-sizer { width: 4%; }
+
+.grid-sizer {
+  width: 22%;
 }
 /*---
      single-page
