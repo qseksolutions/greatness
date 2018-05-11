@@ -16,13 +16,13 @@
           <div class="top-pagination">
             <div class="pagination-box">
               <span class="top-page-arrow">
-                <a href="#">
+                <a href="javascript:;" (click)="gotoprevpage()">
                   <i class="fas fa-arrow-circle-left"></i>
                 </a>
               </span>
               <h6 class="top-pag-count">Page {{cuurentpage}} of {{pagecount}}</h6>
               <span class="top-page-arrow">
-                <a href="#">
+                <a href="javascript:;" (click)="gotonextpage()">
                   <i class="fas fa-arrow-circle-right"></i>
                 </a>
               </span>
@@ -44,8 +44,8 @@
             <div class="table">
               <div class="header-fix">
                 <div class="table-row fixed-row">
-                  <div class="cell t-count" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rank" *ngIf="selectcol.rank">#</div>
-                  <div class="cell t-name" data-toggle="tooltip" data-placement="top" title="" data-original-title="Name" *ngIf="selectcol.name">Name</div>
+                  <div class="cell t-count" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rank" *ngIf="selectcol.rank" (click)="orderingColumn('rank','asc')">#</div>
+                  <div class="cell t-name" data-toggle="tooltip" data-placement="top" title="" data-original-title="Name" *ngIf="selectcol.name" (click)="orderingColumn('name','asc')">Name</div>
                   <div class="cell t-coin-img" data-toggle="tooltip" data-placement="top" title="" data-original-title="Favorites" *ngIf="selectcol.follow">
                     <span class="crown-img">
                       <img src="../../assets/images/crown-white.svg">
@@ -55,43 +55,40 @@
 
                 <div class="table-row scrollable-row notfixed-header">
                   <div>
-                    <div class="cell t-symbol" data-toggle="tooltip" data-placement="top" title="" data-original-title="Symbol" *ngIf="selectcol.symbol">Symbol</div>
-                    <div class="cell t-price" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price" *ngIf="selectcol.price_usd">Price</div>
-                    <div class="cell t-price_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price BTC" *ngIf="selectcol.price_btc">Price BTC</div>
-                    <div class="cell t-change_1h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 1H%" *ngIf="selectcol.change_1h">1H(%)</div>
-                    <div class="cell t-change_24h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 24H%" *ngIf="selectcol.change_24h">24H(%)</div>
-                    <div class="cell t-change_7d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 7D%" *ngIf="selectcol.change_7d">7D(%)</div>
-                    <div class="cell t-change_30d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 30D%" *ngIf="selectcol.change_30d">30D(%)</div>
-                    <div class="cell t-one_year" data-toggle="tooltip" data-placement="top" title="" data-original-title="One year%" *ngIf="selectcol.one_year">1Y(%)</div>
-                    <div class="cell t-all_time" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time%" *ngIf="selectcol.all_time">All Time(%)</div>
+                    <div class="cell t-symbol" data-toggle="tooltip" data-placement="top" title="" data-original-title="Symbol" *ngIf="selectcol.symbol" (click)="orderingColumn('symbol','asc')">Symbol</div>
+                    <div class="cell t-price" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price" *ngIf="selectcol.price_usd" (click)="orderingColumn('price_usd','asc')">Price</div>
+                    <div class="cell t-price_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price BTC" *ngIf="selectcol.price_btc" (click)="orderingColumn('price_btc','asc')">Price BTC</div>
+                    <div class="cell t-change_1h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 1H%" *ngIf="selectcol.change_1h" (click)="orderingColumn('change_1h','asc')">1H(%)</div>
+                    <div class="cell t-change_24h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 24H%" *ngIf="selectcol.change_24h" (click)="orderingColumn('change_24h','asc')">24H(%)</div>
+                    <div class="cell t-change_7d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 7D%" *ngIf="selectcol.change_7d" (click)="orderingColumn('change_7d','asc')">7D(%)</div>
+                    <div class="cell t-change_30d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 30D%" *ngIf="selectcol.change_30d" (click)="orderingColumn('change_30d','asc')">30D(%)</div>
+                    <div class="cell t-one_year" data-toggle="tooltip" data-placement="top" title="" data-original-title="One year%" *ngIf="selectcol.one_year" (click)="orderingColumn('change_1y','asc')">1Y(%)</div>
+                    <div class="cell t-all_time" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time%" *ngIf="selectcol.all_time" (click)="orderingColumn('change_all','asc')">All Time(%)</div>
                     <div class="cell t-7dprice" data-toggle="tooltip" data-placement="top" title="" data-original-title="7 Day Price" *ngIf="selectcol.graph_7d">7 Day Chart</div>
-                    <div class="cell t-mrk-cap" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap" *ngIf="selectcol.mc_usd">Mkt. Cap</div>
-                    <div class="cell t-mrk-cap_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap in BTC"
-                      *ngIf="selectcol.mc_btc">Mkt. Cap BTC</div>
+                    <div class="cell t-mrk-cap" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap" *ngIf="selectcol.mc_usd" (click)="orderingColumn('marketcap_usd','asc')">Mkt. Cap</div>
+                    <div class="cell t-mrk-cap_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap in BTC" *ngIf="selectcol.mc_btc" (click)="orderingColumn('marketcap_btc','asc')">Mkt. Cap BTC</div>
                     <div class="cell t-vol_24h_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="Volumn 24H USD"
-                      *ngIf="selectcol.vol_24h_usd">Volumn 24H</div>
+                      *ngIf="selectcol.vol_24h_usd" (click)="orderingColumn('volume24h_usd','asc')">Volumn 24H</div>
                     <div class="cell t-vol_24h_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Volumn 24H BTC"
-                      *ngIf="selectcol.vol_24h_btc">Vol. 24H BTC</div>
+                      *ngIf="selectcol.vol_24h_btc" (click)="orderingColumn('volume24h_btc','asc')">Vol. 24H BTC</div>
                     <div class="cell t-circu_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Circulating Supply"
-                      *ngIf="selectcol.circu_supp">Circulating Supply</div>
-                    <div class="cell t-max_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Max Supply" *ngIf="selectcol.max_supp">Max Supply</div>
-                    <div class="cell t-tot_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Total Supply" *ngIf="selectcol.tot_supp">Total Supply</div>
-                    <div class="cell t-age" data-toggle="tooltip" data-placement="top" title="" data-original-title="Age" *ngIf="selectcol.age">Age</div>
-                    <div class="cell t-all_time_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time USD" *ngIf="selectcol.all_time_usd">ATH(USD)</div>
-                    <div class="cell t-all_time_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time BTC" *ngIf="selectcol.all_time_btc">ATH(BTC)</div>
-                    <div class="cell t-change_ath" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH"
-                      *ngIf="selectcol.change_ath">% change from ATH</div>
-                    <div class="cell t-change_ath_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH (BTC)"
-                      *ngIf="selectcol.change_ath_btc">% change from ATH (BTC)</div>
-                    <div class="cell t-team" data-toggle="tooltip" data-placement="top" title="" data-original-title="Team" *ngIf="selectcol.team">Team</div>
-                    <div class="cell t-theory" data-toggle="tooltip" data-placement="top" title="" data-original-title="Theory" *ngIf="selectcol.theory">Theory</div>
-                    <div class="cell t-tech" data-toggle="tooltip" data-placement="top" title="" data-original-title="Technology" *ngIf="selectcol.technology">Tech.</div>
-                    <div class="cell t-traction" data-toggle="tooltip" data-placement="top" title="" data-original-title="Traction" *ngIf="selectcol.traction">Traction</div>
-                    <div class="cell t-tam" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tam" *ngIf="selectcol.tam">TAM</div>
-                    <div class="cell t-token" data-toggle="tooltip" data-placement="top" title="" data-original-title="Token" *ngIf="selectcol.token">Token</div>
-                    <div class="cell t-timing" data-toggle="tooltip" data-placement="top" title="" data-original-title="Timing" *ngIf="selectcol.timing">Timing</div>
-                    <div class="cell t-tran" data-toggle="tooltip" data-placement="top" title="" data-original-title="Trasformative" *ngIf="selectcol.trasformative">Tran.</div>
-                    <div class="cell t-gq" *ngIf="selectcol.gq">GQ
+                      *ngIf="selectcol.circu_supp" (click)="orderingColumn('circulating_supply','asc')">Circulating Supply</div>
+                    <div class="cell t-max_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Max Supply" *ngIf="selectcol.max_supp" (click)="orderingColumn('max_supply','asc')">Max Supply</div>
+                    <div class="cell t-tot_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Total Supply" *ngIf="selectcol.tot_supp" (click)="orderingColumn('total_supply','asc')">Total Supply</div>
+                    <div class="cell t-age" data-toggle="tooltip" data-placement="top" title="" data-original-title="Age" *ngIf="selectcol.age" (click)="orderingColumn('age','asc')">Age</div>
+                    <div class="cell t-all_time_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time USD" *ngIf="selectcol.all_time_usd" (click)="orderingColumn('alltime_high_usd','asc')">ATH(USD)</div>
+                    <div class="cell t-all_time_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time BTC" *ngIf="selectcol.all_time_btc" (click)="orderingColumn('alltime_high_btc','asc')">ATH(BTC)</div>
+                    <div class="cell t-change_ath" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH" *ngIf="selectcol.change_ath" >% change from ATH</div>
+                    <div class="cell t-change_ath_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH (BTC)" *ngIf="selectcol.change_ath_btc" >% change from ATH (BTC)</div>
+                    <div class="cell t-team" data-toggle="tooltip" data-placement="top" title="" data-original-title="Team" *ngIf="selectcol.team" (click)="orderingColumn('team','asc')">Team</div>
+                    <div class="cell t-theory" data-toggle="tooltip" data-placement="top" title="" data-original-title="Theory" *ngIf="selectcol.theory" (click)="orderingColumn('theory','asc')">Theory</div>
+                    <div class="cell t-tech" data-toggle="tooltip" data-placement="top" title="" data-original-title="Technology" *ngIf="selectcol.technology" (click)="orderingColumn('technology','asc')">Tech.</div>
+                    <div class="cell t-traction" data-toggle="tooltip" data-placement="top" title="" data-original-title="Traction" *ngIf="selectcol.traction" (click)="orderingColumn('traction','asc')">Traction</div>
+                    <div class="cell t-tam" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tam" *ngIf="selectcol.tam" (click)="orderingColumn('tam','asc')">TAM</div>
+                    <div class="cell t-token" data-toggle="tooltip" data-placement="top" title="" data-original-title="Token" *ngIf="selectcol.token" (click)="orderingColumn('token','asc')">Token</div>
+                    <div class="cell t-timing" data-toggle="tooltip" data-placement="top" title="" data-original-title="Timing" *ngIf="selectcol.timing" (click)="orderingColumn('timing','asc')">Timing</div>
+                    <div class="cell t-tran" data-toggle="tooltip" data-placement="top" title="" data-original-title="Trasformative" *ngIf="selectcol.trasformative" (click)="orderingColumn('transformative','asc')">Tran.</div>
+                    <div class="cell t-gq" *ngIf="selectcol.gq" (click)="orderingColumn('algo_score','asc')">GQ
                       <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="" data-original-title="GQ"></i>
                     </div>
                     <div class="cell t-ac_btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Action Button" *ngIf="selectcol.ac_btn">Action Button</div>

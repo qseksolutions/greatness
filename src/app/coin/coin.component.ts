@@ -31,6 +31,8 @@ export class CoinComponent implements OnInit {
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private http: Http, private titleService: Title, private datePipe: DatePipe, private meta: Meta) {
     this.toasterService = toasterService;
+    localStorage.setItem('sorton', null);
+    localStorage.setItem('sortby', null);
   }
 
   ngOnInit() {

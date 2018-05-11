@@ -38,9 +38,22 @@ export class CategoryComponent implements OnInit {
   favorites: any = [];
   i: any = 0;
   start: any = 0;
+  sorton: any;
+  sortby: any;
   displaycolumn: any = ['rank', 'name', 'follow', 'price_usd', 'graph_7d', 'mc_usd', 'team', 'theory', 'technology', 'traction', 'tam', 'token', 'timing', 'trasformative', 'gq'];
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
+    this.sorton = localStorage.getItem('sorton');
+    this.sortby = localStorage.getItem('sortby');
+    if (this.sorton === null || this.sorton === 'null') {
+      localStorage.setItem('sorton', 'rank');
+      this.sorton = localStorage.getItem('sorton');
+    }
+    if (this.sortby === null || this.sortby === 'null') {
+      localStorage.setItem('sortby', 'asc');
+      this.sortby = localStorage.getItem('sortby');
+    }
+
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     }
@@ -183,12 +196,37 @@ export class CategoryComponent implements OnInit {
     this.gettabledata(this.start);
   }
 
+  orderingColumn(column, order) {
+    this.graphLoad = 0;
+    this.sorton = localStorage.getItem('sorton');
+    this.sortby = localStorage.getItem('sortby');
+    /* alert(this.sorton + ' -> ' + column);
+    alert(typeof (this.sorton) + ' -> ' + typeof(column));
+    alert(this.sortby + ' -> ' + order); */
+    if (this.sorton === column) {
+      if (this.sortby === 'asc') {
+        localStorage.setItem('sortby', 'desc');
+        // this.sortby = localStorage.getItem('sortby');
+        // alert('if ' + this.sortby);
+      } else {
+        localStorage.setItem('sortby', 'asc');
+        // alert('else ' + this.sortby);
+      }
+    } else {
+      localStorage.setItem('sorton', column);
+      localStorage.setItem('sortby', order);
+    }
+    this.gettabledata(this.start);
+  }
+
   gettabledata(start) {
+    this.sorton = localStorage.getItem('sorton');
+    this.sortby = localStorage.getItem('sortby');
     this.showloader = true;
     let curl = window.location.pathname;
     let spliturl = curl.split('/');
     let category = spliturl[2];
-    this.coinservice.getcategorywisedata(category, start).subscribe(responce => {
+    this.coinservice.getcategorywisedata(category, start, this.sorton, this.sortby).subscribe(responce => {
       console.log(responce);
       if (responce.status === true) {
         this.showloader = false;
@@ -197,6 +235,33 @@ export class CategoryComponent implements OnInit {
            this.graphLoad = 1;
           $('.sparkliness1').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#00940b', height: 30, fillColor: '#ffffff' });
           $('.sparkliness2').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#ef0000', height: 30, fillColor: '#ffffff' });
+
+           /**************** scroll script ***************** */
+           let maintable = $('.main-table').width();
+           let fixedcolumn = $('.fixed-column').width();
+           let fixedwidth = maintable - fixedcolumn;
+           $('.scroll-viewport').css('width', fixedwidth + 'px');
+
+           $(window).scroll(function () {
+             let sticky = $('.header-fix'),
+               scroll = $(window).scrollTop();
+             let scrolldiv = $('.scrollable-row');
+             if (scroll >= 556) {
+               scrolldiv.addClass('fixed-scroll');
+               sticky.addClass('fixed-header');
+             }
+             else {
+               scrolldiv.removeClass('fixed-scroll');
+               sticky.removeClass('fixed-header');
+             }
+           });
+
+           $('.scroll-viewport').on('scroll', function () {
+             var left = $(this).scrollLeft();
+             var left = left;
+             $('.scrollable-row').css('left', -left);
+           });
+          /**************** scroll script ***************** */
         }, 1000);
         let totalpage = responce.totalCount / 50;
         this.pagecount = Math.ceil(totalpage);

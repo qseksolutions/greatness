@@ -38,6 +38,7 @@ export class HomeComponent implements OnInit {
   displaycolumn: any = ['rank', 'name', 'follow', 'price_usd', 'graph_7d', 'mc_usd', 'team', 'theory', 'technology', 'traction', 'tam', 'token', 'timing', 'trasformative', 'gq'];
   
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe ) {
+
       this.toasterService = toasterService;
       // localStorage.removeItem('columns');
       // localStorage.removeItem('favorites');
@@ -176,6 +177,13 @@ export class HomeComponent implements OnInit {
     this.cuurentpage = this.cuurentpage - 1;
     this.gettabledata(this.start);
   }
+  
+  gotopage(page : number) {
+    let start = page - 1;
+    this.start = start * 50;
+    this.cuurentpage = page;
+    this.gettabledata(this.start);
+  }
 
   orderingColumn(column, order) {
     this.graphLoad = 0;
@@ -215,6 +223,33 @@ export class HomeComponent implements OnInit {
           this.graphLoad = 1;
           $('.sparkliness1').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#00940b', height: 30, fillColor: '#ffffff' });
           $('.sparkliness2').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#ef0000', height: 30, fillColor: '#ffffff' });
+
+          /**************** scroll script ***************** */
+          let maintable = $('.main-table').width();
+          let fixedcolumn = $('.fixed-column').width();
+          let fixedwidth = maintable - fixedcolumn;
+          $('.scroll-viewport').css('width', fixedwidth + 'px');
+
+          $(window).scroll(function () {
+            let sticky = $('.header-fix'),
+              scroll = $(window).scrollTop();
+            let scrolldiv = $('.scrollable-row');
+            if (scroll >= 556) {
+              scrolldiv.addClass('fixed-scroll');
+              sticky.addClass('fixed-header');
+            }
+            else {
+              scrolldiv.removeClass('fixed-scroll');
+              sticky.removeClass('fixed-header');
+            }
+          });
+
+          $('.scroll-viewport').on('scroll', function () {
+            var left = $(this).scrollLeft();
+            var left = left;
+            $('.scrollable-row').css('left', -left);
+          });
+          /**************** scroll script ***************** */
         }, 1000);
       }
     });
