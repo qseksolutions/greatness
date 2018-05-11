@@ -107,6 +107,10 @@ a , a:hover , a:focus{
 
 }
 
+.hidden {
+    display: none;
+
+}
 
 /*---
 	 default
@@ -937,7 +941,7 @@ svg{
 .coin-symbol {
     padding-right: 10px;
     width: 30px;
-    height: 30px;
+    height: 20px;
 }
 
 .coin-symbol img{
@@ -1814,6 +1818,22 @@ svg{
     font-weight: 500;
 }
 
+
+.grid-item { 
+      width: 23.39%;
+      
+}
+
+.grid-item:after{
+    content: "";
+    clear: both;
+    overflow: hidden;
+}
+
+.card-fix{
+    height: 395px;
+
+}
 
 /*---
      single-page
