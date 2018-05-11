@@ -16,11 +16,11 @@ import { Chart } from 'angular-highcharts';
   templateUrl: './coin.component.html',
   styleUrls: ['./coin.component.css'],
   providers: [CoinService, DatePipe],
+  styles: [ ` .masonry-item { width: 200px; } ` ]
 })
 export class CoinComponent implements OnInit {
 
   private toasterService: ToasterService;
-  
 
   chart: StockChart;
   spiderchart: Chart;
