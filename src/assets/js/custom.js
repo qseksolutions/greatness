@@ -1,6 +1,14 @@
 
 $('.selectpicker').select2();
 
+setTimeout(() => {
+  $('.grid').masonry({
+    // options
+    itemSelector: '.grid-item',
+    gutter: 30
+  });
+}, 2000);
+
 // $('.dark-theme-btn').on('click', function() {
 //   $('body').addClass('dark-theme');
 //   return false;
