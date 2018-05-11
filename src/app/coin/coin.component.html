@@ -78,8 +78,9 @@
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="nav-home-tab">
                             <div class="tab-box">
-                                <div class="row">
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                <div class="row grid">
+                                    <div class="gutter-sizer"></div>
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 grid-item">
                                         <div class="card">
                                             <div class="card-detaile">
                                                 <h3 class="card-title">Chart</h3>
@@ -90,7 +91,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 grid-item">
                                         <div class="card">
                                             <div class="card-detaile">
                                                 <h3 class="card-title">GQ: {{coin.algo_score | number : '1.0'}}(#19)</h3>
@@ -101,7 +102,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 grid-item">
                                         <div class="row">
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                 <div class="card">
@@ -198,12 +199,78 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                                    <div class="col-12 col-sm-12 col-md-6 col-lg-6 grid-item">
                                         <div class="row">
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                 <div class="card">
                                                     <div class="card-detaile">
                                                         <h3 class="card-title">Technology</h3>
+                                                    </div>
+
+                                                    <div class="single-item-box">
+                                                        <ul class="list-unstyled">
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <h5 class="item-field-title">Product Strength</h5>
+
+                                                                    <span class="item-field-pro">Points</span>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>Product development status (i.e. stage)</h6>
+                                                                    </div>
+                                                                    <span class="item-point">50</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>Have they open sourced their code?</h6>
+                                                                    </div>
+                                                                    <span class="item-point">20</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>Have they published a Product roadmap?</h6>
+                                                                    </div>
+                                                                    <span class="item-point">5</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>Is their Product roadmap up to date?</h6>
+                                                                    </div>
+                                                                    <span class="item-point">5</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>Product age (Today’s date - Release date)</h6>
+                                                                    </div>
+                                                                    <span class="item-point">10</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>Have they published a Whitepaper?</h6>
+                                                                    </div>
+                                                                    <span class="item-point">10</span>
+                                                                </div>
+                                                            </li>
+
+                                                        </ul>
                                                     </div>
                                                 </div>
                                             </div>
@@ -211,7 +278,64 @@
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-6">
                                                 <div class="card">
                                                     <div class="card-detaile">
-                                                        <h3 class="card-title">Traction</h3>
+                                                        <h3 class="card-title">Tokan</h3>
+                                                    </div>
+
+                                                    <div class="single-item-box">
+                                                        <ul class="list-unstyled">
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <h5 class="item-field-title">Coin Strength</h5>
+
+                                                                    <span class="item-field-pro">Points</span>
+                                                                </div>
+                                                            </li>
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>Transactions per second compared to other coins</h6>
+                                                                    </div>
+                                                                    <span class="item-point">1</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>What is their coin emission rate? Is the coin"s inflation under control?</h6>
+                                                                    </div>
+                                                                    <span class="item-point">30</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>Is the coin among the top traded coins for the past 3 months in terms of transaction volumes?</h6>
+                                                                    </div>
+                                                                    <span class="item-point">17</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>Is the coin among the top traded coins for the past 3 months in terms of market capitalization?</h6>
+                                                                    </div>
+                                                                    <span class="item-point">25</span>
+                                                                </div>
+                                                            </li>
+
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>Has the coin outperformed the rest of the market trend since it started trading?</h6>
+                                                                    </div>
+                                                                    <span class="item-point">0</span>
+                                                                </div>
+                                                            </li>
+
+                                                        </ul>
                                                     </div>
                                                 </div>
                                             </div>

@@ -899,6 +899,7 @@ svg{
     color: #000000;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: left;
 }
 
 .crown-img {
@@ -1636,20 +1637,15 @@ svg{
 }
 
 .team-box,
-.token-box{
+.token-box,
+.single-item-box {
     padding: 0px 15px;
-}
-
-.token-child{
-    -ms-flex-pack: justify;
-    justify-content: space-between;
 
 }
 
 .token-child h6{
     margin-bottom: 0px;
 }
-
 
 .team-avtar {
     width: 25%;
@@ -1666,7 +1662,8 @@ svg{
 }
 
 .team-child ,
-.token-child{
+.token-child,
+.item-child{
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
@@ -1678,13 +1675,15 @@ svg{
 
 }
 
-.token-child{
+.token-child,
+.item-child{
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
 
 .team-box li:last-child .team-child,
-.token-box li:last-child .token-child{
+.token-box li:last-child .token-child,
+.single-item-box li:last-child .item-child{
     border-bottom:none;
     padding-bottom: 0px; 
 
@@ -1706,6 +1705,48 @@ svg{
     font-weight: 500;
     color: #333333;
     font-size: 14px;
+
+}
+
+.item-head {
+    width: 80%;
+
+}
+
+.item-head h6 {
+    margin-bottom: 0px;
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+.item-point {
+    white-space: nowrap;
+
+}
+
+.item-point {
+    background-color: #00362d;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 12px;
+
+}
+
+.item-field-title {
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #000000;
+
+}
+
+.item-field-pro {
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
 
 }
 /*---
