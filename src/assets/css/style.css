@@ -107,10 +107,6 @@ a , a:hover , a:focus{
 
 }
 
-.hidden {
-    display: none;
-
-}
 
 /*---
 	 default
@@ -1989,6 +1985,12 @@ span.footer_logo {
         border-right: none;
     }
 }
+
+.hidden {
+    display: none;
+
+}
+
 
 @media (max-width: 575.98px) {
 
