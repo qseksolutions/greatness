@@ -23,7 +23,7 @@ my-app{
     height: 100vh;
 }
 
-.ng-star-inserted {
+app-header ~ .ng-star-inserted {
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
 
@@ -107,6 +107,10 @@ a , a:hover , a:focus{
 
 }
 
+.hidden {
+    display: none;
+
+}
 
 /*---
 	 default
@@ -658,6 +662,60 @@ li:hover .dropdown-menu {
     margin-right: 3px;
 
 }
+
+.home-search .dropdown-menu {
+    max-width: 280px;
+    max-height: 325px;
+    min-width: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.home-search .dropdown-menu .dropdown-item {
+    padding: 5px;
+
+}
+
+.home-search .dropdown-menu .dropdown-item a{
+    color: #000000;
+
+}
+
+.home-search .dropdown-menu .dropdown-item a img{
+    height: 25px;
+
+}
+
+.home-search  .dropdown-item.active, 
+.home-search .dropdown-item:active{
+    background-color: #04B290;
+    color: #ffffff;
+
+}
+
+.home-search  .dropdown-item.active a, 
+.home-search .dropdown-item:active a{
+    color: #ffffff;
+
+}
+
+.home-search .dropdown-menu::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.15);
+	background-color: #F5F5F5;
+}
+
+.home-search .dropdown-menu::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.home-search .dropdown-menu::-webkit-scrollbar-thumb
+{
+	background-color: #00362D;
+    border-radius: 5px
+}
 /*---
 	 header
   			-end---*/
@@ -883,7 +941,11 @@ svg{
 .coin-symbol {
     padding-right: 10px;
     width: 30px;
-    height: auto;
+    height: 20px;
+}
+
+.coin-symbol img{
+    height: 100%;
 }
 
 .coin-name-text {
@@ -954,8 +1016,18 @@ svg{
     cursor: pointer;
     font-weight: 500;
     text-align: center;
+    position: relative;
 
 }
+
+.tablearrow {
+    position: absolute;
+    top: 5px;
+    right: 4px;
+    font-size: 12px;
+
+}
+
 .t-count,
 .t-symbol,
 .t-name,
@@ -1104,14 +1176,14 @@ svg{
 }
 
 .t-change_ath {
-    min-width: 150px;
-    max-width: 150px;
+    min-width: 90px;
+    max-width: 90px;
 
 }
 
 .t-change_ath_btc {
-    min-width: 190px;
-    max-width: 190px;
+    min-width: 100px;
+    max-width: 100px;
 
 }
 
@@ -1737,32 +1809,32 @@ svg{
 
 }
 
-.item-field-title {
+.item-head p {
     margin-bottom: 0;
-    font-size: 18px;
-    color: #000000;
-
-}
-
-.item-field-pro {
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 5px;
+    color: #555555;
     font-weight: 500;
-    font-size: 16px;
-    color: #000000;
+}
+
+
+.grid-item { 
+      width: 23.39%;
+      
+}
+
+.grid-item:after{
+    content: "";
+    clear: both;
+    overflow: hidden;
+}
+
+.card-fix{
+    height: 395px;
 
 }
 
-.grid:after {
-  content: '';
-  display: block;
-  clear: both;
-
-}
-
-.gutter-sizer { width: 4%; }
-
-.grid-sizer {
-  width: 22%;
-}
 /*---
      single-page
                -end---*/
