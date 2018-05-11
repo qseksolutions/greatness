@@ -234,7 +234,9 @@ export class HomeComponent implements OnInit {
             let sticky = $('.header-fix'),
               scroll = $(window).scrollTop();
             let scrolldiv = $('.scrollable-row');
-            if (scroll >= 556) {
+            let mainheight = $('.container-wrapper').height();
+            let fixedscroll = mainheight + 78
+            if (scroll >= fixedscroll) {
               scrolldiv.addClass('fixed-scroll');
               sticky.addClass('fixed-header');
             }

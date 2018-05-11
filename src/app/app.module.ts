@@ -23,6 +23,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { CoinComponent } from './coin/coin.component';
 import { CategoryComponent } from './category/category.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 export function highchartsModules() {
     return [ highstock, exporting, more ];
@@ -45,6 +46,11 @@ export function highchartsModules() {
         path: 'category/:any',
         component: CategoryComponent,
         pathMatch: 'full'
+      },
+      {
+        path: 'favorite',
+        component: FavoritesComponent,
+        pathMatch: 'full'
       }
     ]),
     BrowserModule,
@@ -64,7 +70,8 @@ export function highchartsModules() {
     HomeComponent,
     CoinComponent,
     TimeAgoPipe,
-    CategoryComponent
+    CategoryComponent,
+    FavoritesComponent
   ],
   providers: [HttpClient,TranslateModule,
     { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules }

@@ -12,12 +12,12 @@ import { Title, Meta } from '@angular/platform-browser';
 declare var $;
 
 @Component({
-  selector: 'app-category',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css'],
+  selector: 'app-favorites',
+  templateUrl: './favorites.component.html',
+  styleUrls: ['./favorites.component.css'],
   providers: [CoinService, DecimalPipe],
 })
-export class CategoryComponent implements OnInit {
+export class FavoritesComponent implements OnInit {
 
   private toasterService: ToasterService;
   public base_url: any = myGlobals.base_url;
@@ -28,10 +28,7 @@ export class CategoryComponent implements OnInit {
   prevpage: any = 0;
   pagecount: any = 0;
   showloader: any;
-  categorylist: any;
-  categorydata: any;
   graphLoad: any = 0;
-  totalcategory: any;
   selectcol: any = [];
   tempcolumn: any = [];
   favoritedata: any = [];
@@ -173,13 +170,6 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.coinservice.getcategorylist().subscribe(resData => {
-      // console.log(resData);
-      if (resData.status === true) {
-        this.categorylist = resData.data;
-        this.totalcategory = resData.data.length;
-      }
-    });
     this.gettabledata(this.start);
     this.cuurentpage = 1;
   }
@@ -189,7 +179,7 @@ export class CategoryComponent implements OnInit {
     this.cuurentpage = this.cuurentpage + 1;
     this.gettabledata(this.start);
   }
-  
+
   gotoprevpage() {
     this.start = this.start - 50;
     this.cuurentpage = this.cuurentpage - 1;
@@ -233,41 +223,41 @@ export class CategoryComponent implements OnInit {
     let curl = window.location.pathname;
     let spliturl = curl.split('/');
     let category = spliturl[2];
-    this.coinservice.getcategorywisedata(category, start, this.sorton, this.sortby).subscribe(responce => {
+    this.coinservice.getcategorywisedata('digital-currency', start, this.sorton, this.sortby).subscribe(responce => {
       console.log(responce);
       if (responce.status === true) {
         this.showloader = false;
         this.coindata = responce.data;
-         setTimeout(() => {
-           this.graphLoad = 1;
+        setTimeout(() => {
+          this.graphLoad = 1;
           $('.sparkliness1').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#00940b', height: 30, fillColor: '#ffffff' });
           $('.sparkliness2').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#ef0000', height: 30, fillColor: '#ffffff' });
 
-           /**************** scroll script ***************** */
-           let maintable = $('.main-table').width();
-           let fixedcolumn = $('.fixed-column').width();
-           let fixedwidth = maintable - fixedcolumn;
-           $('.scroll-viewport').css('width', fixedwidth + 'px');
+          /**************** scroll script ***************** */
+          let maintable = $('.main-table').width();
+          let fixedcolumn = $('.fixed-column').width();
+          let fixedwidth = maintable - fixedcolumn;
+          $('.scroll-viewport').css('width', fixedwidth + 'px');
 
-           $(window).scroll(function () {
-             let sticky = $('.header-fix'),
-               scroll = $(window).scrollTop();
-             let scrolldiv = $('.scrollable-row');
-             if (scroll >= 324) {
-               scrolldiv.addClass('fixed-scroll');
-               sticky.addClass('fixed-header');
-             }
-             else {
-               scrolldiv.removeClass('fixed-scroll');
-               sticky.removeClass('fixed-header');
-             }
-           });
+          $(window).scroll(function () {
+            let sticky = $('.header-fix'),
+              scroll = $(window).scrollTop();
+            let scrolldiv = $('.scrollable-row');
+            if (scroll >= 225) {
+              scrolldiv.addClass('fixed-scroll');
+              sticky.addClass('fixed-header');
+            }
+            else {
+              scrolldiv.removeClass('fixed-scroll');
+              sticky.removeClass('fixed-header');
+            }
+          });
 
-           $('.scroll-viewport').on('scroll', function () {
-             var left = $(this).scrollLeft();
-             var left = left;
-             $('.scrollable-row').css('left', -left);
-           });
+          $('.scroll-viewport').on('scroll', function () {
+            var left = $(this).scrollLeft();
+            var left = left;
+            $('.scrollable-row').css('left', -left);
+          });
           /**************** scroll script ***************** */
         }, 1000);
         let totalpage = responce.totalCount / 50;
@@ -289,12 +279,6 @@ export class CategoryComponent implements OnInit {
           }
         }); */
       }
-     
-    });
-
-    $(document).on('click', '.showmore', function () {
-      $('.catlabel').removeClass('hidden');
-      $('.showmore').addClass('hidden');
     });
   }
 
