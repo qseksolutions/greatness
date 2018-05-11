@@ -23,9 +23,16 @@ my-app{
     height: 100vh;
 }
 
-app-header {
+.ng-star-inserted {
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
+
+}
+
+app-footer.ng-star-inserted {
+    -ms-flex: unset;
+    flex: unset;
+    flex-shrink: 1;
 
 }
 
@@ -875,7 +882,7 @@ svg{
 
 .coin-symbol {
     padding-right: 10px;
-    width: 35px;
+    width: 30px;
     height: auto;
 }
 
@@ -887,7 +894,7 @@ svg{
 
 .coin-name-text h6 {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 12px;
     margin-bottom: 0px;
     color: #000000;
     overflow: hidden;
@@ -944,6 +951,7 @@ svg{
 .main-table .table .table-row .cell{
     background-color: #5e696f;
     cursor: pointer;
+    font-weight: 500;
 
 }
 .t-count,
@@ -1156,7 +1164,7 @@ svg{
     margin-right: auto;
     height: 100%;
     background-color: rgba(4, 178, 144, 0.5);
-    min-height: 50px;
+    min-height: 44px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-align: center;
@@ -1187,10 +1195,7 @@ svg{
     height: 45px;
     padding-left: 10px;
     padding-right: 10px;
-}
-
-.table-body .cell{
-    height: 52px;
+    font-size: 13px;
 }
 
 .fixed-header{
