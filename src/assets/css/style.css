@@ -11,17 +11,19 @@ body{
 	background-color : #ffffff;
     color: #000000;
     font-weight: 400;
-    display: -webkit-box;
+}
+
+my-app{
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-
+    height: 100vh;
 }
 
-.container-wrapper {
+app-header {
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
 
