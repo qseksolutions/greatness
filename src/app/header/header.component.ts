@@ -28,6 +28,10 @@ export class HeaderComponent implements OnInit {
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService) {
     this.toasterService = toasterService;
 
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    }
+
     let curl = window.location.pathname;
     let spliturl = curl.split('/');
     if (spliturl[1] != '') {
@@ -65,7 +69,38 @@ export class HeaderComponent implements OnInit {
     text$
       .debounceTime(200)
       .map(term => term === '' ? []
-        : this.allcoin.filter(v => (v.name.toLowerCase().indexOf(term.toLowerCase()) || v.symbol.toLowerCase().indexOf(term.toLowerCase())) > -1).slice(0, 10))
+        : this.allcoin.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
 
   formattersearch = (x: { name: string, symbol: string }) => x.name + ' (' + x.symbol + ')';
+
+  keyDownFunction(event) {
+    if (event.keyCode === 13) {
+      this.router.navigate(['/coins/', this.model.coin_id]);
+    }
+  }
+  
+  isImage(src) {
+    const deferred = defer();
+    const image = new Image();
+    image.onerror = function () {
+      deferred.resolve(false);
+    };
+    image.onload = function () {
+      deferred.resolve(true);
+    };
+    image.src = src;
+    return deferred.promise;
+  }
+
+  errorHandler(event, name) {
+    const imgurl = 'assets/images/currency-25/' + name.toLowerCase() + '.png';
+    this.isImage(imgurl).then(function (test) {
+      // tslint:disable-next-line:triple-equals
+      if (test == true) {
+        return event.target.src = imgurl;
+      } else {
+        return event.target.src = 'assets/images/currency-25/not-found-25.png';
+      }
+    });
+  }
 }
