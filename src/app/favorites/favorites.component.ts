@@ -32,7 +32,9 @@ export class FavoritesComponent implements OnInit {
   selectcol: any = [];
   tempcolumn: any = [];
   favoritedata: any = [];
+  tempfavoritedata: any = [];
   favorites: any = [];
+  favoritestring: any = [];  
   i: any = 0;
   start: any = 0;
   sorton: any;
@@ -40,6 +42,8 @@ export class FavoritesComponent implements OnInit {
   displaycolumn: any = ['rank', 'name', 'follow', 'price_usd', 'graph_7d', 'mc_usd', 'team', 'theory', 'technology', 'traction', 'tam', 'token', 'timing', 'trasformative', 'gq'];
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
+    localStorage.setItem('sorton', null);
+    localStorage.setItem('sortby', null);
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
     if (this.sorton === null || this.sorton === 'null') {
@@ -51,9 +55,6 @@ export class FavoritesComponent implements OnInit {
       this.sortby = localStorage.getItem('sortby');
     }
 
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
-      return false;
-    }
     this.toasterService = toasterService;
     // localStorage.removeItem('columns');
     // localStorage.removeItem('favorites');
@@ -67,18 +68,6 @@ export class FavoritesComponent implements OnInit {
       temparraydata[val] = val;
     });
     this.selectcol = temparraydata;
-    let favoritecoin = JSON.parse(localStorage.getItem('favorites'));
-    if (favoritecoin != null || favoritecoin == '') {
-      let tempfavarray = [];
-      favoritecoin.map(function (val, k) {
-        tempfavarray[val] = val;
-      });
-      this.favoritedata = tempfavarray;
-    }
-  }
-
-  gotocategory(category) {
-    this.router.navigate(['/category/', category]);
   }
 
   addremovecol(column) {
@@ -167,66 +156,56 @@ export class FavoritesComponent implements OnInit {
       let tempfavoritescoin = JSON.parse(localStorage.getItem('favorites'));
       $('.img_' + symbol).attr('src', '../../assets/images/crown-fill.svg')
     }
+    this.gettabledata();
   }
 
   ngOnInit() {
-    this.gettabledata(this.start);
-    this.cuurentpage = 1;
-  }
-
-  gotonextpage() {
-    this.start = this.start + 50;
-    this.cuurentpage = this.cuurentpage + 1;
-    this.gettabledata(this.start);
-  }
-
-  gotoprevpage() {
-    this.start = this.start - 50;
-    this.cuurentpage = this.cuurentpage - 1;
-    this.gettabledata(this.start);
-  }
-
-  gotopage(page: number) {
-    let start = page - 1;
-    this.start = start * 50;
-    this.cuurentpage = page;
-    this.gettabledata(this.start);
+    this.gettabledata();
   }
 
   orderingColumn(column, order) {
     this.graphLoad = 0;
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
-    /* alert(this.sorton + ' -> ' + column);
-    alert(typeof (this.sorton) + ' -> ' + typeof(column));
-    alert(this.sortby + ' -> ' + order); */
     if (this.sorton === column) {
       if (this.sortby === 'asc') {
         localStorage.setItem('sortby', 'desc');
-        // this.sortby = localStorage.getItem('sortby');
-        // alert('if ' + this.sortby);
       } else {
         localStorage.setItem('sortby', 'asc');
-        // alert('else ' + this.sortby);
       }
     } else {
       localStorage.setItem('sorton', column);
       localStorage.setItem('sortby', order);
     }
-    this.gettabledata(this.start);
+    this.gettabledata();
   }
 
-  gettabledata(start) {
+  gettabledata() {
+    this.showloader = true;
+    let favoritecoin = JSON.parse(localStorage.getItem('favorites'));
+    if (favoritecoin != null || favoritecoin == '') {
+      let tempfavarray = [];
+      let favoritestring = '';
+      let totalfavorites = favoritecoin.length - 1;
+      favoritecoin.map(function (val, k) {
+        tempfavarray[val] = val;
+        if (totalfavorites == k) {
+          favoritestring += "'" + val + "'";
+        }
+        else {
+          favoritestring += "'" + val + "',";
+        }
+      });
+      this.favoritedata = tempfavarray;
+      this.favoritestring = favoritestring;
+    }
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
-    this.showloader = true;
-    let curl = window.location.pathname;
-    let spliturl = curl.split('/');
-    let category = spliturl[2];
-    this.coinservice.getcategorywisedata('digital-currency', start, this.sorton, this.sortby).subscribe(responce => {
+    this.coinservice.getfavoritelist(this.favoritestring, this.sorton, this.sortby).subscribe(responce => {
       console.log(responce);
       if (responce.status === true) {
         this.showloader = false;
+        $('.scrollable-row').css('left', '0');
         this.coindata = responce.data;
         setTimeout(() => {
           this.graphLoad = 1;
@@ -262,22 +241,6 @@ export class FavoritesComponent implements OnInit {
         }, 1000);
         let totalpage = responce.totalCount / 50;
         this.pagecount = Math.ceil(totalpage);
-        /* this.coinservice.getalldatafromjson().subscribe(resData => {
-          this.categorydata = responce.data;
-          if (resData.status === true) {
-            let temparray = [];
-            let j = 0;
-            for (let i = 0; i < resData.data.length; i++) {
-              if (this.categorydata.find(item => item.coin_id == resData.data[i].coin_id)) {
-                temparray[j] = resData.data[i];
-                j++;
-              }
-            }
-            if (temparray != null && temparray.length > 0) {
-              this.coindata = temparray;
-            }
-          }
-        }); */
       }
     });
   }

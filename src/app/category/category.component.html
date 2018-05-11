@@ -44,57 +44,273 @@
             <div class="table">
               <div class="header-fix">
                 <div class="table-row fixed-row">
-                  <div class="cell t-count" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rank" *ngIf="selectcol.rank" (click)="orderingColumn('rank','desc')">#</div>
-                  <div class="cell t-name" data-toggle="tooltip" data-placement="top" title="" data-original-title="Name" *ngIf="selectcol.name" (click)="orderingColumn('name','desc')">Name</div>
-                  <div class="cell t-coin-img" data-toggle="tooltip" data-placement="top" title="" data-original-title="Favorites" *ngIf="selectcol.follow">
+                  <div class="cell pointer t-count" data-toggle="tooltip" data-placement="top" title="" data-original-title="Rank" *ngIf="selectcol.rank"
+                    (click)="orderingColumn('rank','desc')">
+                    #
+                    <span class="tablearrow" *ngIf="sorton == 'rank'">
+                      <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                      <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                    </span>
+                  </div>
+                  <div class="cell pointer t-name pointer" data-toggle="tooltip" data-placement="top" title="" data-original-title="Name" *ngIf="selectcol.name"
+                    (click)="orderingColumn('name','desc')">
+                    Name
+                    <span class="tablearrow" *ngIf="sorton == 'name'">
+                      <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                      <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                    </span>
+                  </div>
+                  <div class="cell pointer t-coin-img" data-toggle="tooltip" data-placement="top" title="" data-original-title="Favorites"
+                    *ngIf="selectcol.follow">
                     <span class="crown-img">
                       <img src="../../assets/images/crown-white.svg">
                     </span>
                   </div>
                 </div>
-
-                <div class="table-row scrollable-row notfixed-header">
+              
+                <div class="table-row scrollable-row">
                   <div>
-                    <div class="cell t-symbol" data-toggle="tooltip" data-placement="top" title="" data-original-title="Symbol" *ngIf="selectcol.symbol" (click)="orderingColumn('symbol','desc')">Symbol</div>
-                    <div class="cell t-price" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price" *ngIf="selectcol.price_usd" (click)="orderingColumn('price_usd','desc')">Price</div>
-                    <div class="cell t-price_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price BTC" *ngIf="selectcol.price_btc" (click)="orderingColumn('price_btc','desc')">Price BTC</div>
-                    <div class="cell t-change_1h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 1H%" *ngIf="selectcol.change_1h" (click)="orderingColumn('change_1h','desc')">1H(%)</div>
-                    <div class="cell t-change_24h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 24H%" *ngIf="selectcol.change_24h" (click)="orderingColumn('change_24h','desc')">24H(%)</div>
-                    <div class="cell t-change_7d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 7D%" *ngIf="selectcol.change_7d" (click)="orderingColumn('change_7d','desc')">7D(%)</div>
-                    <div class="cell t-change_30d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 30D%" *ngIf="selectcol.change_30d" (click)="orderingColumn('change_30d','desc')">30D(%)</div>
-                    <div class="cell t-one_year" data-toggle="tooltip" data-placement="top" title="" data-original-title="One year%" *ngIf="selectcol.one_year" (click)="orderingColumn('change_1y','desc')">1Y(%)</div>
-                    <div class="cell t-all_time" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time%" *ngIf="selectcol.all_time" (click)="orderingColumn('change_all','desc')">All Time(%)</div>
-                    <div class="cell t-7dprice" data-toggle="tooltip" data-placement="top" title="" data-original-title="7 Day Price" *ngIf="selectcol.graph_7d">7 Day Chart</div>
-                    <div class="cell t-mrk-cap" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap" *ngIf="selectcol.mc_usd" (click)="orderingColumn('marketcap_usd','desc')">Mkt. Cap</div>
-                    <div class="cell t-mrk-cap_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap in BTC" *ngIf="selectcol.mc_btc" (click)="orderingColumn('marketcap_btc','desc')">Mkt. Cap BTC</div>
-                    <div class="cell t-vol_24h_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="Volumn 24H USD"
-                      *ngIf="selectcol.vol_24h_usd" (click)="orderingColumn('volume24h_usd','desc')">Volumn 24H</div>
-                    <div class="cell t-vol_24h_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Volumn 24H BTC"
-                      *ngIf="selectcol.vol_24h_btc" (click)="orderingColumn('volume24h_btc','desc')">Vol. 24H BTC</div>
-                    <div class="cell t-circu_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Circulating Supply"
-                      *ngIf="selectcol.circu_supp" (click)="orderingColumn('circulating_supply','desc')">Circulating Supply</div>
-                    <div class="cell t-max_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Max Supply" *ngIf="selectcol.max_supp" (click)="orderingColumn('max_supply','desc')">Max Supply</div>
-                    <div class="cell t-tot_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Total Supply" *ngIf="selectcol.tot_supp" (click)="orderingColumn('total_supply','desc')">Total Supply</div>
-                    <div class="cell t-age" data-toggle="tooltip" data-placement="top" title="" data-original-title="Age" *ngIf="selectcol.age" (click)="orderingColumn('age','desc')">Age</div>
-                    <div class="cell t-all_time_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time USD" *ngIf="selectcol.all_time_usd" (click)="orderingColumn('alltime_high_usd','desc')">ATH(USD)</div>
-                    <div class="cell t-all_time_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time BTC" *ngIf="selectcol.all_time_btc" (click)="orderingColumn('alltime_high_btc','desc')">ATH(BTC)</div>
-                    <div class="cell t-change_ath" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH" *ngIf="selectcol.change_ath" >% change from ATH</div>
-                    <div class="cell t-change_ath_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH (BTC)" *ngIf="selectcol.change_ath_btc" >% change from ATH (BTC)</div>
-                    <div class="cell t-team" data-toggle="tooltip" data-placement="top" title="" data-original-title="Team" *ngIf="selectcol.team" (click)="orderingColumn('team','desc')">Team</div>
-                    <div class="cell t-theory" data-toggle="tooltip" data-placement="top" title="" data-original-title="Theory" *ngIf="selectcol.theory" (click)="orderingColumn('theory','desc')">Theory</div>
-                    <div class="cell t-tech" data-toggle="tooltip" data-placement="top" title="" data-original-title="Technology" *ngIf="selectcol.technology" (click)="orderingColumn('technology','desc')">Tech.</div>
-                    <div class="cell t-traction" data-toggle="tooltip" data-placement="top" title="" data-original-title="Traction" *ngIf="selectcol.traction" (click)="orderingColumn('traction','desc')">Traction</div>
-                    <div class="cell t-tam" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tam" *ngIf="selectcol.tam" (click)="orderingColumn('tam','desc')">TAM</div>
-                    <div class="cell t-token" data-toggle="tooltip" data-placement="top" title="" data-original-title="Token" *ngIf="selectcol.token" (click)="orderingColumn('token','desc')">Token</div>
-                    <div class="cell t-timing" data-toggle="tooltip" data-placement="top" title="" data-original-title="Timing" *ngIf="selectcol.timing" (click)="orderingColumn('timing','desc')">Timing</div>
-                    <div class="cell t-tran" data-toggle="tooltip" data-placement="top" title="" data-original-title="Trasformative" *ngIf="selectcol.trasformative" (click)="orderingColumn('transformative','desc')">Tran.</div>
-                    <div class="cell t-gq" *ngIf="selectcol.gq" (click)="orderingColumn('algo_score','desc')">GQ
-                      <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="" data-original-title="GQ"></i>
+                    <div class="cell pointer t-symbol" data-toggle="tooltip" data-placement="top" title="" data-original-title="Symbol" *ngIf="selectcol.symbol"
+                      (click)="orderingColumn('symbol','desc')">
+                      Symbol
+                      <span class="tablearrow" *ngIf="sorton == 'symbol'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
                     </div>
-                    <div class="cell t-ac_btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Action Button" *ngIf="selectcol.ac_btn">Action Button</div>
+                    <div class="cell pointer t-price" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price" *ngIf="selectcol.price_usd"
+                      (click)="orderingColumn('price_usd','desc')">
+                      Price
+                      <span class="tablearrow" *ngIf="sorton == 'price_usd'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-price_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Price BTC"
+                      *ngIf="selectcol.price_btc" (click)="orderingColumn('price_btc','desc')">
+                      Price BTC
+                      <span class="tablearrow" *ngIf="sorton == 'price_btc'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-change_1h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 1H%"
+                      *ngIf="selectcol.change_1h" (click)="orderingColumn('change_1h','desc')">
+                      1H(%)
+                      <span class="tablearrow" *ngIf="sorton == 'change_1h'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-change_24h" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 24H%"
+                      *ngIf="selectcol.change_24h" (click)="orderingColumn('change_24h','desc')">
+                      24H(%)
+                      <span class="tablearrow" *ngIf="sorton == 'change_24h'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-change_7d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 7D%"
+                      *ngIf="selectcol.change_7d" (click)="orderingColumn('change_7d','desc')">
+                      7D(%)
+                      <span class="tablearrow" *ngIf="sorton == 'change_7d'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-change_30d" data-toggle="tooltip" data-placement="top" title="" data-original-title="Change 30D%"
+                      *ngIf="selectcol.change_30d" (click)="orderingColumn('change_30d','desc')">
+                      30D(%)
+                      <span class="tablearrow" *ngIf="sorton == 'change_30d'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-one_year" data-toggle="tooltip" data-placement="top" title="" data-original-title="One year%"
+                      *ngIf="selectcol.one_year" (click)="orderingColumn('change_1y','desc')">
+                      1Y(%)
+                      <span class="tablearrow" *ngIf="sorton == 'change_1y'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-all_time" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time%"
+                      *ngIf="selectcol.all_time" (click)="orderingColumn('change_all','desc')">
+                      All Time(%)
+                      <span class="tablearrow" *ngIf="sorton == 'change_all'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-7dprice" data-toggle="tooltip" data-placement="top" title="" data-original-title="7 Day Price"
+                      *ngIf="selectcol.graph_7d">
+                      7 Day Chart
+                    </div>
+                    <div class="cell pointer t-mrk-cap" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap"
+                      *ngIf="selectcol.mc_usd" (click)="orderingColumn('marketcap_usd','desc')">
+                      Mkt. Cap
+                      <span class="tablearrow" *ngIf="sorton == 'marketcap_usd'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-mrk-cap_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Market Cap in BTC"
+                      *ngIf="selectcol.mc_btc" (click)="orderingColumn('marketcap_btc','desc')">
+                      Mkt. Cap BTC
+                      <span class="tablearrow" *ngIf="sorton == 'marketcap_btc'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-vol_24h_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="Volumn 24H USD"
+                      *ngIf="selectcol.vol_24h_usd" (click)="orderingColumn('volume24h_usd','desc')">
+                      Volumn 24H
+                      <span class="tablearrow" *ngIf="sorton == 'volume24h_usd'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-vol_24h_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="Volumn 24H BTC"
+                      *ngIf="selectcol.vol_24h_btc" (click)="orderingColumn('volume24h_btc','desc')">
+                      Vol. 24H BTC
+                      <span class="tablearrow" *ngIf="sorton == 'volume24h_btc'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-circu_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Circulating Supply"
+                      *ngIf="selectcol.circu_supp" (click)="orderingColumn('circulating_supply','desc')">
+                      Circulating Supply
+                      <span class="tablearrow" *ngIf="sorton == 'circulating_supply'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-max_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Max Supply"
+                      *ngIf="selectcol.max_supp" (click)="orderingColumn('max_supply','desc')">
+                      Max Supply
+                      <span class="tablearrow" *ngIf="sorton == 'max_supply'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-tot_supp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Total Supply"
+                      *ngIf="selectcol.tot_supp" (click)="orderingColumn('total_supply','desc')">
+                      Total Supply
+                      <span class="tablearrow" *ngIf="sorton == 'total_supply'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-age" data-toggle="tooltip" data-placement="top" title="" data-original-title="Age" *ngIf="selectcol.age"
+                      (click)="orderingColumn('age','desc')">
+                      Age
+                      <span class="tablearrow" *ngIf="sorton == 'age'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-all_time_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time USD"
+                      *ngIf="selectcol.all_time_usd" (click)="orderingColumn('alltime_high_usd','desc')">
+                      ATH(USD)
+                      <span class="tablearrow" *ngIf="sorton == 'alltime_high_usd'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-all_time_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time BTC"
+                      *ngIf="selectcol.all_time_btc" (click)="orderingColumn('alltime_high_btc','desc')">
+                      ATH(BTC)
+                      <span class="tablearrow" *ngIf="sorton == 'alltime_high_btc'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-change_ath" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH"
+                      *ngIf="selectcol.change_ath">
+                      % change from ATH
+                    </div>
+                    <div class="cell pointer t-change_ath_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH (BTC)"
+                      *ngIf="selectcol.change_ath_btc">
+                      % change from ATH (BTC)
+                    </div>
+                    <div class="cell pointer t-team" data-toggle="tooltip" data-placement="top" title="" data-original-title="Team" *ngIf="selectcol.team"
+                      (click)="orderingColumn('team','desc')">
+                      Team
+                      <span class="tablearrow" *ngIf="sorton == 'team'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-theory" data-toggle="tooltip" data-placement="top" title="" data-original-title="Theory" *ngIf="selectcol.theory"
+                      (click)="orderingColumn('theory','desc')">
+                      Theory
+                      <span class="tablearrow" *ngIf="sorton == 'theory'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-tech" data-toggle="tooltip" data-placement="top" title="" data-original-title="Technology" *ngIf="selectcol.technology"
+                      (click)="orderingColumn('technology','desc')">
+                      Tech.
+                      <span class="tablearrow" *ngIf="sorton == 'technology'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-traction" data-toggle="tooltip" data-placement="top" title="" data-original-title="Traction" *ngIf="selectcol.traction"
+                      (click)="orderingColumn('traction','desc')">
+                      Traction
+                      <span class="tablearrow" *ngIf="sorton == 'traction'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-tam" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tam" *ngIf="selectcol.tam"
+                      (click)="orderingColumn('tam','desc')">
+                      TAM
+                      <span class="tablearrow" *ngIf="sorton == 'tam'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-token" data-toggle="tooltip" data-placement="top" title="" data-original-title="Token" *ngIf="selectcol.token"
+                      (click)="orderingColumn('token','desc')">
+                      Token
+                      <span class="tablearrow" *ngIf="sorton == 'token'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-timing" data-toggle="tooltip" data-placement="top" title="" data-original-title="Timing" *ngIf="selectcol.timing"
+                      (click)="orderingColumn('timing','desc')">
+                      Timing
+                      <span class="tablearrow" *ngIf="sorton == 'timing'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-tran" data-toggle="tooltip" data-placement="top" title="" data-original-title="Trasformative"
+                      *ngIf="selectcol.trasformative" (click)="orderingColumn('transformative','desc')">
+                      Tran.
+                      <span class="tablearrow" *ngIf="sorton == 'transformative'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-gq" *ngIf="selectcol.gq" (click)="orderingColumn('algo_score','desc')">
+                      GQ
+                      <i class="fas fa-info-circle" data-toggle="tooltip" data-placement="top" title="" data-original-title="GQ"></i>
+                      <span class="tablearrow" *ngIf="sorton == 'algo_score'">
+                        <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
+                        <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
+                      </span>
+                    </div>
+                    <div class="cell pointer t-ac_btn" data-toggle="tooltip" data-placement="top" title="" data-original-title="Action Button"
+                      *ngIf="selectcol.ac_btn">Action Button</div>
                   </div>
                 </div>
-              </div>              
+              </div>
               <div class="clearfix"></div>
               <div class="text-center" *ngIf="showloader">
                 <span class="common-loader"> <img class="img-fluid" src="../../assets/images/loader.svg" /></span>
@@ -140,15 +356,16 @@
                         <div class="cell t-change_1h" *ngIf="selectcol.change_1h" [ngClass]="coin.change_1h >= 0 ? 'text-green' : 'text-red'">{{coin.change_1h | number : '1.0-2'}}%</div>
                         <div class="cell t-change_24h" *ngIf="selectcol.change_24h" [ngClass]="coin.change_24h >= 0 ? 'text-green' : 'text-red'">{{coin.change_24h | number : '1.0-2'}}%</div>
                         <div class="cell t-change_7d" *ngIf="selectcol.change_7d" [ngClass]="coin.change_7d >= 0 ? 'text-green' : 'text-red'">{{coin.change_7d | number : '1.0-2'}}%</div>
-                        <div class="cell t-change_30d" *ngIf="selectcol.change_30d" [ngClass]="coin.change_30d >= 0 ? 'text-green' : 'text-red'">{{coin.change_30d | number : '1.0-2'}}%</div>
-                        <div class="cell t-one_year" *ngIf="selectcol.one_year" [ngClass]="coin.change_1y >= 0 ? 'text-green' : 'text-red'">{{coin.change_1y | number : '1.0-2'}}%</div>
-                        <div class="cell t-all_time" *ngIf="selectcol.all_time" [ngClass]="coin.change_all >= 0 ? 'text-green' : 'text-red'">{{coin.change_all | number : '1.0-2'}}%</div>
+                        <div class="cell t-change_30d" *ngIf="selectcol.change_30d" [ngClass]="coin.per_change_30d >= 0 ? 'text-green' : 'text-red'">{{coin.per_change_30d | number : '1.0-2'}}%</div>
+                        <div class="cell t-one_year" *ngIf="selectcol.one_year" [ngClass]="coin.per_change_1y >= 0 ? 'text-green' : 'text-red'">{{coin.per_change_1y | number : '1.0-2'}}%</div>
+                        <div class="cell t-all_time" *ngIf="selectcol.all_time" [ngClass]="coin.per_change_all >= 0 ? 'text-green' : 'text-red'">{{coin.per_change_all | number : '1.0-2'}}%</div>
                         <!-- <div class="cell t-7dprice" *ngIf="selectcol.graph_7d" [chart]="chart"></div> -->
-                       <div class="cell t-7dprice" *ngIf="selectcol.graph_7d">
+                        <div class="cell t-7dprice" *ngIf="selectcol.graph_7d">
                           <span class="graphloader" [ngClass]="graphLoad == 1 ?'hidden' : ''">
                             <img class="img-fluid" src="../../assets/images/loader.svg">
                           </span>
-                          <span style="color:#fff;font-size:0" [ngClass]="coin.change_7d > 0 ? 'sparkliness1' : 'sparkliness2'" sparkType="line" sparkBarColor="red"> {{coin.price_7d}} </span>
+                          <span style="color:#fff;font-size:0" [ngClass]="coin.change_7d > 0 ? 'sparkliness1' : 'sparkliness2'" sparkType="line" sparkBarColor="red">
+                          {{coin.price_7d}} </span>
                         </div>
                         <div class="cell t-mrk-cap" *ngIf="selectcol.mc_usd">${{coin.marketcap_usd | number : '1.0-2'}}</div>
                         <div class="cell t-mrk-cap_btc" *ngIf="selectcol.mc_btc">{{coin.marketcap_btc | number : '1.0-2'}}</div>
@@ -157,11 +374,11 @@
                         <div class="cell t-circu_supp" *ngIf="selectcol.circu_supp">{{coin.circulating_supply}}</div>
                         <div class="cell t-max_supp" *ngIf="selectcol.max_supp">{{coin.max_supply}}</div>
                         <div class="cell t-tot_supp" *ngIf="selectcol.tot_supp">{{coin.total_supply}}</div>
-                        <div class="cell t-age" *ngIf="selectcol.age">{{coin.age != null ? coin.age : '-'}}</div>
-                        <div class="cell t-all_time_usd" *ngIf="selectcol.all_time_usd">{{coin.alltime_high_usd != null ? '$'+coin.alltime_high_usd : '-'}}</div>
-                        <div class="cell t-all_time_btc" *ngIf="selectcol.all_time_btc">{{coin.alltime_high_btc != null ? coin.alltime_high_btc : '-'}}</div>
-                        <div class="cell t-change_ath" *ngIf="selectcol.change_ath">% ATH</div>
-                        <div class="cell t-change_ath_btc" *ngIf="selectcol.change_ath_btc">% BTC</div>
+                        <div class="cell t-age" *ngIf="selectcol.age">{{coin.age != null ? coin.age : 'N/A'}}</div>
+                        <div class="cell t-all_time_usd" *ngIf="selectcol.all_time_usd">{{coin.alltime_high_usd != null ? '$'+coin.alltime_high_usd : 'N/A'}}</div>
+                        <div class="cell t-all_time_btc" *ngIf="selectcol.all_time_btc">{{coin.alltime_high_btc != null ? coin.alltime_high_btc : 'N/A'}}</div>
+                        <div class="cell t-change_ath" *ngIf="selectcol.change_ath" [ngClass]="coin.change_ath_usd >= 0 ? 'text-green' : 'text-red'">{{coin.change_ath_usd | number : '1.0-2'}}%</div>
+                        <div class="cell t-change_ath_btc" *ngIf="selectcol.change_ath_btc" [ngClass]="coin.change_ath_btc >= 0 ? 'text-green' : 'text-red'">{{coin.change_ath_btc | number : '1.0-2'}}%</div>
                         <div class="cell t-team" *ngIf="selectcol.team">{{coin.team}}</div>
                         <div class="cell t-theory" *ngIf="selectcol.theory">{{coin.theory}}</div>
                         <div class="cell t-tech" *ngIf="selectcol.technology">{{coin.technology}}</div>

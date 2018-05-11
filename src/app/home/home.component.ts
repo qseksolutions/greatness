@@ -211,11 +211,14 @@ export class HomeComponent implements OnInit {
   gettabledata(start) {
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
+    console.log(this.sorton);
+    console.log(this.sortby);
     this.showloader = true;
     this.coinservice.getallcoindata(start, this.sorton, this.sortby).subscribe(resData => {
       // console.log(resData);
       if (resData.status === true) {
         this.showloader = false;
+        $('.scrollable-row').css('left', '0');
         this.coindata = resData.data;
         let totalpage = resData.totalCount / 50;
         this.pagecount = Math.ceil(totalpage);
@@ -229,7 +232,7 @@ export class HomeComponent implements OnInit {
           let fixedcolumn = $('.fixed-column').width();
           let fixedwidth = maintable - fixedcolumn;
           $('.scroll-viewport').css('width', fixedwidth + 'px');
-
+          
           $(window).scroll(function () {
             let sticky = $('.header-fix'),
               scroll = $(window).scrollTop();

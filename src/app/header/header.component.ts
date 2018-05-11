@@ -21,7 +21,9 @@ export class HeaderComponent implements OnInit {
   public base_url: any = myGlobals.base_url;
   currpage : any;
   globaldata: any;
+  allcoin: any;
   categorylist: any;
+  public model: any;
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService) {
     this.toasterService = toasterService;
@@ -51,5 +53,19 @@ export class HeaderComponent implements OnInit {
         this.categorylist = resData.data;
       }
     });
+
+    this.coinservice.getallcoin().subscribe(resData => {
+      if (resData.status === true) {
+        this.allcoin = resData.data;
+      }
+    });
   }
+
+  search = (text$: Observable<string>) =>
+    text$
+      .debounceTime(200)
+      .map(term => term === '' ? []
+        : this.allcoin.filter(v => (v.name.toLowerCase().indexOf(term.toLowerCase()) || v.symbol.toLowerCase().indexOf(term.toLowerCase())) > -1).slice(0, 10))
+
+  formattersearch = (x: { name: string, symbol: string }) => x.name + ' (' + x.symbol + ')';
 }

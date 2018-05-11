@@ -13,6 +13,7 @@ export class CoinService {
   /*************************** Header,Category Page ************************************/
   categorylist: any = myGlobals.categorylist;
   categoryfilter: any = myGlobals.categoryfilter;
+  allcoin: any = myGlobals.allcoin;
 
   /************************** Home Page ******************************/
   coinglobal: any = myGlobals.coinglobal;
@@ -21,16 +22,27 @@ export class CoinService {
   /************************** Single Page ******************************/
   getsinglecoingraph: any = myGlobals.getsinglecoingraph;
   getsinglecoin: any = myGlobals.getsinglecoin;
+  
+  /************************** Single Page ******************************/
+  favoritecoinlist: any = myGlobals.favoritecoinlist;
 
   constructor(private http: Http) {
   }
 
-  /******************************************** Home Page **********************************************/
+  /******************************************** Header, Category Page **********************************************/
   getcategorylist() {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
 
     return this.http.get(this.api_url + this.categorylist, options)
+      .map((response: Response) => response.json());
+  }
+  
+  getallcoin() {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.api_url + this.allcoin, options)
       .map((response: Response) => response.json());
   }
 
@@ -77,24 +89,38 @@ export class CoinService {
   getsinglecoindatafromjson(coin): Observable<any> {
     return this.http.get("http://54.191.19.11/api/singlecoin/" + coin + ".json").map((res: any) => res.json());
   }
-
+  
   getsingledata(coin) {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
-
+    
     return this.http.get(this.api_url + this.getsinglecoin + '?coin_id=' + coin, options)
-      .map((response: Response) => response.json());
+    .map((response: Response) => response.json());
   }
   
   signlecoingraph(period, coin) {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
-
+    
     const form = new URLSearchParams();
     form.append('period', period);
     form.append('coin', coin);
-
+    
     return this.http.post(this.api_url + this.getsinglecoingraph, form, options)
+    .map((response: Response) => response.json());
+  }
+
+  /******************************************** Favorite Page **********************************************/
+  getfavoritelist(coin, sorton, sortby) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+    
+    const form = new URLSearchParams();
+    form.append('symbol', coin);
+    form.append('sort', sorton);
+    form.append('order', sortby);
+
+    return this.http.post(this.api_url + this.favoritecoinlist, form, options)
       .map((response: Response) => response.json());
   }
 }

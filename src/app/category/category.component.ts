@@ -237,6 +237,7 @@ export class CategoryComponent implements OnInit {
       console.log(responce);
       if (responce.status === true) {
         this.showloader = false;
+        $('.scrollable-row').css('left', '0');
         this.coindata = responce.data;
          setTimeout(() => {
            this.graphLoad = 1;

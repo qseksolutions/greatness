@@ -226,7 +226,18 @@
         </div>
         <div id="homeSearch" class="homeSearch">
           <div class="home-search small-home-search">
-            <input id="search-input" type="text" class="form-control search-input" name="search" placeholder="Search...">
+            <ng-template #sc let-s="result" let-c="term" id="allcoinsearch">
+              <div [attr.value]="s.symbol" class="">
+                <a href="{{urlString}}cryptocurrency/{{s.id}}-{{s.symbol | lowercase}}-price">
+                  <img src="assets/currency-svg/{{s.symbol | lowercase}}.svg" (error)="errorHandler($event,s.symbol)" class="input-currency-icon">
+                  <span>
+                    <span class="coin_name">{{s.name}} ({{s.symbol}})</span>
+                  </span>
+                </a>
+              </div>
+            </ng-template>
+            <input id="typeahead-template-new" type="text" class="form-control search-input" [(ngModel)]="model" name="search" [ngbTypeahead]="search" [resultTemplate]="sc" [inputFormatter]="formattersearch" placeholder="Search..."
+            (keydown)="keyDownFunction($event)">
             <button class="btn home-serch-btn">
               <i class="fas fa-search"></i>
             </button>

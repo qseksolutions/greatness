@@ -6,6 +6,7 @@ export const api_url = 'http://54.191.19.11:3030/v1/';
 /*************************** Header,Category Page ************************************/
 export const categorylist = 'categorylist';
 export const categoryfilter = 'categoryfilter';
+export const allcoin = 'allcoin';
 
 /*************************** Home Page ************************************/
 export const coinglobal = 'coinglobal';
@@ -14,3 +15,6 @@ export const coinlist = 'coinlist';
 /*************************** Single Page ************************************/
 export const getsinglecoingraph = 'getsinglecoingraph';
 export const getsinglecoin = 'getsinglecoin';
+
+/*************************** Favorite Page ************************************/
+export const favoritecoinlist = 'favoritecoinlist';
