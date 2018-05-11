@@ -5,7 +5,7 @@
                 <div class="coin-detaile">
                     <div class="single-coin-box coin-name-icon">
                         <div class="single-coin-icon">
-                            <img class="img-fluid" src="../../assets/images/crypto-currency/{{coin.symbol | lowercase}}.svg" onError="this.src='../../assets/images/not-found-50.png';">
+                            <img class="img-fluid" src="../../assets/images/crypto-currency/{{coin.symbol | lowercase}}.svg" (error)="errorHandler($event,coin.symbol)">
                         </div>
 
                         <div class="single-coin-name">
