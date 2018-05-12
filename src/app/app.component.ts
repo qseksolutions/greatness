@@ -4,7 +4,6 @@ import { ToasterContainerComponent, ToasterService, ToasterConfig } from 'angula
 import * as myGlobals from './global';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'my-app',
   templateUrl: './app.component.html'
 })

@@ -7,7 +7,6 @@ import { Observable } from 'rxjs/Observable';
 import { ToasterContainerComponent, ToasterService, ToasterConfig } from 'angular2-toaster';
 import { DecimalPipe } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
-// import { Chart } from 'angular-highcharts';
 
 declare var $;
 
@@ -21,7 +20,6 @@ export class CategoryComponent implements OnInit {
 
   private toasterService: ToasterService;
   public base_url: any = myGlobals.base_url;
-  // chart: Chart;
   coindata: any;
   cuurentpage: any = 0;
   nextpage: any = 0;
@@ -174,7 +172,6 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
     this.coinservice.getcategorylist().subscribe(resData => {
-      // console.log(resData);
       if (resData.status === true) {
         this.categorylist = resData.data;
         this.totalcategory = resData.data.length;
@@ -207,17 +204,11 @@ export class CategoryComponent implements OnInit {
     this.graphLoad = 0;
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
-    /* alert(this.sorton + ' -> ' + column);
-    alert(typeof (this.sorton) + ' -> ' + typeof(column));
-    alert(this.sortby + ' -> ' + order); */
     if (this.sorton === column) {
       if (this.sortby === 'asc') {
         localStorage.setItem('sortby', 'desc');
-        // this.sortby = localStorage.getItem('sortby');
-        // alert('if ' + this.sortby);
       } else {
         localStorage.setItem('sortby', 'asc');
-        // alert('else ' + this.sortby);
       }
     } else {
       localStorage.setItem('sorton', column);
@@ -234,7 +225,6 @@ export class CategoryComponent implements OnInit {
     let spliturl = curl.split('/');
     let category = spliturl[2];
     this.coinservice.getcategorywisedata(category, start, this.sorton, this.sortby).subscribe(responce => {
-      console.log(responce);
       if (responce.status === true) {
         this.showloader = false;
         $('.scrollable-row').css('left', '0');
@@ -273,24 +263,7 @@ export class CategoryComponent implements OnInit {
         }, 1000);
         let totalpage = responce.totalCount / 50;
         this.pagecount = Math.ceil(totalpage);
-        /* this.coinservice.getalldatafromjson().subscribe(resData => {
-          this.categorydata = responce.data;
-          if (resData.status === true) {
-            let temparray = [];
-            let j = 0;
-            for (let i = 0; i < resData.data.length; i++) {
-              if (this.categorydata.find(item => item.coin_id == resData.data[i].coin_id)) {
-                temparray[j] = resData.data[i];
-                j++;
-              }
-            }
-            if (temparray != null && temparray.length > 0) {
-              this.coindata = temparray;
-            }
-          }
-        }); */
       }
-     
     });
 
     $(document).on('click', '.showmore', function () {
@@ -315,7 +288,6 @@ export class CategoryComponent implements OnInit {
   errorHandler(event, name) {
     const imgurl = 'assets/images/currency-25/' + name.toLowerCase() + '.png';
     this.isImage(imgurl).then(function (test) {
-      // tslint:disable-next-line:triple-equals
       if (test == true) {
         return event.target.src = imgurl;
       } else {

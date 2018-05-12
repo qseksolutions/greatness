@@ -45,14 +45,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.coinservice.getglobaldata().subscribe(resData => {
-      // console.log(resData);
       if (resData.status === true) {
         this.globaldata = resData.data;
       }
     });
     
     this.coinservice.getcategorylist().subscribe(resData => {
-      // console.log(resData);
       if (resData.status === true) {
         this.categorylist = resData.data;
       }
@@ -98,7 +96,6 @@ export class HeaderComponent implements OnInit {
   errorHandler(event, name) {
     const imgurl = 'assets/images/currency-25/' + name.toLowerCase() + '.png';
     this.isImage(imgurl).then(function (test) {
-      // tslint:disable-next-line:triple-equals
       if (test == true) {
         return event.target.src = imgurl;
       } else {

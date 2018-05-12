@@ -189,17 +189,11 @@ export class HomeComponent implements OnInit {
     this.graphLoad = 0;
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
-    /* alert(this.sorton + ' -> ' + column);
-    alert(typeof (this.sorton) + ' -> ' + typeof(column));
-    alert(this.sortby + ' -> ' + order); */
     if (this.sorton === column) {
       if (this.sortby === 'asc') {
         localStorage.setItem('sortby', 'desc');
-        // this.sortby = localStorage.getItem('sortby');
-        // alert('if ' + this.sortby);
       } else {
         localStorage.setItem('sortby', 'asc');
-        // alert('else ' + this.sortby);
       }
     } else {
       localStorage.setItem('sorton', column);
@@ -211,11 +205,8 @@ export class HomeComponent implements OnInit {
   gettabledata(start) {
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
-    console.log(this.sorton);
-    console.log(this.sortby);
     this.showloader = true;
     this.coinservice.getallcoindata(start, this.sorton, this.sortby).subscribe(resData => {
-      // console.log(resData);
       if (resData.status === true) {
         this.showloader = false;
         $('.scrollable-row').css('left', '0');
@@ -276,7 +267,6 @@ export class HomeComponent implements OnInit {
    errorHandler(event, name) {
      const imgurl = 'assets/images/currency-25/' + name.toLowerCase() + '.png';
       this.isImage(imgurl).then(function (test) {
-         // tslint:disable-next-line:triple-equals
          if (test == true) {
             return event.target.src = imgurl;
          } else {

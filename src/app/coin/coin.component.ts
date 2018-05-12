@@ -40,7 +40,6 @@ export class CoinComponent implements OnInit {
     let spliturl = curl.split('/');
     let coin = spliturl[2];
     this.coinservice.getsingledata(coin).subscribe(resData => {
-      console.log(resData);
       if (resData.status === true) {
         this.coin = resData.data;
         this.spiderchart = new Chart({
@@ -65,9 +64,6 @@ export class CoinComponent implements OnInit {
               },
             }
           },
-          /* pane: {
-            size: '80%'
-          }, */
           xAxis: {
             categories: ['Team Experience', 'Theoritical Soundness', 'Total Addressable Market', 'Technological Progress', 'Traction', 'Transformative Potential', 'Token Economics', 'Timing'],
             tickmarkPlacement: 'on',
@@ -76,11 +72,6 @@ export class CoinComponent implements OnInit {
           yAxis: {
             tickInterval: 1
           },
-          /* tooltip: {
-            shared: true,
-            pointFormat: '<span style="color:{series.color}"> : <b>{point.y:,.0f}</b></span>'
-          }, */
-          
           legend: {
             align: 'center',
             verticalAlign: 'bottom',
@@ -133,14 +124,6 @@ export class CoinComponent implements OnInit {
           credits: {
             enabled: false
           },
-          // legend: {
-          //   enabled: true,
-          //   layout: 'horizontal',
-          //   verticalAlign: 'bottom',
-          //   itemStyle: {
-          //     color: '#00362d',
-          //   }
-          // },
           xAxis: {
             lineWidth: 0,
             minorGridLineWidth: 0,
@@ -167,20 +150,7 @@ export class CoinComponent implements OnInit {
                 }
               },
             },
-            /* {
-              title: {
-                text: "Market Cap",
-                style: {
-                  color: '#7cb5ec'
-                }
-              },
-              labels: {
-                align: 'left',
-                x: 0,
-                y: -5
-              },
-              opposite: false,
-            }, */
+           
           ],
           chart: {
             backgroundColor: 'transparent'
@@ -211,28 +181,6 @@ export class CoinComponent implements OnInit {
               },
               yAxis: 0,
             },
-            /* {
-              name: 'Market Cap',
-              type: 'area',
-              color: '#7cb5ec',
-              data: this.market_cap,
-              tooltip: {
-                shared: false,
-                backgroundColor: 'rgba(247,247,247,0.85)',
-                borderColor: '#7cb5ec',
-                valueDecimals: 0,
-                valuePrefix: '$',
-                valueSuffix: ''
-              },
-              fillColor: {
-                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                stops: [
-                  [0, 'rgba(81, 164, 240, 1)'],
-                  [1, 'rgba(226, 239, 251, 1)']
-                ]
-              },
-              yAxis: 1,
-            } */
           ]
         });
       }

@@ -7,7 +7,6 @@ import { Observable } from 'rxjs/Observable';
 import { ToasterContainerComponent, ToasterService, ToasterConfig } from 'angular2-toaster';
 import { DecimalPipe } from '@angular/common';
 import { Title, Meta } from '@angular/platform-browser';
-// import { Chart } from 'angular-highcharts';
 
 declare var $;
 
@@ -21,7 +20,6 @@ export class FavoritesComponent implements OnInit {
 
   private toasterService: ToasterService;
   public base_url: any = myGlobals.base_url;
-  // chart: Chart;
   coindata: any;
   cuurentpage: any = 0;
   nextpage: any = 0;
@@ -202,7 +200,6 @@ export class FavoritesComponent implements OnInit {
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
     this.coinservice.getfavoritelist(this.favoritestring, this.sorton, this.sortby).subscribe(responce => {
-      console.log(responce);
       if (responce.status === true) {
         this.showloader = false;
         $('.scrollable-row').css('left', '0');
@@ -261,7 +258,6 @@ export class FavoritesComponent implements OnInit {
   errorHandler(event, name) {
     const imgurl = 'assets/images/currency-25/' + name.toLowerCase() + '.png';
     this.isImage(imgurl).then(function (test) {
-      // tslint:disable-next-line:triple-equals
       if (test == true) {
         return event.target.src = imgurl;
       } else {
