@@ -14,6 +14,7 @@ export class CoinService {
   categorylist: any = myGlobals.categorylist;
   categoryfilter: any = myGlobals.categoryfilter;
   allcoin: any = myGlobals.allcoin;
+  coinsearch: any = myGlobals.coinsearch;
 
   /************************** Home Page ******************************/
   coinglobal: any = myGlobals.coinglobal;
@@ -35,6 +36,14 @@ export class CoinService {
     const options = new RequestOptions({ headers: headers });
 
     return this.http.get(this.api_url + this.categorylist, options)
+      .map((response: Response) => response.json());
+  }
+
+  findcoin(coin) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.api_url + this.coinsearch + '?query=' + coin, options)
       .map((response: Response) => response.json());
   }
   

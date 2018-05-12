@@ -7,6 +7,7 @@ export const api_url = 'http://54.191.19.11:3030/v1/';
 export const categorylist = 'categorylist';
 export const categoryfilter = 'categoryfilter';
 export const allcoin = 'allcoin';
+export const coinsearch = 'coinsearch';
 
 /*************************** Home Page ************************************/
 export const coinglobal = 'coinglobal';

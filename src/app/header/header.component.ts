@@ -69,7 +69,10 @@ export class HeaderComponent implements OnInit {
     text$
       .debounceTime(200)
       .map(term => term === '' ? []
-        : this.allcoin.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+        // : this.allcoin.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+        : this.allcoin.filter((item: any) => {
+          return item.name.toLowerCase().indexOf(term.toLowerCase()) > -1 || item.symbol.toLowerCase().indexOf(term.toLowerCase()) > -1;
+        }));
 
   formattersearch = (x: { name: string, symbol: string }) => x.name + ' (' + x.symbol + ')';
 
