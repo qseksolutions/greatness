@@ -1,4 +1,4 @@
-// $('.selectpicker').select2();
+
 
 // $('.dark-theme-btn').on('click', function() {
 //   $('body').addClass('dark-theme');
@@ -18,7 +18,6 @@ $('body').on('mouseenter mouseleave','.dropdown',function(e){
 });
 
 $(function () {
+  $('.selectpicker').select2();
   $('[data-toggle="tooltip"]').tooltip()
 });
-
-
