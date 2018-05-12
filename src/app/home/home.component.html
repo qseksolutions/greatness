@@ -189,14 +189,14 @@
                         <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
                       </span>
                     </div>
-                    <div class="cell pointer t-all_time_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time USD" *ngIf="selectcol.all_time_usd" (click)="orderingColumn('alltime_high_usd','desc')">
+                    <div class="cell pointer t-all_time_usd" data-toggle="tooltip" data-placement="top" title="" data-original-title="All Time High" *ngIf="selectcol.all_time_usd" (click)="orderingColumn('alltime_high_usd','desc')">
                       ATH(USD)
                       <span class="tablearrow" *ngIf="sorton == 'alltime_high_usd'">
                         <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
                         <i class="fas fa-sort-amount-down" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'desc'"></i>
                       </span>
                     </div>
-                    <div class="cell pointer t-all_time_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="All time BTC" *ngIf="selectcol.all_time_btc" (click)="orderingColumn('alltime_high_btc','desc')">
+                    <div class="cell pointer t-all_time_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="All Time High in BTC" *ngIf="selectcol.all_time_btc" (click)="orderingColumn('alltime_high_btc','desc')">
                       ATH(BTC)
                       <span class="tablearrow" *ngIf="sorton == 'alltime_high_btc'">
                         <i class="fas fa-sort-amount-up" aria-hidden="true" style="line-height:0;" *ngIf="sortby == 'asc'"></i>
@@ -206,7 +206,7 @@
                     <div class="cell pointer t-change_ath" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH" *ngIf="selectcol.change_ath">
                       % ATH
                     </div>
-                    <div class="cell pointer t-change_ath_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH (BTC)" *ngIf="selectcol.change_ath_btc">
+                    <div class="cell pointer t-change_ath_btc" data-toggle="tooltip" data-placement="top" title="" data-original-title="% change from ATH in BTC" *ngIf="selectcol.change_ath_btc">
                       % ATH (BTC)
                     </div>
                     <div class="cell pointer t-team" data-toggle="tooltip" data-placement="top" title="" data-original-title="Team Experience" *ngIf="selectcol.team" (click)="orderingColumn('team','desc')">
