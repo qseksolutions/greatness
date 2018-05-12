@@ -35,9 +35,20 @@ export class HomeComponent implements OnInit {
   graphLoad: any = 0;
   sorton: any;
   sortby: any;
+  base_curr: any;
+  base_sign: any;
+  base_price: any;
   displaycolumn: any = ['rank', 'name', 'follow', 'price_usd', 'graph_7d', 'mc_usd', 'team', 'theory', 'technology', 'traction', 'tam', 'token', 'timing', 'trasformative', 'gq'];
   
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe ) {
+
+      this.base_curr = localStorage.getItem('base_curr');
+      this.base_sign = localStorage.getItem('base_sign');
+      this.base_price = localStorage.getItem('base_price');
+
+      console.log(this.base_curr);
+      console.log(this.base_sign);
+      console.log(this.base_price);
 
       this.toasterService = toasterService;
       // localStorage.removeItem('columns');

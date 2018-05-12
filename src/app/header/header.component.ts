@@ -9,6 +9,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/map';
 
+declare var $;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -23,6 +25,9 @@ export class HeaderComponent implements OnInit {
   globaldata: any;
   allcoin: any;
   categorylist: any;
+  currencylist: any;
+  base_curr: any;
+  base_sign: any;
   public model: any;
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService) {
@@ -44,6 +49,36 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.coinservice.getcurrencylist().subscribe(resData => {
+      this.currencylist = resData;
+      if (this.currencylist.length > 0) {
+        $('#sel_curr').select2('destroy');
+        setTimeout(() => {
+          // localStorage.removeItem('base_curr');
+          let base_curr = localStorage.getItem('base_curr');
+          console.log(base_curr);
+          if (base_curr == null) {
+            this.currencylist.map(function (val, key) {
+              if (val['CURR'] == 'USD') {
+                console.log(val);
+                $('#sel_curr').val(val['CURR']);
+                localStorage.setItem('base_curr', 'USD');
+                localStorage.setItem('base_sign', '$');
+                localStorage.setItem('base_price', val['PRICE']);
+              }
+            });
+          } else {
+            this.currencylist.map(function (val, key) {
+              if (val['CURR'] == base_curr) {
+                $('#sel_curr').val(val['CURR']);
+              }
+            });
+          }
+          $('#sel_curr').select2();
+        }, 2000);
+      }
+    });
+
     this.coinservice.getglobaldata().subscribe(resData => {
       if (resData.status === true) {
         this.globaldata = resData.data;
@@ -62,6 +97,20 @@ export class HeaderComponent implements OnInit {
       }
     });
   }
+
+  ngAfterViewInit() {
+    $('#sel_curr').on('change', (e) => {
+      let selcurr = $(e.target).val();
+      this.currencylist.map(function (val, key) {
+        if (val['CURR'] == selcurr) {
+          localStorage.setItem('base_curr', val['CURR']);
+          localStorage.setItem('base_sign', val['SYMBOL']);
+          localStorage.setItem('base_price', val['PRICE']);
+          location.reload();
+        }
+      });
+    });
+  };
 
   search = (text$: Observable<string>) =>
     text$

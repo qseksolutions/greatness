@@ -16,7 +16,7 @@
 
                     <div class="single-coin-box coin-price">
                         <div class="currency-price">
-                            <h4>${{coin.price_usd | number : '1.0-2'}}</h4>
+                            <h4>{{base_sign}}{{coin.price_usd * base_price | number : '1.0-2'}}</h4>
                             <span class="value-perce" [ngClass]="coin.change_24h > 0 ? 'text-green' : 'text-red'">( {{coin.change_24h}}%)</span>
                         </div>
                         <div class="crypto-price">
@@ -27,12 +27,12 @@
 
                     <div class="single-coin-box coin-marketcap">
                         <label>Market Cap</label>
-                        <h5>${{coin.marketcap_usd | number : '1.0-2'}}</h5>
+                        <h5>{{base_sign}}{{coin.marketcap_usd * base_price | number : '1.0-2'}}</h5>
                     </div>
 
                     <div class="single-coin-box coin-marketcap">
                         <label>24h Vol</label>
-                        <h5>${{coin['volume24h_usd'] | number : '1.0-2'}}</h5>
+                        <h5>{{base_sign}}{{coin['volume24h_usd'] * base_price | number : '1.0-2'}}</h5>
                     </div>
 
                     <div class="single-coin-box coin-marketcap">

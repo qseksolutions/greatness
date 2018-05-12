@@ -31,6 +31,10 @@ export class CoinService {
   }
 
   /******************************************** Header, Category Page **********************************************/
+  getcurrencylist(): Observable<any> {
+    return this.http.get("http://54.191.19.11/api/forex.json").map((res: any) => res.json());
+  }
+
   getcategorylist() {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });

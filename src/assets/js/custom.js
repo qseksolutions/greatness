@@ -18,6 +18,6 @@ $('body').on('mouseenter mouseleave','.dropdown',function(e){
 });
 
 $(function () {
-  $('.selectpicker').select2();
+  $('.selectpicker').select2()
   $('[data-toggle="tooltip"]').tooltip()
 });

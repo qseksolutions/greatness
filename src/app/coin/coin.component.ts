@@ -28,9 +28,15 @@ export class CoinComponent implements OnInit {
   market_cap: any;
   price_usd: any;
   volume_usd: any;
+  base_curr: any;
+  base_sign: any;
+  base_price: any;
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private http: Http, private titleService: Title, private datePipe: DatePipe, private meta: Meta) {
     this.toasterService = toasterService;
+    this.base_curr = localStorage.getItem('base_curr');
+    this.base_sign = localStorage.getItem('base_sign');
+    this.base_price = localStorage.getItem('base_price');
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);
   }
@@ -207,7 +213,7 @@ export class CoinComponent implements OnInit {
       if (test == true) {
         return event.target.src = imgurl;
       } else {
-        return event.target.src = 'assets/images/currency-50/not-found-25.png';
+        return event.target.src = 'assets/images/currency-50/not-found-50.png';
       }
     });
   }
