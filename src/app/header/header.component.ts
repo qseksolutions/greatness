@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
   currencylist: any;
   base_curr: any;
   base_sign: any;
+  base_price: any;
   public model: any;
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService) {
@@ -52,8 +53,8 @@ export class HeaderComponent implements OnInit {
     this.coinservice.getcurrencylist().subscribe(resData => {
       this.currencylist = resData;
       if (this.currencylist.length > 0) {
-        $('#sel_curr').select2('destroy');
         setTimeout(() => {
+          $('#sel_curr').select2('destroy');
           // localStorage.removeItem('base_curr');
           let base_curr = localStorage.getItem('base_curr');
           console.log(base_curr);
@@ -70,11 +71,15 @@ export class HeaderComponent implements OnInit {
           } else {
             this.currencylist.map(function (val, key) {
               if (val['CURR'] == base_curr) {
+                console.log(val['CURR']);
                 $('#sel_curr').val(val['CURR']);
               }
             });
           }
           $('#sel_curr').select2();
+          this.base_curr = localStorage.getItem('base_curr');
+          this.base_sign = localStorage.getItem('base_sign');
+          this.base_price = localStorage.getItem('base_price');
         }, 2000);
       }
     });

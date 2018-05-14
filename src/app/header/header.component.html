@@ -31,7 +31,7 @@
   <div class="top-header" *ngIf="globaldata">
     <div class="coinvalue-box">
       <div class="value-list-box">
-        <h5 class="coinlist-name"> ${{globaldata.quotes.USD.total_market_cap | number : '1.0-2'}} </h5>
+        <h5 class="coinlist-name"> {{base_sign}}{{globaldata.quotes.USD.total_market_cap * base_price | number : '1.0-2'}} </h5>
         <span class="double-dots">:</span>
         <span class="coinlis-value"> Market Cap </span>
       </div>
