@@ -7,7 +7,7 @@
           <div class="home-page-wrapper">
             <div class="logo-slider text-center">
               <div>
-                <a class="navbar-brand topnavbar-logo" href="{{base_url}}">
+                <a class="navbar-brand topnavbar-logo" [routerLink]="['/']">
                   <img src="../../assets/images/logo.svg" class="img-fluid">
                 </a>
               </div>
@@ -74,18 +74,18 @@
     <div class="header">
       <nav class="navbar navbar-expand-lg white-shades-bg">
         <div>
-          <a class="navbar-brand navbar-logo" href="{{base_url}}">
+          <a class="navbar-brand navbar-logo" [routerLink]="['/']">
             <img src="../../assets/images/logo.svg" class="img-fluid">
           </a>
         </div>
-        <div>
+        <div class="togger-icon">
           <button class="search-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#homeSearch" aria-controls="homeSearch"
             aria-expanded="false" aria-label="Toggle Search">
-            <span class="search-icon"></span>
+            <span class="search-icon"><img class="img-fluid" src="assets/images/crypto-currency/search.svg" /></span>
           </button>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false"
             aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"><img class="img-fluid" src="assets/images/crypto-currency/menu.svg" /></span>
           </button>
         </div>
 
@@ -94,12 +94,12 @@
 
           <button class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
             aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-close-icon"></span>
+            <span class="navbar-close-icon"><img class="img-fluid" src="assets/images/crypto-currency/close.svg" /></span>
           </button>
           <ul class="navbar-nav dropdown">
             <li class="nav-item">
               <span class="dropdown-toggle" id="market-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <a href="#" class="nav-link">SCAN
+                <a href="javascript:void(0)" class="nav-link">SCAN
                   <i class="fas fa-angle-down"></i>
                 </a>
               </span>
@@ -159,7 +159,7 @@
             </li>
             <li class=" nav-item">
               <span class="dropdown-toggle" id="analysis-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <a href="#" class="nav-link">ANALYSIS
+                <a href="javascript:void(0)" class="nav-link">ANALYSIS
                   <i class="fas fa-angle-down"></i>
                 </a>
               </span>
@@ -232,6 +232,10 @@
           </select>
         </div>
         <div id="homeSearch" class="homeSearch">
+          <button class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#homeSearch" aria-controls="homeSearch"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-close-icon"><img class="img-fluid" src="assets/images/crypto-currency/close.svg" /></span>
+          </button>
           <div class="home-search small-home-search">
             <ng-template #sc let-s="result" let-c="term" id="allcoinsearch">
               <div [attr.value]="s.symbol" class="">

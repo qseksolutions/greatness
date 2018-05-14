@@ -84,6 +84,9 @@ a , a:hover , a:focus{
     background-color: transparent;
     color: #ffffff;
 }
+button:focus{
+    outline: none;
+}
 #customize-table .modal-dialog{
     max-width: 800px;
 }
@@ -584,6 +587,25 @@ li:hover .dropdown-menu {
 .home-search .dropdown-menu::-webkit-scrollbar-thumb{
 	background-color: #00362D;
     border-radius: 5px
+}
+.search-toggler{
+    padding: .25rem .75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    outline: none;
+}
+.search-icon,
+.navbar-close-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
 }
 /*---header-end---*/
 
@@ -1485,11 +1507,112 @@ span.footer_logo {
     .coinlis-value{
         white-space: nowrap;
     }
+    .homeSearch  .navbar-toggler {
+        padding: 5px;
+        line-height: 16px;
+        position: absolute;
+        top: 0px;
+        right: 3px;
+    }
 }
 
 @media (max-width: 991.98px) {
     .top-header{
         padding: 0px 5px;
+    }
+    .custom-navbar {
+        background-color: #000000;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 99999;
+        transform: scale(0.7);
+        visibility: hidden;
+        opacity: 0;
+        transition: all ease 0.3s;
+    }
+    .custom-navbar.collapse.show{
+        transform: scale(1);
+        visibility: visible;
+        opacity: 1;
+    }
+    .select-currancy{
+        width: 70px;
+    }
+    .select-currancy .select2-container{
+        width: 70px !important;
+    }
+    .homeSearch {
+        position: fixed;
+        top: -100%;
+        left: 0;
+        right: 0;
+        padding: 60px 0px 40px;
+        background-color: rgba(0,0,0,0.7);
+        z-index: 99999;
+        overflow: auto;
+        visibility: hidden;
+        opacity: 0;
+        transition: all ease 0.3s;
+
+    }
+    .homeSearch.collapse.show{
+        visibility: visible;
+        opacity: 1;
+        top: 0;
+    }
+    .home-search {
+        position: relative;
+        width: 280px;
+        margin: auto;
+    }
+    
+    .search-input{
+        border-color: #ffffff;
+        background-color: #00362D;
+    }
+
+    .search-input.form-control:focus{
+        background-color: #00362D;
+    }
+    .togger-icon{
+        width: 63%;
+        text-align: right;
+    }
+    .navbar-toggler-icon{
+        width: 30px;
+        height: 30px;
+    }
+    .custom-navbar .navbar-toggler,
+    .homeSearch  .navbar-toggler {
+        padding: 5px;
+        line-height: 16px;
+        position: absolute;
+        top: 0px;
+        right: 3px;
+        z-index: 999999;
+    }
+    .custom-navbar .navbar-nav{
+        margin-top: 70px;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    .custom-navbar .navbar-nav > li{
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .header .dropdown-menu{
+        overflow: hidden;
+        min-width: auto;
+        margin: 0px 10px;
+        border-radius: 5px;
     }
 }
 
@@ -1529,20 +1652,117 @@ span.footer_logo {
         flex: initial;
         width: 50%;
     }
-    .coinvalue-box:last-child{
-        border-right:solid 1px #ffffff; 
+    
+    .collapse.show ~ .top-header .coinlis-value{
+        font-size: 14px;
     }
-    .coinvalue-box:nth-child(2n + 2) {
+
+    .collapse.show ~ .top-header .coinlist-name {
+        font-size: 18px;
+    }
+    .coinvalue-box{
+        border-right: 0px;
+        width: 100%;
+    }
+    .collapse.show ~ .top-header .coinvalue-box{
+        width: 50%;
+        border-right: solid 1px #ffffff;
+    }
+    .collapse.show ~ .top-header  .coinvalue-box:nth-child(2n + 2) {
         border-right: none;
+    }
+    .togger-icon{
+        width: 50%;
+    }
+    .costomize-column ul {
+        width: 100%;
+        margin-bottom: 0px;
+    }
+    .custom-navbar .nav-link{
+        padding: 10px; 
+    }
+    .left-menu, 
+    .right-menu{
+        width: 100%;
+        clear: both;
+        float: none;
+    }
+    .left-menu{
+        border-right: 0px;
+        margin-bottom: 20px;
+    }
+    .top-pag-count{
+        white-space: nowrap;
+        font-size: 14px;
+    }
+    .top-page-arrow{
+        padding: 0 5px;
+    }
+    .table-header{
+        padding: 10px;
+    }
+    .btn-filter{
+        padding: 5px 10px;
+    }
+    .modal-footer .btn{
+        min-width: 80px;
     }
 }
 
-@media (max-width: 575.98px) {
-
+@media (max-width: 567.98px) {
+    .search-icon,
+    .navbar-close-icon,
+    .navbar-toggler-icon{
+        width: 20px;
+        height: 20px;
+    }
+    .togger-icon {
+        width: 42%;
+    }
+    .togger-icon  button{
+        line-height: 16px;
+    }
+    .navbar-logo{
+        width: 100px;
+        margin: 0;
+    }
+    .search-toggler{
+        padding: 5px;
+    }
+    .navbar-toggler{
+        padding: 5px;
+    }
+    .select2-container .select2-selection--single{
+        height: 30px;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__rendered{
+        line-height: 30px;
+        padding-left: 7px;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow:after{
+        top: 9px;
+    }
+    .select-currancy{
+        margin-left: 0px;
+    }
+    .collapse.show ~ .top-header .coinlist-name{
+        font-size: 13px;
+    }
+    .collapse.show ~ .top-header .coinlis-value {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 320.98px) {
-
+    .togger-icon{
+        width: 35%;
+    }
+    .custom-navbar{
+        overflow: auto;
+    }
+    .custom-navbar .navbar-nav{
+        height: auto;
+    }
 }
 
 /*---Responsive-end---*/
