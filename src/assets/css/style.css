@@ -456,14 +456,17 @@ li:hover .dropdown-menu {
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow:after{
     position: absolute;
-    content: "\f107";
-    font-family: FontAwesome;
-    top: 13px;
-    font-size: 20px;
+    content: "";
+    background-image: url(../images/crypto-currency/angle-arrow-down.svg);
     color: #fff;
+    width: 15px;
+    height: 15px;
+    background-size: 12px;
+    top: 14px;
+    background-repeat: no-repeat;
 }
 .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow:after {
-    content: "\f106";
+    background-image: url(../images/crypto-currency/arrow-up.svg);
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow b{
     display: none;
