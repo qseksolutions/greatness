@@ -1175,7 +1175,22 @@ svg{
     border: solid 1px #ccc;
     border-top: none;
 }
-
+.costomize-model .form-control:focus{
+    color: #495057;
+}
+.range-slider{
+    width: 100%;
+    padding: 20px 0px;
+}
+.theme-green .back-bar .selected-bar{
+    background-color: #008c71;
+    background-image: none;
+}
+.theme-green .back-bar .pointer{
+    background-color: #00362d;
+    background-image: none;
+    cursor: pointer;
+}
 /*check-box-start*/
 .control {
   display: block;

@@ -21,3 +21,14 @@ $(function () {
   $('.selectpicker').select2()
   $('[data-toggle="tooltip"]').tooltip()
 });
+
+$('.slider-input').jRange({
+    from: 0,
+    to: 100,
+    step: 1,
+    scale: [0,100],
+    format: '%s',
+    width: 425,
+    showLabels: true,
+    isRange : true
+});
