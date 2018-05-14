@@ -316,11 +316,11 @@ header {
     padding:0rem 1rem; 
 }
 .search-input {
-    background-color: transparent;
-    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
     border-color: #e3e3e3;
     color: #ffffff;
-    padding: 10px 20px;
+    padding: 7px 20px;
     font-size: 16px;
     min-width: 150px;
     width: 280px;
@@ -450,7 +450,7 @@ li:hover .dropdown-menu {
     margin-top: 5px;
 }
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-    line-height: 46px;
+    line-height: 40px;
     padding-left: 15px;
     color: #fff;
 }
@@ -458,7 +458,7 @@ li:hover .dropdown-menu {
     position: absolute;
     content: "\f107";
     font-family: FontAwesome;
-    top: 16px;
+    top: 13px;
     font-size: 20px;
     color: #fff;
 }
@@ -478,17 +478,17 @@ li:hover .dropdown-menu {
     border-radius: 5px;
 }
 .select2-container .select2-selection--single {
-    height: 46px;
-    border-radius: 25px;
+    height: 40px;
+    border-radius: 5px;
     border-color: #e3e3e3;
     outline: none;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--single, 
 .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple,
 .select2-container--default.select2-container--open.select2-container--above .select2-selection--single,
 .select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple{
-    border-radius: 25px;
+    border-radius: 5px;
 }
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
     background-color: #04B290;
@@ -546,6 +546,7 @@ li:hover .dropdown-menu {
     min-width: auto;
     overflow-x: hidden;
     overflow-y: auto;
+    border-radius: 5px;
 }
 .home-search .dropdown-menu .dropdown-item {
     padding: 5px;
@@ -570,10 +571,12 @@ li:hover .dropdown-menu {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.15);
     box-shadow: inset 0 0 6px rgba(0,0,0,0.15);
 	background-color: #F5F5F5;
+    border-radius: 5px;
 }
 .home-search .dropdown-menu::-webkit-scrollbar{
 	width: 10px;
 	background-color: #F5F5F5;
+    border-radius: 5px;
 }
 .home-search .dropdown-menu::-webkit-scrollbar-thumb{
 	background-color: #00362D;
