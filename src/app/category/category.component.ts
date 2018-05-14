@@ -44,10 +44,20 @@ export class CategoryComponent implements OnInit {
   displaycolumn: any = ['rank', 'name', 'follow', 'price_usd', 'graph_7d', 'mc_usd', 'team', 'theory', 'technology', 'traction', 'tam', 'token', 'timing', 'trasformative', 'gq'];
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
+    $('.header_part').hide();
+    $('.header_part').removeClass('collapse show');
 
     this.base_curr = localStorage.getItem('base_curr');
     this.base_sign = localStorage.getItem('base_sign');
     this.base_price = localStorage.getItem('base_price');
+    if (this.base_curr == null) {
+      localStorage.setItem('base_curr', 'USD');
+      localStorage.setItem('base_sign', '$');
+      localStorage.setItem('base_price', '1');
+      this.base_curr = localStorage.getItem('base_curr');
+      this.base_sign = localStorage.getItem('base_sign');
+      this.base_price = localStorage.getItem('base_price');
+    }
 
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');

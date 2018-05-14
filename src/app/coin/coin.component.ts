@@ -11,6 +11,8 @@ import { Title, Meta } from '@angular/platform-browser';
 import * as moment from 'moment';
 import { Chart } from 'angular-highcharts';
 
+declare var $;
+
 @Component({
   selector: 'app-coin',
   templateUrl: './coin.component.html',
@@ -33,10 +35,26 @@ export class CoinComponent implements OnInit {
   base_price: any;
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private http: Http, private titleService: Title, private datePipe: DatePipe, private meta: Meta) {
+    $('.header_part').hide();
+    $('.header_part').removeClass('collapse show');
+
     this.toasterService = toasterService;
+
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    }
+
     this.base_curr = localStorage.getItem('base_curr');
     this.base_sign = localStorage.getItem('base_sign');
     this.base_price = localStorage.getItem('base_price');
+    if (this.base_curr == null) {
+      localStorage.setItem('base_curr', 'USD');
+      localStorage.setItem('base_sign', '$');
+      localStorage.setItem('base_price', '1');
+      this.base_curr = localStorage.getItem('base_curr');
+      this.base_sign = localStorage.getItem('base_sign');
+      this.base_price = localStorage.getItem('base_price');
+    }
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);
   }

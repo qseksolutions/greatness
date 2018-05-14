@@ -287,7 +287,7 @@
               </div>
               <div class="table-body" *ngIf="!showloader && coindata != ''">
                 <div class="fixed-column">
-                  <div  *ngFor="let coin of coindata">
+                  <div *ngFor="let coin of coindata">
                     <div class="cell t-count" *ngIf="selectcol.rank">{{coin.rank}}</div>
                     <div class="cell t-name" *ngIf="selectcol.name">
                       <a [routerLink]=" ['/coins/', coin.coin_id]">

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CoinService } from '../coin.service';
 import * as myGlobals from './../global';
 import { ToasterContainerComponent, ToasterService, ToasterConfig } from 'angular2-toaster';
@@ -31,15 +31,31 @@ export class HeaderComponent implements OnInit {
   base_price: any;
   public model: any;
 
-  constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService) {
+  constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private route: ActivatedRoute) {
     this.toasterService = toasterService;
+
+    this.base_curr = localStorage.getItem('base_curr');
+    this.base_sign = localStorage.getItem('base_sign');
+    this.base_price = localStorage.getItem('base_price');
+    if (this.base_curr == null) {
+      localStorage.setItem('base_curr', 'USD');
+      localStorage.setItem('base_sign', '$');
+      localStorage.setItem('base_price', '1');
+      this.base_curr = localStorage.getItem('base_curr');
+      this.base_sign = localStorage.getItem('base_sign');
+      this.base_price = localStorage.getItem('base_price');
+    }
 
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     }
 
     let curl = window.location.pathname;
+    let curlx = $(location).attr('pathname');
+    console.log(curl);
+    console.log(curlx);
     let spliturl = curl.split('/');
+    console.log(spliturl);
     if (spliturl[1] != '') {
       this.currpage = false;
     }
@@ -57,29 +73,16 @@ export class HeaderComponent implements OnInit {
           $('#sel_curr').select2('destroy');
           // localStorage.removeItem('base_curr');
           let base_curr = localStorage.getItem('base_curr');
-          console.log(base_curr);
-          if (base_curr == null) {
-            this.currencylist.map(function (val, key) {
-              if (val['CURR'] == 'USD') {
-                console.log(val);
-                $('#sel_curr').val(val['CURR']);
-                localStorage.setItem('base_curr', 'USD');
-                localStorage.setItem('base_sign', '$');
-                localStorage.setItem('base_price', val['PRICE']);
-              }
-            });
-          } else {
-            this.currencylist.map(function (val, key) {
-              if (val['CURR'] == base_curr) {
-                console.log(val['CURR']);
-                $('#sel_curr').val(val['CURR']);
-              }
-            });
-          }
+          this.currencylist.map(function (val, key) {
+            if (val['CURR'] == base_curr) {
+              console.log('every time call ?');
+              $('#sel_curr').val(val['CURR']);
+              localStorage.setItem('basea_curr', val['CURR']);
+              localStorage.setItem('base_sign', val['SYMBOL']);
+              localStorage.setItem('base_price', val['PRICE']);
+            }
+          });
           $('#sel_curr').select2();
-          this.base_curr = localStorage.getItem('base_curr');
-          this.base_sign = localStorage.getItem('base_sign');
-          this.base_price = localStorage.getItem('base_price');
         }, 2000);
       }
     });
