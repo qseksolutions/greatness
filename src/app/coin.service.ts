@@ -90,11 +90,19 @@ export class CoinService {
       .map((response: Response) => response.json());
   }
   
-  getallcoindata(start, sorton, sortby) {
+  getallcoindata(start, sorton, sortby, category) {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
 
-    return this.http.get(this.api_url + this.coinlist + '?start=' + start + '&sort=' + sorton + '&order=' + sortby, options)
+    const form = new URLSearchParams();
+    form.append('start', start);
+    form.append('sort', sorton);
+    form.append('order', sortby);
+    if (category != undefined) {
+      form.append('cat_id', category);
+    }
+
+    return this.http.post(this.api_url + this.coinlist, form, options)
       .map((response: Response) => response.json());
   }
 

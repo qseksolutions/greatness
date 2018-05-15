@@ -52,10 +52,7 @@ export class HeaderComponent implements OnInit {
 
     let curl = window.location.pathname;
     let curlx = $(location).attr('pathname');
-    console.log(curl);
-    console.log(curlx);
     let spliturl = curl.split('/');
-    console.log(spliturl);
     if (spliturl[1] != '') {
       this.currpage = false;
     }
@@ -75,7 +72,6 @@ export class HeaderComponent implements OnInit {
           let base_curr = localStorage.getItem('base_curr');
           this.currencylist.map(function (val, key) {
             if (val['CURR'] == base_curr) {
-              console.log('every time call ?');
               $('#sel_curr').val(val['CURR']);
               localStorage.setItem('basea_curr', val['CURR']);
               localStorage.setItem('base_sign', val['SYMBOL']);

@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
   base_sign: any;
   base_price: any;
   categorylist: any;
+  selcat: any;
   displaycolumn: any = ['rank', 'name', 'follow', 'price_usd', 'graph_7d', 'mc_usd', 'team', 'theory', 'technology', 'traction', 'tam', 'token', 'timing', 'trasformative', 'gq'];
   
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe ) {
@@ -190,6 +191,15 @@ export class HomeComponent implements OnInit {
     this.cuurentpage = 1;
   }
 
+  ngAfterViewInit() {
+    $('#sel_cat').on('change', (e) => {
+      let selcurr = $(e.target).val();
+      let cat = selcurr.toString();
+      this.selcat = cat;
+      this.gettabledata(this.start);
+    });
+  };
+
   gotonextpage() {
     this.start = this.start + 50;
     this.cuurentpage = this.cuurentpage + 1;
@@ -230,7 +240,7 @@ export class HomeComponent implements OnInit {
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
     this.showloader = true;
-    this.coinservice.getallcoindata(start, this.sorton, this.sortby).subscribe(resData => {
+    this.coinservice.getallcoindata(start, this.sorton, this.sortby, this.selcat).subscribe(resData => {
       if (resData.status === true) {
         this.showloader = false;
         $('.scrollable-row').css('left', '0');
