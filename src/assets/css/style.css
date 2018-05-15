@@ -504,7 +504,7 @@ li:hover .dropdown-menu {
      padding: 2px 5px;
 }
 .select2-container--default .select2-search--inline .select2-search__field {
-     width: 100%;
+     width: auto !important;
 }
 .theme-button {
     position: fixed;
