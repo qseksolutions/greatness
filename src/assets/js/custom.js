@@ -18,7 +18,23 @@ $('body').on('mouseenter mouseleave','.dropdown',function(e){
 });
 
 $(function () {
-  $('.selectpicker').select2()
+  $('.selectpicker').select2();
+  $("#sel_cat").select2({
+      placeholder: "Select categories...",
+      allowClear: true
+  });
+  $("#sel_tag").select2({
+      placeholder: "Select tags...",
+      allowClear: true
+  });
+  $("#sel_proof").select2({
+      placeholder: "Select proof type...",
+      allowClear: true
+  });
+  $("#sel_org").select2({
+      placeholder: "Select type...",
+      allowClear: true
+  });
   $('[data-toggle="tooltip"]').tooltip()
 });
 $("#Circ_Supply").ionRangeSlider({
