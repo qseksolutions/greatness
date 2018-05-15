@@ -20,6 +20,10 @@ export class CoinService {
   coinglobal: any = myGlobals.coinglobal;
   coinlist: any = myGlobals.coinlist;
 
+  /************************** Advance Page ******************************/
+  coinlistfilter: any = myGlobals.coinlistfilter;
+  taglist: any = myGlobals.taglist;
+
   /************************** Single Page ******************************/
   getsinglecoingraph: any = myGlobals.getsinglecoingraph;
   getsinglecoin: any = myGlobals.getsinglecoin;
@@ -94,6 +98,23 @@ export class CoinService {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
 
+    return this.http.get(this.api_url + this.coinlist + '?start=' + start + '&sort=' + sorton + '&order=' + sortby, options)
+      .map((response: Response) => response.json());
+  }
+  
+  /******************************************** Advance Page **********************************************/
+  getaglist() {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.api_url + this.taglist, options)
+      .map((response: Response) => response.json());
+  }
+
+  getallcoindatafilter(start, sorton, sortby, category, tag) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
     const form = new URLSearchParams();
     form.append('start', start);
     form.append('sort', sorton);
@@ -101,8 +122,11 @@ export class CoinService {
     if (category != undefined) {
       form.append('cat_id', category);
     }
+    if (tag != undefined) {
+      form.append('tag_id', tag);
+    }
 
-    return this.http.post(this.api_url + this.coinlist, form, options)
+    return this.http.post(this.api_url + this.coinlistfilter, form, options)
       .map((response: Response) => response.json());
   }
 

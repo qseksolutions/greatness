@@ -12,12 +12,12 @@ import { Chart } from 'angular-highcharts';
 declare var $;
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-advancescanner',
+  templateUrl: './advancescanner.component.html',
+  styleUrls: ['./advancescanner.component.css'],
   providers: [CoinService, DecimalPipe],
 })
-export class HomeComponent implements OnInit {
+export class AdvancescannerComponent implements OnInit {
 
   private toasterService: ToasterService;
   public base_url: any = myGlobals.base_url;
@@ -40,6 +40,8 @@ export class HomeComponent implements OnInit {
   base_price: any;
   categorylist: any;
   selcat: any;
+  seltag: any;
+  taglist: any;
   displaycolumn: any = ['rank', 'name', 'follow', 'price_usd', 'graph_7d', 'mc_usd', 'team', 'theory', 'technology', 'traction', 'tam', 'token', 'timing', 'trasformative', 'gq'];
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
@@ -194,6 +196,16 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.loadScript();
+    this.coinservice.getcategorylist().subscribe(resData => {
+      if (resData.status === true) {
+        this.categorylist = resData.data;
+      }
+    });
+    this.coinservice.getaglist().subscribe(resData => {
+      if (resData.status === true) {
+        this.taglist = resData.data;
+      }
+    });
     this.gettabledata(this.start);
     this.cuurentpage = 1;
   }
@@ -203,6 +215,12 @@ export class HomeComponent implements OnInit {
       let selcurr = $(e.target).val();
       let cat = selcurr.toString();
       this.selcat = cat;
+      this.gettabledata(this.start);
+    });
+    $('#sel_tag').on('change', (e) => {
+      let selcurr = $(e.target).val();
+      let cat = selcurr.toString();
+      this.seltag = cat;
       this.gettabledata(this.start);
     });
   };
@@ -247,7 +265,7 @@ export class HomeComponent implements OnInit {
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
     this.showloader = true;
-    this.coinservice.getallcoindata(start, this.sorton, this.sortby, this.selcat).subscribe(resData => {
+    this.coinservice.getallcoindatafilter(start, this.sorton, this.sortby, this.selcat, this.seltag).subscribe(resData => {
       if (resData.status === true) {
         this.showloader = false;
         $('.scrollable-row').css('left', '0');
@@ -287,7 +305,7 @@ export class HomeComponent implements OnInit {
             $('.scrollable-row').css('left', -left);
           });
           /**************** scroll script ***************** */
-        }, 1000);
+        }, 2000);
       }
     });
   }
@@ -315,4 +333,5 @@ export class HomeComponent implements OnInit {
       }
     });
   }
+
 }

@@ -24,6 +24,7 @@ import { HomeComponent } from './home/home.component';
 import { CoinComponent } from './coin/coin.component';
 import { CategoryComponent } from './category/category.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { AdvancescannerComponent } from './advancescanner/advancescanner.component';
 
 export function highchartsModules() {
     return [ highstock, exporting, more ];
@@ -51,6 +52,11 @@ export function highchartsModules() {
         path: 'favorite',
         component: FavoritesComponent,
         pathMatch: 'full'
+      },
+      {
+        path: 'advance-scanner',
+        component: AdvancescannerComponent,
+        pathMatch: 'full'
       }
     ]),
     BrowserModule,
@@ -71,7 +77,8 @@ export function highchartsModules() {
     CoinComponent,
     TimeAgoPipe,
     CategoryComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    AdvancescannerComponent
   ],
   providers: [HttpClient,TranslateModule,
     { provide: HIGHCHARTS_MODULES, useFactory: highchartsModules }

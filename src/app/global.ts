@@ -13,6 +13,10 @@ export const coinsearch = 'coinsearch';
 export const coinglobal = 'coinglobal';
 export const coinlist = 'coinlist';
 
+/*************************** Advance Page ************************************/
+export const coinlistfilter = 'coinlistfilter';
+export const taglist = 'taglist';
+
 /*************************** Single Page ************************************/
 export const getsinglecoingraph = 'getsinglecoingraph';
 export const getsinglecoin = 'getsinglecoin';
