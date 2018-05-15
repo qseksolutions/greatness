@@ -500,6 +500,12 @@ li:hover .dropdown-menu {
     background-color: #04B290;
     color: #ffffff;
 }
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+     padding: 2px 5px;
+}
+.select2-container--default .select2-search--inline .select2-search__field {
+     width: 100%;
+}
 .theme-button {
     position: fixed;
     left: 0;
@@ -1170,6 +1176,7 @@ svg{
 }
 .card-header a{
     color: #ffffff;
+    display: block;
 }
 .modal-body .collapse{
     border: solid 1px #ccc;
@@ -1352,7 +1359,7 @@ svg{
     background-color: #ffffff;
     border: solid 5px #04b290;
     box-shadow: 0 0px 10px rgba(0,0,0,0.3);
-    transition: all ease-in-out 0.5s;
+    cursor: pointer;
 }
 .irs-slider.state_hover, .irs-slider:hover {
     background-color: #00362d;
