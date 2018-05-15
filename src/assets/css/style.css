@@ -1180,7 +1180,8 @@ svg{
 }
 .range-slider{
     width: 100%;
-    padding: 20px 0px;
+    padding-top: 0;
+    padding-bottom: 15px;
 }
 .theme-green .back-bar .selected-bar{
     background-color: #008c71;
