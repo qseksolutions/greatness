@@ -1319,22 +1319,24 @@ svg{
     height: 60px;
 }
 .irs-line {
-    height: 12px; top: 25px;
+    height: 7px; 
+    top: 27px;
 }
 .irs-line-left {
-    height: 12px;
+    height: 7px;
     background-position: 0 -30px;
 }
 .irs-line-mid {
-    height: 12px;
+    height: 7px;
     background-position: 0 0;
 }
 .irs-line-right {
-    height: 12px;
+    height: 7px;
     background-position: 100% -30px;
 }
 .irs-bar {
-    height: 12px; top: 25px;
+    height: 7px; 
+    top: 27px;
     background-position: 0 -60px;
     background-color: #04b290;
 }
