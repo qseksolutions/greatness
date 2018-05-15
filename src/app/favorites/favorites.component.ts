@@ -175,7 +175,18 @@ export class FavoritesComponent implements OnInit {
     this.gettabledata();
   }
 
+  public loadScript() {
+    let body = <HTMLDivElement> document.body;
+    let script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = 'assets/js/custom.js';
+    script.async = true;
+    script.defer = true;
+    body.appendChild(script);
+  }
+
   ngOnInit() {
+    this.loadScript();
     this.gettabledata();
   }
 

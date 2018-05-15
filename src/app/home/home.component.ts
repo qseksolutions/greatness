@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit {
     $('.header_part').show();
     $('.header_part').addClass('collapse');
     $('.header_part').addClass('show');
+    
 
       this.base_curr = localStorage.getItem('base_curr');
       this.base_sign = localStorage.getItem('base_sign');
@@ -181,7 +182,18 @@ export class HomeComponent implements OnInit {
       }
    }
 
-  ngOnInit() {     
+  public loadScript() {
+    let body = <HTMLDivElement> document.body;
+    let script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = 'assets/js/custom.js';
+    script.async = true;
+    script.defer = true;
+    body.appendChild(script);
+  }
+
+  ngOnInit() {   
+    this.loadScript();
     this.coinservice.getcategorylist().subscribe(resData => {
       if (resData.status === true) {
         this.categorylist = resData.data;

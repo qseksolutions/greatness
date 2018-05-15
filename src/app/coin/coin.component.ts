@@ -58,8 +58,17 @@ export class CoinComponent implements OnInit {
     localStorage.setItem('sorton', null);
     localStorage.setItem('sortby', null);
   }
-
+  public loadScript() {
+    let body = <HTMLDivElement> document.body;
+    let script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = 'assets/js/custom.js';
+    script.async = true;
+    script.defer = true;
+    body.appendChild(script);
+  }
   ngOnInit() {
+    this.loadScript();
     let curl = window.location.pathname;
     let spliturl = curl.split('/');
     let coin = spliturl[2];

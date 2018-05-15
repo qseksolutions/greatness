@@ -46,6 +46,7 @@ export class CategoryComponent implements OnInit {
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
     $('.header_part').hide();
     $('.header_part').removeClass('collapse show');
+    
 
     this.base_curr = localStorage.getItem('base_curr');
     this.base_sign = localStorage.getItem('base_sign');
@@ -94,6 +95,16 @@ export class CategoryComponent implements OnInit {
       });
       this.favoritedata = tempfavarray;
     }
+  }
+
+  public loadScript() {
+    let body = <HTMLDivElement> document.body;
+    let script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = 'assets/js/custom.js';
+    script.async = true;
+    script.defer = true;
+    body.appendChild(script);
   }
 
   gotocategory(category) {
@@ -189,6 +200,7 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadScript();
     this.coinservice.getcategorylist().subscribe(resData => {
       if (resData.status === true) {
         this.categorylist = resData.data;
