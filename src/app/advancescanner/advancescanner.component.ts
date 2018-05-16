@@ -245,7 +245,6 @@ export class AdvancescannerComponent implements OnInit {
   }
 
   orderingColumn(column, order) {
-    this.graphLoad = 0;
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
     if (this.sorton === column) {
@@ -262,16 +261,22 @@ export class AdvancescannerComponent implements OnInit {
   }
 
   gettabledata(start) {
+    this.graphLoad = 0;
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
     this.showloader = true;
+    $('.table-header').trigger('click');
     this.coinservice.getallcoindatafilter(start, this.sorton, this.sortby, this.selcat, this.seltag).subscribe(resData => {
+      console.log(resData);
       if (resData.status === true) {
         this.showloader = false;
         $('.scrollable-row').css('left', '0');
         this.coindata = resData.data;
         let totalpage = resData.totalCount / 50;
         this.pagecount = Math.ceil(totalpage);
+        setTimeout(() => {
+          $('.common-loader').trigger('click');
+        }, 4000);
         setTimeout(() => {
           this.graphLoad = 1;
           $('.sparkliness1').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#00940b', height: 30, fillColor: '#ffffff' });
@@ -305,7 +310,8 @@ export class AdvancescannerComponent implements OnInit {
             $('.scrollable-row').css('left', -left);
           });
           /**************** scroll script ***************** */
-        }, 2000);
+          $('.graphloader').addClass('hidden');
+        }, 5000);
       }
     });
   }
