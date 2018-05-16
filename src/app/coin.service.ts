@@ -25,6 +25,7 @@ export class CoinService {
   taglist: any = myGlobals.taglist;
   prooflist: any = myGlobals.prooflist;
   organizationlist: any = myGlobals.organizationlist;
+  exchangelist: any = myGlobals.exchangelist;
 
   /************************** Single Page ******************************/
   getsinglecoingraph: any = myGlobals.getsinglecoingraph;
@@ -113,7 +114,7 @@ export class CoinService {
       .map((response: Response) => response.json());
   }
 
-  geprooflist() {
+  getprooflist() {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
 
@@ -121,15 +122,23 @@ export class CoinService {
       .map((response: Response) => response.json());
   }
 
-  georganizationlist() {
+  getorganizationlist() {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
 
     return this.http.get(this.api_url + this.organizationlist, options)
       .map((response: Response) => response.json());
   }
+  
+  getexchangelist() {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
 
-  getallcoindatafilter(start, sorton, sortby, category, tag) {
+    return this.http.get(this.api_url + this.exchangelist, options)
+      .map((response: Response) => response.json());
+  }
+
+  getallcoindatafilter(start, sorton, sortby, category, tag, proof, organization, circulating_supp, max_supp, algo_score, team, theory, technology, traction, tam, token, timing, transformative, marketcap_usd, exchanges, age) {
     const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const options = new RequestOptions({ headers: headers });
 
@@ -142,6 +151,54 @@ export class CoinService {
     }
     if (tag != undefined) {
       form.append('tag_id', tag);
+    }
+    if (proof != undefined) {
+      form.append('proof_type', proof);
+    }
+    if (organization != undefined) {
+      form.append('org_structure', organization);
+    }
+    if (circulating_supp != undefined) {
+      form.append('circulating_supply', circulating_supp);
+    }
+    if (max_supp != undefined) {
+      form.append('max_supply', max_supp);
+    }
+    if (algo_score != undefined) {
+      form.append('algo_score', algo_score);
+    }
+    if (team != undefined) {
+      form.append('team', team);
+    }
+    if (theory != undefined) {
+      form.append('theory', theory);
+    }
+    if (technology != undefined) {
+      form.append('technology', technology);
+    }
+    if (traction != undefined) {
+      form.append('traction', traction);
+    }
+    if (tam != undefined) {
+      form.append('tam', tam);
+    }
+    if (token != undefined) {
+      form.append('token', token);
+    }
+    if (timing != undefined) {
+      form.append('timing', timing);
+    }
+    if (transformative != undefined) {
+      form.append('transformative', transformative);
+    }
+    if (marketcap_usd != undefined) {
+      form.append('marketcap_usd', marketcap_usd);
+    }
+    if (exchanges != undefined) {
+      form.append('exc_id', exchanges);
+    }
+    if (age != undefined) {
+      form.append('age', age);
     }
 
     return this.http.post(this.api_url + this.coinlistfilter, form, options)

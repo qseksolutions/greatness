@@ -65,8 +65,8 @@
                                     <label>Tags</label>
                                     <!--<input type="text" class="form-control" placeholder="Select tags...">-->
                                     <select class="selectpicker form-control d-none" id="sel_tag" multiple style="width: 100%">
-                                      <ng-container *ngFor="let cat of categorylist">
-                                        <option value="{{cat.id}}">{{cat.category_name}}</option>
+                                      <ng-container *ngFor="let tag of seltag">
+                                        <option value="{{tag.id}}">{{tag.category_name}}</option>
                                       </ng-container>
                                     </select>
                                   </div>
@@ -94,14 +94,16 @@
                                   <div class="form-group">
                                     <label>Circ. Supply</label>
                                     <div class="range-slider">
-                                      <input type="text" id="Circ_Supply" name="example_name" value="" />
+                                      <!-- <input type="text" id="Circ_Supply" name="example_name" value="" /> -->
+                                      <ion-range-slider #sliderElement type="double" min="0" max="10000000000000" from="0" to="10000000000000" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="circulating_supply($event)"></ion-range-slider>
                                     </div>
                                   </div>
             
                                   <div class="form-group">
                                     <label>Max Supply</label>
                                     <div class="range-slider">
-                                      <input type="text" id="Max_Supply" name="example_name" value="" />
+                                      <!-- <input type="text" id="Max_Supply" name="example_name" value="" /> -->
+                                      <ion-range-slider #sliderElement type="double" min="0" max="1000000000000" from="0" to="1000000000000" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="max_supply($event)"></ion-range-slider>
                                     </div>
                                   </div>
             
@@ -123,7 +125,7 @@
                                   <label>Greatness Quotient</label>
             
                                   <div class="range-slider">
-                                    <input type="text" id="gq" name="example_name" value="" />
+                                    <ion-range-slider #sliderElement type="double" min="0" max="100" from="0" to="100" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="algo_score($event)"></ion-range-slider>
                                   </div>
                                 </div>
             
@@ -131,7 +133,7 @@
                                   <label>Team Experience</label>
             
                                   <div class="range-slider">
-                                    <input type="text" id="team_expe" name="example_name" value="" />
+                                    <ion-range-slider #sliderElement type="double" min="0" max="10" from="0" to="10" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="team($event)"></ion-range-slider>
                                   </div>
                                 </div>
             
@@ -139,7 +141,7 @@
                                   <label>Theoritical Soundness</label>
             
                                   <div class="range-slider">
-                                    <input type="text" id="Theory" name="example_name" value="" />
+                                    <ion-range-slider #sliderElement type="double" min="0" max="10" from="0" to="10" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="theory($event)"></ion-range-slider>
                                   </div>
                                 </div>
             
@@ -147,7 +149,7 @@
                                   <label>Technological Progress</label>
             
                                   <div class="range-slider">
-                                    <input type="text" id="Tech" name="example_name" value="" />
+                                    <ion-range-slider #sliderElement type="double" min="0" max="10" from="0" to="10" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="technology($event)"></ion-range-slider>
                                   </div>
                                 </div>
             
@@ -155,7 +157,7 @@
                                   <label>Traction</label>
             
                                   <div class="range-slider">
-                                    <input type="text" id="Traction" name="example_name" value="" />
+                                    <ion-range-slider #sliderElement type="double" min="0" max="10" from="0" to="10" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="traction($event)"></ion-range-slider>
                                   </div>
                                 </div>
             
@@ -163,7 +165,7 @@
                                   <label>Total Addressable Market</label>
             
                                   <div class="range-slider">
-                                    <input type="text" id="tam" name="example_name" value="" />
+                                    <ion-range-slider #sliderElement type="double" min="0" max="10" from="0" to="10" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="tam($event)"></ion-range-slider>
                                   </div>
                                 </div>
             
@@ -171,7 +173,7 @@
                                   <label>Token Economics</label>
             
                                   <div class="range-slider">
-                                    <input type="text" id="Token" name="example_name" value="" />
+                                    <ion-range-slider #sliderElement type="double" min="0" max="10" from="0" to="10" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="token($event)"></ion-range-slider>
                                   </div>
                                 </div>
             
@@ -179,7 +181,7 @@
                                   <label>Timing</label>
             
                                   <div class="range-slider">
-                                    <input type="text" id="Timing" name="example_name" value="" />
+                                    <ion-range-slider #sliderElement type="double" min="0" max="10" from="0" to="10" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="timing($event)"></ion-range-slider>
                                   </div>
                                 </div>
             
@@ -187,7 +189,7 @@
                                   <label>Transformative Potential</label>
             
                                   <div class="range-slider">
-                                    <input type="text" id="Transformative" name="example_name" value="" />
+                                    <ion-range-slider #sliderElement type="double" min="0" max="10" from="0" to="10" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="transformative($event)"></ion-range-slider>
                                   </div>
                                 </div>
             
@@ -209,14 +211,19 @@
                                   <label>Market Cap</label>
             
                                   <div class="range-slider">
-                                    <input type="text" id="Market_cap" name="example_name" value="" />
+                                    <ion-range-slider #sliderElement type="double" min="0" max="140817000000" from="0" to="140817000000" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="marketcap_usd($event)"></ion-range-slider>
                                   </div>
                                 </div>
             
                                 <div class="filter-box">
                                   <div class="form-group">
                                     <label>Exchanges</label>
-                                    <input type="text" class="form-control" placeholder="Select exchanges...">
+                                    <!-- <input type="text" class="form-control" placeholder="Select exchanges..."> -->
+                                    <select class="selectpicker form-control" id="sel_exch" multiple style="width: 100%">
+                                      <ng-container *ngFor="let exch of exchangelist">
+                                        <option value="{{exch.id}}">{{exch.exchange_name}}</option>
+                                      </ng-container>
+                                    </select>
                                   </div>
                                 </div>
             
@@ -224,7 +231,7 @@
                                   <label>Coin age (months)</label>
             
                                   <div class="range-slider">
-                                    <input type="text" id="coin_age" name="example_name" value="" />
+                                    <ion-range-slider #sliderElement type="double" min="0" max="100" from="0" to="100" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="age($event)"></ion-range-slider>
                                   </div>
                                 </div>
                               </form>

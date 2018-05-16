@@ -1436,7 +1436,7 @@ svg {
 .irs-shadow {
     height: 3px; top: 34px;
     background: #000;
-    opacity: 0.25;
+    opacity: 0;
 }
 .lt-ie9 .irs-shadow {
     filter: alpha(opacity=25);

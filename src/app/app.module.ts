@@ -12,6 +12,7 @@ import { HttpClient,HttpClientModule } from "@angular/common/http";
 import { TranslateModule,TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TimeAgoPipe } from 'time-ago-pipe';
+import { IonRangeSliderModule } from "ng2-ion-range-slider";
 
 import highstock from 'highcharts/modules/stock.src';
 import exporting from 'highcharts/modules/exporting.src';
@@ -68,6 +69,7 @@ export function highchartsModules() {
     BrowserAnimationsModule,
     ChartModule,
     ToasterModule,
+    IonRangeSliderModule
   ],
   declarations: [
     AppComponent,

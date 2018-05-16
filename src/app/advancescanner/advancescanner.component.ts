@@ -41,9 +41,26 @@ export class AdvancescannerComponent implements OnInit {
   categorylist: any;
   selcat: any;
   seltag: any;
+  selexch: any;
+  selproof: any;
+  selorg: any;
   taglist: any;
   prooflist: any;
   orglist: any;
+  ciculasupp: any;
+  maxsupp: any;
+  algoscore: any;
+  teamdata: any;
+  theorydata: any;
+  techdata: any;
+  tractiondata: any;
+  tamdata: any;
+  tokendata: any;
+  timingdata: any;
+  trandata: any;
+  marketcap: any;
+  agedata: any;
+  exchangelist: any;
   displaycolumn: any = ['rank', 'name', 'follow', 'price_usd', 'graph_7d', 'mc_usd', 'team', 'theory', 'technology', 'traction', 'tam', 'token', 'timing', 'trasformative', 'gq'];
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
@@ -208,14 +225,19 @@ export class AdvancescannerComponent implements OnInit {
         this.taglist = resData.data;
       }
     });
-    this.coinservice.geprooflist().subscribe(resData => {
+    this.coinservice.getprooflist().subscribe(resData => {
       if (resData.status === true) {
         this.prooflist = resData.data;
       }
     });
-    this.coinservice.georganizationlist().subscribe(resData => {
+    this.coinservice.getorganizationlist().subscribe(resData => {
       if (resData.status === true) {
         this.orglist = resData.data;
+      }
+    });
+    this.coinservice.getexchangelist().subscribe(resData => {
+      if (resData.status === true) {
+        this.exchangelist = resData.data;
       }
     });
     this.gettabledata(this.start);
@@ -225,17 +247,134 @@ export class AdvancescannerComponent implements OnInit {
   ngAfterViewInit() {
     $('#sel_cat').on('change', (e) => {
       let selcurr = $(e.target).val();
-      let cat = selcurr.toString();
+      let cat = '';
+      if (selcurr != null) {
+        cat = selcurr.toString();
+      }
+      else {
+        cat = undefined;
+      }
       this.selcat = cat;
       this.gettabledata(this.start);
     });
     $('#sel_tag').on('change', (e) => {
       let selcurr = $(e.target).val();
-      let cat = selcurr.toString();
+      let cat = '';
+      if (selcurr != null) {
+        cat = selcurr.toString();
+      }
+      else {
+        cat = undefined;
+      }
       this.seltag = cat;
       this.gettabledata(this.start);
     });
+    $('#sel_exch').on('change', (e) => {
+      let selcurr = $(e.target).val();
+      let cat = '';
+      if (selcurr != null) {
+        cat = selcurr.toString();
+      }
+      else {
+        cat = undefined;
+      }
+      this.selexch = cat;
+      this.gettabledata(this.start);
+    });
+    $('#sel_proof').on('change', (e) => {
+      let selcurr = $(e.target).val();
+      let cat = '';
+      if (selcurr != null) {
+        let catlng = selcurr.length- 1;
+        selcurr.map(function (val, k) {
+          if (catlng == k) {
+            cat+= "'" + val.trim() + "'";
+          }
+          else {
+            cat += "'" + val.trim() + "',";
+          }
+        });
+      }
+      else {
+        cat = undefined;
+      }
+      this.selproof = cat;
+      this.gettabledata(this.start);
+    });
+    $('#sel_org').on('change', (e) => {
+      let selcurr = $(e.target).val();
+      let cat = '';
+      if (selcurr != null) {
+        let catlng = selcurr.length- 1;
+        selcurr.map(function (val, k) {
+          if (catlng == k) {
+            cat+= "'" + val.trim() + "'";
+          }
+          else {
+            cat += "'" + val.trim() + "',";
+          }
+        });
+      }
+      else {
+        cat = undefined;
+      }
+      this.selorg = cat;
+      this.gettabledata(this.start);
+    });
   };
+
+  circulating_supply(e) {
+    this.ciculasupp = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
+  max_supply(e) {
+    this.maxsupp = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
+  algo_score(e) {
+    this.algoscore = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
+  team(e) {
+    this.teamdata = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
+  theory(e) {
+    this.theorydata = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
+  technology(e) {
+    this.techdata = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
+  traction(e) {
+    this.tractiondata = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
+  tam(e) {
+    this.tamdata = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
+  token(e) {
+    this.tokendata = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
+  timing(e) {
+    this.timingdata = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
+  transformative(e) {
+    this.trandata = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
+  marketcap_usd(e) {
+    this.marketcap = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
+  age(e) {
+    this.agedata = e.from + '-' + e.to
+    this.gettabledata(this.start);
+  }
 
   gotonextpage() {
     this.start = this.start + 50;
@@ -278,9 +417,8 @@ export class AdvancescannerComponent implements OnInit {
     this.sortby = localStorage.getItem('sortby');
     this.showloader = true;
     $('.table-header').trigger('click');
-    this.coinservice.getallcoindatafilter(start, this.sorton, this.sortby, this.selcat, this.seltag).subscribe(resData => {
-      console.log(resData);
-      if (resData.status === true) {
+    this.coinservice.getallcoindatafilter(start, this.sorton, this.sortby, this.selcat, this.seltag, this.selproof, this.selorg, this.ciculasupp, this.maxsupp, this.algoscore, this.teamdata, this.theorydata, this.techdata, this.tractiondata, this.tamdata, this.tokendata, this.timingdata, this.trandata, this.marketcap, this.selexch, this.agedata).subscribe(resData => {
+        if (resData.status === true) {
         this.showloader = false;
         $('.scrollable-row').css('left', '0');
         this.coindata = resData.data;
