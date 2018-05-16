@@ -81,7 +81,7 @@ $(document).ready(function(){
       max: 100,
       from: 0,
       to: 100,
-      prefix: "% 24524"
+      prefix: "%"
   });
   $("#Tech").ionRangeSlider({
       type: "double",
