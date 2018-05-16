@@ -16,6 +16,8 @@ export const coinlist = 'coinlist';
 /*************************** Advance Page ************************************/
 export const coinlistfilter = 'coinlistfilter';
 export const taglist = 'taglist';
+export const prooflist = 'prooflist';
+export const organizationlist = 'organizationlist';
 
 /*************************** Single Page ************************************/
 export const getsinglecoingraph = 'getsinglecoingraph';

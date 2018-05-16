@@ -23,6 +23,8 @@ export class CoinService {
   /************************** Advance Page ******************************/
   coinlistfilter: any = myGlobals.coinlistfilter;
   taglist: any = myGlobals.taglist;
+  prooflist: any = myGlobals.prooflist;
+  organizationlist: any = myGlobals.organizationlist;
 
   /************************** Single Page ******************************/
   getsinglecoingraph: any = myGlobals.getsinglecoingraph;
@@ -108,6 +110,22 @@ export class CoinService {
     const options = new RequestOptions({ headers: headers });
 
     return this.http.get(this.api_url + this.taglist, options)
+      .map((response: Response) => response.json());
+  }
+
+  geprooflist() {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.api_url + this.prooflist, options)
+      .map((response: Response) => response.json());
+  }
+
+  georganizationlist() {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.api_url + this.organizationlist, options)
       .map((response: Response) => response.json());
   }
 
