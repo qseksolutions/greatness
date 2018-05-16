@@ -27,225 +27,215 @@
                 </a>
               </span>
               <span class="filter-dropdown">
-                <a href="javascript:;" class="btn btn-filter filter-dropdown-toggle">Filter Coins
+                <a href="javascript:;" class="btn btn-filter filter-dropdown-toggle show_advance">Filter Coins
                   <i class="fas fa-tasks"></i>
                 </a>
-                <div class="dropdown-filter d-none">
-                  <div class="" role="document">
-                    <div class="">
-                      <div class="">
-                        <h5 class="modal-title" id="exampleModalLabel">Advanded Scanner</h5>
-                      </div>
-                      <div class="">
-                        <div class="costomize-model">
-                          <div id="accordion">
-                            <div class="card">
-                              <div class="card-header" id="headingOne">
-                                <a href="javascript:void(0);" class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                  Fundamentals
-                                </a>
-                              </div>
                 
-                              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                <div class="card-body">
-                                  <form>
-                                    <div class="filter-box">
-                                      <div class="form-group">
-                                        <label>Category</label>
-                                        <!--<input type="text" class="form-control" placeholder="Select categories...">-->
-                                        <select class="selectpicker form-control d-none" id="sel_cat" multiple style="width: 100%">
-                                          <ng-container *ngFor="let cat of categorylist">
-                                            <option value="{{cat.id}}">{{cat.category_name}}</option>
-                                          </ng-container>
-                                        </select>
-                                      </div>
-                
-                                      <div class="form-group">
-                                        <label>Tags</label>
-                                        <!--<input type="text" class="form-control" placeholder="Select tags...">-->
-                                        <select class="selectpicker form-control d-none" id="sel_tag" multiple style="width: 100%">
-                                          <ng-container *ngFor="let cat of categorylist">
-                                            <option value="{{cat.id}}">{{cat.category_name}}</option>
-                                          </ng-container>
-                                        </select>
-                                      </div>
-                
-                                      <div class="form-group">
-                                        <label>Proof Type</label>
-                                        <!--<input type="text" class="form-control" placeholder="Select proof type...">-->
-                                        <select class="selectpicker form-control d-none" id="sel_proof" multiple style="width: 100%">
-                                          <ng-container *ngFor="let cat of categorylist">
-                                            <option value="{{cat.id}}">{{cat.category_name}}</option>
-                                          </ng-container>
-                                        </select>
-                                      </div>
-                
-                                      <div class="form-group">
-                                        <label>Org. structure</label>
-                                        <!--<input type="text" class="form-control" placeholder="Select type...">-->
-                                        <select class="selectpicker form-control d-none" id="sel_org" multiple style="width: 100%">
-                                          <ng-container *ngFor="let cat of categorylist">
-                                            <option value="{{cat.id}}">{{cat.category_name}}</option>
-                                          </ng-container>
-                                        </select>
-                                      </div>
-                
-                                      <div class="form-group">
-                                        <label>Circ. Supply</label>
-                                        <div class="range-slider">
-                                          <input type="text" id="Circ_Supply" name="example_name" value="" />
-                                        </div>
-                                      </div>
-                
-                                      <div class="form-group">
-                                        <label>Max Supply</label>
-                                        <div class="range-slider">
-                                          <input type="text" id="Max_Supply" name="example_name" value="" />
-                                        </div>
-                                      </div>
-                
+              </span>
+              <div class="dropdown-filter hidden advance_filter">
+                <div class="" role="document">
+                  <div class="dropdown-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Advance Scanner</h5>
+                  </div>
+                  <div class="dropdown-body">
+                    <div class="costomize-model">
+                      <div id="accordion">
+                        <div class="card">
+                          <div class="card-header" id="headingOne">
+                            <a href="javascript:void(0);" class="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Fundamentals
+                            </a>
+                          </div>
+            
+                          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                              <form>
+                                <div class="filter-box">
+                                  <div class="form-group">
+                                    <label>Category</label>
+                                    <!--<input type="text" class="form-control" placeholder="Select categories...">-->
+                                    <select class="selectpicker form-control d-none" id="sel_cat" multiple style="width: 100%">
+                                      <ng-container *ngFor="let cat of categorylist">
+                                        <option value="{{cat.id}}">{{cat.category_name}}</option>
+                                      </ng-container>
+                                    </select>
+                                  </div>
+            
+                                  <div class="form-group">
+                                    <label>Tags</label>
+                                    <!--<input type="text" class="form-control" placeholder="Select tags...">-->
+                                    <select class="selectpicker form-control d-none" id="sel_tag" multiple style="width: 100%">
+                                      <ng-container *ngFor="let cat of categorylist">
+                                        <option value="{{cat.id}}">{{cat.category_name}}</option>
+                                      </ng-container>
+                                    </select>
+                                  </div>
+            
+                                  <div class="form-group">
+                                    <label>Proof Type</label>
+                                    <!--<input type="text" class="form-control" placeholder="Select proof type...">-->
+                                    <select class="selectpicker form-control d-none" id="sel_proof" multiple style="width: 100%">
+                                      <ng-container *ngFor="let proof of prooflist">
+                                        <option value="{{proof.proof_type}}">{{proof.proof_type}}</option>
+                                      </ng-container>
+                                    </select>
+                                  </div>
+            
+                                  <div class="form-group">
+                                    <label>Org. structure</label>
+                                    <!--<input type="text" class="form-control" placeholder="Select type...">-->
+                                    <select class="selectpicker form-control d-none" id="sel_org" multiple style="width: 100%">
+                                      <ng-container *ngFor="let org of orglist">
+                                        <option value="{{org.org_structure}}">{{org.org_structure}}</option>
+                                      </ng-container>
+                                    </select>
+                                  </div>
+            
+                                  <div class="form-group">
+                                    <label>Circ. Supply</label>
+                                    <div class="range-slider">
+                                      <input type="text" id="Circ_Supply" name="example_name" value="" />
                                     </div>
-                                  </form>
+                                  </div>
+            
+                                  <div class="form-group">
+                                    <label>Max Supply</label>
+                                    <div class="range-slider">
+                                      <input type="text" id="Max_Supply" name="example_name" value="" />
+                                    </div>
+                                  </div>
+            
                                 </div>
-                              </div>
+                              </form>
                             </div>
-                            <div class="card">
-                              <div class="card-header" id="headingTwo">
-                                <a href="javascript:void(0);" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                  Greatness By Genesis Score
-                                </a>
-                              </div>
-                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                <div class="card-body">
-                                  <form>
-                                    <div class="form-group">
-                                      <label>Greatness Quotient</label>
-                
-                                      <div class="range-slider">
-                                        <input type="text" id="gq" name="example_name" value="" />
-                                      </div>
-                                    </div>
-                
-                                    <div class="form-group">
-                                      <label>Team Experience</label>
-                
-                                      <div class="range-slider">
-                                        <input type="text" id="team_expe" name="example_name" value="" />
-                                      </div>
-                                    </div>
-                
-                                    <div class="form-group">
-                                      <label>Theoritical Soundness</label>
-                
-                                      <div class="range-slider">
-                                        <input type="text" id="Theory" name="example_name" value="" />
-                                      </div>
-                                    </div>
-                
-                                    <div class="form-group">
-                                      <label>Technological Progress</label>
-                
-                                      <div class="range-slider">
-                                        <input type="text" id="Tech" name="example_name" value="" />
-                                      </div>
-                                    </div>
-                
-                                    <div class="form-group">
-                                      <label>Traction</label>
-                
-                                      <div class="range-slider">
-                                        <input type="text" id="Traction" name="example_name" value="" />
-                                      </div>
-                                    </div>
-                
-                                    <div class="form-group">
-                                      <label>Total Addressable Market</label>
-                
-                                      <div class="range-slider">
-                                        <input type="text" id="tam" name="example_name" value="" />
-                                      </div>
-                                    </div>
-                
-                                    <div class="form-group">
-                                      <label>Token Economics</label>
-                
-                                      <div class="range-slider">
-                                        <input type="text" id="Token" name="example_name" value="" />
-                                      </div>
-                                    </div>
-                
-                                    <div class="form-group">
-                                      <label>Timing</label>
-                
-                                      <div class="range-slider">
-                                        <input type="text" id="Timing" name="example_name" value="" />
-                                      </div>
-                                    </div>
-                
-                                    <div class="form-group">
-                                      <label>Transformative Potential</label>
-                
-                                      <div class="range-slider">
-                                        <input type="text" id="Transformative" name="example_name" value="" />
-                                      </div>
-                                    </div>
-                
-                                  </form>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header" id="headingTwo">
+                            <a href="javascript:void(0);" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              Greatness By Genesis Score
+                            </a>
+                          </div>
+                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                              <form>
+                                <div class="form-group">
+                                  <label>Greatness Quotient</label>
+            
+                                  <div class="range-slider">
+                                    <input type="text" id="gq" name="example_name" value="" />
+                                  </div>
                                 </div>
-                              </div>
+            
+                                <div class="form-group">
+                                  <label>Team Experience</label>
+            
+                                  <div class="range-slider">
+                                    <input type="text" id="team_expe" name="example_name" value="" />
+                                  </div>
+                                </div>
+            
+                                <div class="form-group">
+                                  <label>Theoritical Soundness</label>
+            
+                                  <div class="range-slider">
+                                    <input type="text" id="Theory" name="example_name" value="" />
+                                  </div>
+                                </div>
+            
+                                <div class="form-group">
+                                  <label>Technological Progress</label>
+            
+                                  <div class="range-slider">
+                                    <input type="text" id="Tech" name="example_name" value="" />
+                                  </div>
+                                </div>
+            
+                                <div class="form-group">
+                                  <label>Traction</label>
+            
+                                  <div class="range-slider">
+                                    <input type="text" id="Traction" name="example_name" value="" />
+                                  </div>
+                                </div>
+            
+                                <div class="form-group">
+                                  <label>Total Addressable Market</label>
+            
+                                  <div class="range-slider">
+                                    <input type="text" id="tam" name="example_name" value="" />
+                                  </div>
+                                </div>
+            
+                                <div class="form-group">
+                                  <label>Token Economics</label>
+            
+                                  <div class="range-slider">
+                                    <input type="text" id="Token" name="example_name" value="" />
+                                  </div>
+                                </div>
+            
+                                <div class="form-group">
+                                  <label>Timing</label>
+            
+                                  <div class="range-slider">
+                                    <input type="text" id="Timing" name="example_name" value="" />
+                                  </div>
+                                </div>
+            
+                                <div class="form-group">
+                                  <label>Transformative Potential</label>
+            
+                                  <div class="range-slider">
+                                    <input type="text" id="Transformative" name="example_name" value="" />
+                                  </div>
+                                </div>
+            
+                              </form>
                             </div>
-                            <div class="card">
-                              <div class="card-header" id="headingThree">
-                                <a href="javascript:void(0);" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
-                                  aria-controls="collapseThree">
-                                  Market & Trading
-                                </a>
-                              </div>
-                              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                <div class="card-body">
-                                  <form>
-                                    <div class="form-group">
-                                      <label>Market Cap</label>
-                
-                                      <div class="range-slider">
-                                        <input type="text" id="Market_cap" name="example_name" value="" />
-                                      </div>
-                                    </div>
-                
-                                    <div class="filter-box">
-                                      <div class="form-group">
-                                        <label>Exchanges</label>
-                                        <input type="text" class="form-control" placeholder="Select exchanges...">
-                                      </div>
-                                    </div>
-                
-                                    <div class="form-group">
-                                      <label>Coin age (months)</label>
-                
-                                      <div class="range-slider">
-                                        <input type="text" id="coin_age" name="example_name" value="" />
-                                      </div>
-                                    </div>
-                                  </form>
+                          </div>
+                        </div>
+                        <div class="card">
+                          <div class="card-header" id="headingThree">
+                            <a href="javascript:void(0);" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                              aria-controls="collapseThree">
+                              Market & Trading
+                            </a>
+                          </div>
+                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body">
+                              <form>
+                                <div class="form-group">
+                                  <label>Market Cap</label>
+            
+                                  <div class="range-slider">
+                                    <input type="text" id="Market_cap" name="example_name" value="" />
+                                  </div>
                                 </div>
-                              </div>
+            
+                                <div class="filter-box">
+                                  <div class="form-group">
+                                    <label>Exchanges</label>
+                                    <input type="text" class="form-control" placeholder="Select exchanges...">
+                                  </div>
+                                </div>
+            
+                                <div class="form-group">
+                                  <label>Coin age (months)</label>
+            
+                                  <div class="range-slider">
+                                    <input type="text" id="coin_age" name="example_name" value="" />
+                                  </div>
+                                </div>
+                              </form>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <!-- <div class="modal-footer">
-                        <div>
-                          <button type="button" class="btn btn-default">Reset</button>
-                        </div>
-                        <div>
-                          <button type="button" class="btn btn-primary">Filter</button>
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                      </div> -->
                     </div>
                   </div>
                 </div>
-              </span>
+              </div>
             </div>
           </div>
         </div>

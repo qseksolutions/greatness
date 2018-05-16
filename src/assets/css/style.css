@@ -744,7 +744,7 @@ svg {
     vertical-align: middle;
     padding: 0 20px;
 }
-.fiter-btn span {
+.fiter-btn > span {
     padding-left: 15px;
 }
 .fiter-btn .btn i {
@@ -1204,7 +1204,48 @@ svg {
 .costomize-model .form-control:focus {
     color: #495057;
 }
-  
+
+/*custom-dropdown*/
+.fiter-btn{
+    position: relative;
+}
+.dropdown-filter .dropdown-header {
+    background-color: #04b290;
+    margin-bottom: 20px;
+    border-radius: 5px 5px 0px 0px;
+    color: #fff;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.dropdown-filter {
+    position: absolute;
+    z-index: 999;
+    background-color: #fff;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.dropdown-body {
+    padding: 0px 10px;
+}
+.dropdown-body .card {
+    margin-bottom: 15px;
+    border:none;
+}
+.card-header:first-child {
+    border-radius: 0px;
+}
+.card-header {
+    background-color: rgb(4, 178, 144);
+    border-bottom:none;
+}
+.card-header a {
+    color: #ffffff;
+    display: block;
+}
 /*range-slider-strat*/
 .irs {
     position: relative; display: block;
@@ -1460,7 +1501,6 @@ svg {
     color: #999;
 }
 /*range-slider-end*/
-
 /*check-box-start*/
 .control {
   display: block;

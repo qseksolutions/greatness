@@ -14,9 +14,6 @@ $('body').on('mouseenter mouseleave','.dropdown',function(e){
     $('[data-toggle="dropdown"]', _d).attr('aria-expanded',_d.is(':hover'));
   },300);
 });
-$(document).on('click', '.filter-dropdown-toggle', function () {
-    $('.dropdown-filter').toggleClass('d-none');
-});
 $(document).ready(function(){
   $('.selectpicker').select2();
   $("#sel_cat").select2({

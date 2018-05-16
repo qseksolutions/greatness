@@ -42,6 +42,8 @@ export class AdvancescannerComponent implements OnInit {
   selcat: any;
   seltag: any;
   taglist: any;
+  prooflist: any;
+  orglist: any;
   displaycolumn: any = ['rank', 'name', 'follow', 'price_usd', 'graph_7d', 'mc_usd', 'team', 'theory', 'technology', 'traction', 'tam', 'token', 'timing', 'trasformative', 'gq'];
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private title: Title, private meta: Meta, private decimalpipe: DecimalPipe) {
@@ -206,6 +208,16 @@ export class AdvancescannerComponent implements OnInit {
         this.taglist = resData.data;
       }
     });
+    this.coinservice.geprooflist().subscribe(resData => {
+      if (resData.status === true) {
+        this.prooflist = resData.data;
+      }
+    });
+    this.coinservice.georganizationlist().subscribe(resData => {
+      if (resData.status === true) {
+        this.orglist = resData.data;
+      }
+    });
     this.gettabledata(this.start);
     this.cuurentpage = 1;
   }
@@ -308,6 +320,9 @@ export class AdvancescannerComponent implements OnInit {
             var left = $(this).scrollLeft();
             var left = left;
             $('.scrollable-row').css('left', -left);
+          });
+          $('.show_advance').click(function () {
+            $('.advance_filter').toggleClass('hidden');
           });
           /**************** scroll script ***************** */
           $('.graphloader').addClass('hidden');
