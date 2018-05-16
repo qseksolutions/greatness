@@ -285,8 +285,8 @@
                   <img class="img-fluid" src="../../assets/images/loader.svg" />
                 </span>
               </div>
-              <div class="table-body" *ngIf="!showloader && coindata == ''">
-                <p style="width:200px;margin-top:10%;margin-left:40%;">No Data Found </p>
+              <div class="not-found" *ngIf="!showloader && coindata == ''">
+                <p>No Data Found </p>
               </div>
               <div class="table-body" *ngIf="!showloader && coindata != ''">
                 <div class="fixed-column">

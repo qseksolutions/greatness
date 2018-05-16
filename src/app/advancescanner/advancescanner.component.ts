@@ -465,6 +465,11 @@ export class AdvancescannerComponent implements OnInit {
           /**************** scroll script ***************** */
           $('.graphloader').addClass('hidden');
         }, 5000);
+      } else {
+        this.showloader = false;
+        this.coindata = '';
+        this.pagecount = 0;
+        this.cuurentpage = 0;
       }
     });
   }

@@ -1107,6 +1107,16 @@ svg {
 .sparkliness2 {
     font-size: 0px; 
 }
+.not-found {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+}
 .graphloader {
     width: 25px;
     display: -webkit-box;

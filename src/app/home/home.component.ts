@@ -289,6 +289,12 @@ export class HomeComponent implements OnInit {
           /**************** scroll script ***************** */
         }, 1000);
       }
+      else {
+        this.showloader = false;
+        this.coindata = '';
+        this.pagecount = 0;
+        this.cuurentpage = 0;
+      }
     });
   }
 

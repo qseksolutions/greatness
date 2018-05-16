@@ -268,6 +268,12 @@ export class FavoritesComponent implements OnInit {
         let totalpage = responce.totalCount / 50;
         this.pagecount = Math.ceil(totalpage);
       }
+      else {
+        this.showloader = false;
+        this.coindata = '';
+        this.pagecount = 0;
+        this.cuurentpage = 0;
+      }
     });
   }
 
