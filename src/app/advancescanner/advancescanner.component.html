@@ -28,7 +28,7 @@
               </span>
               <span class="filter-dropdown">
                 <a href="javascript:;" class="btn btn-filter filter-dropdown-toggle show_advance">Filter Coins
-                  <i class="fas fa-tasks"></i>
+                  <i class="fas fa-sliders-h"></i>
                 </a>
                 
               </span>
@@ -65,7 +65,7 @@
                                     <label>Tags</label>
                                     <!--<input type="text" class="form-control" placeholder="Select tags...">-->
                                     <select class="selectpicker form-control d-none" id="sel_tag" multiple style="width: 100%">
-                                      <ng-container *ngFor="let tag of seltag">
+                                      <ng-container *ngFor="let tag of taglist">
                                         <option value="{{tag.id}}">{{tag.category_name}}</option>
                                       </ng-container>
                                     </select>
@@ -576,9 +576,9 @@
                         <div class="cell t-mrk-cap_btc" *ngIf="selectcol.mc_btc">{{coin.marketcap_btc | number : '1.0-2'}}</div>
                         <div class="cell t-vol_24h_usd" *ngIf="selectcol.vol_24h_usd">{{base_sign}}{{coin['volume24h_usd'] * base_price | number : '1.0-2'}}</div>
                         <div class="cell t-vol_24h_btc" *ngIf="selectcol.vol_24h_btc">{{coin.volume24h_btc}}</div>
-                        <div class="cell t-circu_supp" *ngIf="selectcol.circu_supp">{{coin.circulating_supply}}</div>
-                        <div class="cell t-max_supp" *ngIf="selectcol.max_supp">{{coin.max_supply}}</div>
-                        <div class="cell t-tot_supp" *ngIf="selectcol.tot_supp">{{coin.total_supply}}</div>
+                        <div class="cell t-circu_supp" *ngIf="selectcol.circu_supp">{{coin.circulating_supply  | number : '1.0-2'}}</div>
+                        <div class="cell t-max_supp" *ngIf="selectcol.max_supp">{{coin.max_supply  | number : '1.0-2'}}</div>
+                        <div class="cell t-tot_supp" *ngIf="selectcol.tot_supp">{{coin.total_supply  | number : '1.0-2'}}</div>
                         <div class="cell t-age" *ngIf="selectcol.age">{{coin.age != null ? coin.age : 'N/A'}}</div>
                         <div class="cell t-all_time_usd" *ngIf="selectcol.all_time_usd">{{coin.alltime_high_usd != null ? base_sign+coin.alltime_high_usd * base_price : 'N/A'}}</div>
                         <div class="cell t-all_time_btc" *ngIf="selectcol.all_time_btc">{{coin.alltime_high_btc != null ? coin.alltime_high_btc : 'N/A'}}</div>

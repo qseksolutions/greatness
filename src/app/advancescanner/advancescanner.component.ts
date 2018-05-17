@@ -413,9 +413,9 @@ export class AdvancescannerComponent implements OnInit {
 
   gettabledata(start) {
     this.graphLoad = 0;
+    this.showloader = true;
     this.sorton = localStorage.getItem('sorton');
     this.sortby = localStorage.getItem('sortby');
-    this.showloader = true;
     $('.table-header').trigger('click');
     this.coinservice.getallcoindatafilter(start, this.sorton, this.sortby, this.selcat, this.seltag, this.selproof, this.selorg, this.ciculasupp, this.maxsupp, this.algoscore, this.teamdata, this.theorydata, this.techdata, this.tractiondata, this.tamdata, this.tokendata, this.timingdata, this.trandata, this.marketcap, this.selexch, this.agedata).subscribe(resData => {
         if (resData.status === true) {
@@ -431,7 +431,6 @@ export class AdvancescannerComponent implements OnInit {
           this.graphLoad = 1;
           $('.sparkliness1').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#00940b', height: 30, fillColor: '#ffffff' });
           $('.sparkliness2').sparkline('html', { lineWidth: 1.5, disableInteraction: true, spotColor: false, minSpotColor: false, maxSpotColor: false, width: 150, lineColor: '#ef0000', height: 30, fillColor: '#ffffff' });
-
           /**************** scroll script ***************** */
           let maintable = $('.main-table').width();
           let fixedcolumn = $('.fixed-column').width();
@@ -453,7 +452,6 @@ export class AdvancescannerComponent implements OnInit {
               sticky.removeClass('fixed-header');
             }
           });
-
           $('.scroll-viewport').on('scroll', function () {
             var left = $(this).scrollLeft();
             var left = left;
