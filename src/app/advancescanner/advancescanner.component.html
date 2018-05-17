@@ -52,7 +52,7 @@
                               <form>
                                 <div class="filter-box">
                                   <div class="form-group">
-                                    <label>Category</label>
+                                    <label>Categories</label>
                                     <!--<input type="text" class="form-control" placeholder="Select categories...">-->
                                     <select class="selectpicker form-control d-none" id="sel_cat" multiple style="width: 100%">
                                       <ng-container *ngFor="let cat of categorylist">
@@ -82,7 +82,7 @@
                                   </div>
             
                                   <div class="form-group">
-                                    <label>Org. structure</label>
+                                    <label>Org. Structure</label>
                                     <!--<input type="text" class="form-control" placeholder="Select type...">-->
                                     <select class="selectpicker form-control d-none" id="sel_org" multiple style="width: 100%">
                                       <ng-container *ngFor="let org of orglist">
@@ -115,14 +115,14 @@
                         <div class="card">
                           <div class="card-header" id="headingTwo">
                             <a href="javascript:void(0);" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                              Greatness By Genesis Score
+                              Greatness Score
                             </a>
                           </div>
                           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                             <div class="card-body">
                               <form>
-                                <div class="form-group">
-                                  <label>Greatness Quotient</label>
+                                <div class="form-group">    
+                                  <label>Greatness Quotient Score</label>
             
                                   <div class="range-slider">
                                     <ion-range-slider #sliderElement type="double" min="0" max="100" from="0" to="100" grid="false" prefix="" postfix="" decorate_both="false" (onFinish)="algo_score($event)"></ion-range-slider>
