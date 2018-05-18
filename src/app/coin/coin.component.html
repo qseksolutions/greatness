@@ -117,7 +117,12 @@
                                                                         <h6>CEO</h6>
                                                                     </div>
                                                                     <span class="item-price">
-                                                                        {{ceodata.ceo_name}}
+                                                                        <span *ngIf="ceodata.ceo_name == '' || ceodata.ceo_name == 'n/a' || ceodata.ceo_name == 'no' || ceodata.ceo_name == 'No'"> 
+                                                                            N/A
+                                                                        </span>
+                                                                        <span *ngIf="ceodata.ceo_name != '' && ceodata.ceo_name != 'n/a' && ceodata.ceo_name != 'no'  && ceodata.ceo_name != 'No'">
+                                                                            {{ceodata.ceo_name}}
+                                                                        </span>
                                                                         <br>
                                                                         <p class="ceo_social" *ngIf="ceodata.ceo_linkedin_url != '' && ceodata.ceo_linkedin_url != 'n/a' && ceodata.ceo_linkedin_url != 'no'">
                                                                             <a target="_blank" href="{{ceodata.ceo_linkedin_url}}">
@@ -134,7 +139,12 @@
                                                                         <h6>CTO</h6>
                                                                     </div>
                                                                     <span class="item-price">
-                                                                        {{ceodata.cto_name}}
+                                                                        <span *ngIf="ceodata.cto_name == '' || ceodata.cto_name == 'n/a' || ceodata.cto_name == 'no'  || ceodata.cto_name == 'No'">
+                                                                            N/A
+                                                                        </span>
+                                                                        <span *ngIf="ceodata.cto_name != '' && ceodata.cto_name != 'n/a' && ceodata.cto_name != 'no' && ceodata.cto_name != 'No'">
+                                                                            {{ceodata.cto_name}}
+                                                                        </span>
                                                                         <br>
                                                                         <p class="ceo_social">
                                                                             <a target="_blank" href="{{ceodata.cto_linkedin_url}}" *ngIf="ceodata.cto_linkedin_url != '' && ceodata.cto_linkedin_url != 'n/a' && ceodata.cto_linkedin_url != 'no'">
