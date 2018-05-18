@@ -23,6 +23,7 @@ export const exchangelist = 'exchangelist';
 /*************************** Single Page ************************************/
 export const getsinglecoingraph = 'getsinglecoingraph';
 export const getsinglecoin = 'getsinglecoin';
+export const coinceolist = 'coinceolist';
 
 /*************************** Favorite Page ************************************/
 export const favoritecoinlist = 'favoritecoinlist';

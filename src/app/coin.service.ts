@@ -30,6 +30,7 @@ export class CoinService {
   /************************** Single Page ******************************/
   getsinglecoingraph: any = myGlobals.getsinglecoingraph;
   getsinglecoin: any = myGlobals.getsinglecoin;
+  coinceolist: any = myGlobals.coinceolist;
   
   /************************** Single Page ******************************/
   favoritecoinlist: any = myGlobals.favoritecoinlist;
@@ -208,6 +209,14 @@ export class CoinService {
   /******************************************** Single Page **********************************************/
   getsinglecoindatafromjson(coin): Observable<any> {
     return this.http.get("http://54.191.19.11/api/singlecoin/" + coin + ".json").map((res: any) => res.json());
+  }
+
+  getcoinceolist(coin) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.api_url + this.coinceolist + '?coin_id=' + coin, options)
+      .map((response: Response) => response.json());
   }
   
   getsingledata(coin) {

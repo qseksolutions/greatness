@@ -1780,10 +1780,10 @@ svg {
     font-size: 12px;
 }
 .item-price {
+    /* white-space: nowrap; */
     font-size: 12px;
     font-weight: 600;
     color: #738681;
-    max-width: 150px;
 }
 .item-head p {
     margin-bottom: 0;
@@ -1802,7 +1802,7 @@ svg {
     overflow: hidden;
 }
 .card-fix{
-    height: 408px;
+    height: 455px;
 }
 /*---single-page-end---*/
 

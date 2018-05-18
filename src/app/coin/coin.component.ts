@@ -33,6 +33,7 @@ export class CoinComponent implements OnInit {
   base_curr: any;
   base_sign: any;
   base_price: any;
+  ceodata: any;
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private http: Http, private titleService: Title, private datePipe: DatePipe, private meta: Meta) {
     $('.header_part').hide();
@@ -121,6 +122,12 @@ export class CoinComponent implements OnInit {
         this.coin =  '';
       }
     });
+    this.coinservice.getcoinceolist(coin).subscribe(resData => {
+      if (resData.status == true) {
+        this.ceodata = resData.data;
+        console.log(this.ceodata);
+      }
+    });  
     this.graphone();    
   }
 
