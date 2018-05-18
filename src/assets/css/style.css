@@ -1802,7 +1802,7 @@ svg {
     overflow: hidden;
 }
 .card-fix{
-    height: 455px;
+    height: 360px;
 }
 /*---single-page-end---*/
 
@@ -1817,6 +1817,12 @@ svg {
 .copy-right {
     color: #ffffff;
 }
+.fa-github-square {
+    color:  #000000;
+}
+.fa-linkedin {
+    color:  #007BB5;
+}
 span.footer_logo {
     padding-left: 15px;
     display: inline-block;
@@ -1828,6 +1834,13 @@ span.footer_logo {
     display: none;
 }
 /*---footer-end---*/
+
+.ceo_social {
+    font-size:  15px;
+    margin-top:  5%;
+    text-align:  center;
+    margin-bottom: 0;
+}
    
 /*---Responsive-start---*/
 

@@ -106,68 +106,48 @@
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                                 <div class="card card-fix">
                                                     <div class="card-detaile">
-                                                        <h3 class="card-title">Team</h3>
+                                                        <h3 class="card-title">Team Experience</h3>
                                                     </div>
-                                    
+
                                                     <div class="single-item-box" *ngIf="ceodata">
                                                         <ul class="list-unstyled">
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
-                                                                        <h6>CEO Name</h6>
+                                                                        <h6>CEO</h6>
                                                                     </div>
-                                                                    <span class="item-price">{{ceodata.ceo_name}}</span>
+                                                                    <span class="item-price">
+                                                                        {{ceodata.ceo_name}}
+                                                                        <br>
+                                                                        <p class="ceo_social" *ngIf="ceodata.ceo_linkedin_url != '' && ceodata.ceo_linkedin_url != 'n/a' && ceodata.ceo_linkedin_url != 'no'">
+                                                                            <a target="_blank" href="{{ceodata.ceo_linkedin_url}}">
+                                                                                <i class="fab fa-linkedin"></i>
+                                                                            </a>
+                                                                        </p>
+                                                                    </span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
-                                                                        <h6>CEO Linkedin URL</h6>
+                                                                        <h6>CTO</h6>
                                                                     </div>
-                                                                    <span class="item-price" *ngIf="ceodata.ceo_linkedin_url == '' || ceodata.ceo_linkedin_url == 'n/a' || ceodata.ceo_linkedin_url == 'no'">{{ceodata.ceo_linkedin_url}}
-                                                                    </span>
-                                                                    <span class="item-price" *ngIf="ceodata.ceo_linkedin_url != '' && ceodata.ceo_linkedin_url != 'n/a' && ceodata.ceo_linkedin_url != 'no'">
-                                                                        <a target="_blank" href="{{ceodata.ceo_linkedin_url}}" class="btn btn-primary">Linkedin</a>
+                                                                    <span class="item-price">
+                                                                        {{ceodata.cto_name}}
+                                                                        <br>
+                                                                        <p class="ceo_social">
+                                                                            <a target="_blank" href="{{ceodata.cto_linkedin_url}}" *ngIf="ceodata.cto_linkedin_url != '' && ceodata.cto_linkedin_url != 'n/a' && ceodata.cto_linkedin_url != 'no'">
+                                                                                <i class="fab fa-linkedin"></i>
+                                                                            </a>
+                                                                            <a target="_blank" href="{{ceodata.cto_github_url}}" *ngIf="ceodata.cto_github_url != '' && ceodata.cto_github_url != 'n/a' && ceodata.cto_github_url != 'no'">
+                                                                                <i class="fab fa-github-square"></i>
+                                                                            </a>
+                                                                        </p>
                                                                     </span>
                                                                 </div>
                                                             </li>
-                                    
-                                                            <li>
-                                                                <div class="item-child">
-                                                                    <div class="item-head">
-                                                                        <h6>CTO Name</h6>
-                                                                    </div>
-                                                                    <span class="item-price">{{ceodata.cto_name}}</span>
-                                                                </div>
-                                                            </li>
-                                    
-                                                            <li>
-                                                                <div class="item-child">
-                                                                    <div class="item-head">
-                                                                        <h6>CTO Linkedin URL</h6>
-                                                                    </div>
-                                                                    <span class="item-price" *ngIf="ceodata.cto_linkedin_url == '' || ceodata.cto_linkedin_url == 'n/a' || ceodata.cto_linkedin_url == 'no'">{{ceodata.cto_linkedin_url}}
-                                                                    </span>
-                                                                    <span class="item-price" *ngIf="ceodata.cto_linkedin_url != '' && ceodata.cto_linkedin_url != 'n/a' && ceodata.cto_linkedin_url != 'no'">
-                                                                        <a target="_blank" href="{{ceodata.cto_linkedin_url}}" class="btn btn-primary">Linkedin</a>
-                                                                    </span>
-                                                                </div>
-                                                            </li>
-                                    
-                                                            <li>
-                                                                <div class="item-child">
-                                                                    <div class="item-head">
-                                                                        <h6>CTO Github URL</h6>
-                                                                    </div>
-                                                                    <span class="item-price" *ngIf="ceodata.cto_github_url == '' || ceodata.cto_github_url == 'n/a' || ceodata.cto_github_url == 'no'">{{ceodata.cto_github_url}}
-                                                                    </span>
-                                                                    <span class="item-price" *ngIf="ceodata.cto_github_url != '' && ceodata.cto_github_url != 'n/a' && ceodata.cto_github_url != 'no'">
-                                                                        <a target="_blank" href="{{ceodata.cto_github_url}}" class="btn btn-primary">Github</a>
-                                                                    </span>
-                                                                </div>
-                                                            </li>
-                                    
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -176,7 +156,7 @@
                                                                     <span class="item-price">{{ceodata.team_age_avg}}</span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -185,7 +165,16 @@
                                                                     <span class="item-price">{{ceodata.team_dev_size}}</span>
                                                                 </div>
                                                             </li>
-                                    
+
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>Marketing Team Size</h6>
+                                                                    </div>
+                                                                    <span class="item-price">{{ceodata.team_mkt_sales_size}}</span>
+                                                                </div>
+                                                            </li>
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -194,49 +183,40 @@
                                                                     <span class="item-price">{{ceodata.team_size_total}}</span>
                                                                 </div>
                                                             </li>
-                                    
-                                                            <li>
-                                                                <div class="item-child">
-                                                                    <div class="item-head">
-                                                                        <h6>Team Mkt. Sales Size</h6>
-                                                                    </div>
-                                                                    <span class="item-price">{{ceodata.team_mkt_sales_size}}</span>
-                                                                </div>
-                                                            </li>
-                                    
+
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                    
+
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                                 <div class="card card-fix">
                                                     <div class="card-detaile">
-                                                        <h3 class="card-title">Theoritical</h3>
+                                                        <h3 class="card-title">Theoritical Soundness</h3>
                                                     </div>
-                                    
+
                                                     <div class="single-item-box">
                                                     </div>
                                                 </div>
                                             </div>
-                                    
+
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                                 <div class="card card-fix">
                                                     <div class="card-detaile">
-                                                        <h3 class="card-title">Total Addressable</h3>
+                                                        <h3 class="card-title">Total Addressable Market</h3>
                                                     </div>
-                                    
+
                                                     <div class="single-item-box">
                                                     </div>
                                                 </div>
                                             </div>
-                                    
+
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                                 <div class="card card-fix">
                                                     <div class="card-detaile">
-                                                        <h3 class="card-title">Technology</h3>
+                                                        <h3 class="card-title">Technological Progress</h3>
                                                     </div>
-                                    
+
                                                     <div class="single-item-box">
                                                         <ul class="list-unstyled">
                                                             <li>
@@ -247,7 +227,7 @@
                                                                     <span class="item-point">50</span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -256,7 +236,7 @@
                                                                     <span class="item-point">20</span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -265,7 +245,7 @@
                                                                     <span class="item-point">5</span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -274,7 +254,7 @@
                                                                     <span class="item-point">5</span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -283,7 +263,7 @@
                                                                     <span class="item-point">10</span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -292,25 +272,25 @@
                                                                     <span class="item-point">10</span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                    
+
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                                 <div class="card card-fix">
                                                     <div class="card-detaile">
                                                         <h3 class="card-title">Traction</h3>
                                                     </div>
-                                    
+
                                                     <div class="single-item-box">
                                                         <ul class="list-unstyled">
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
                                                                         <h6>Total community size compared to other coins</h6>
-                                    
+
                                                                         <p>Facebook, Twitter, YouTube, Reddit</p>
                                                                     </div>
                                                                     <span class="item-point">100</span>
@@ -320,25 +300,25 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                    
+
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                                 <div class="card card-fix">
                                                     <div class="card-detaile">
-                                                        <h3 class="card-title">Transformative</h3>
+                                                        <h3 class="card-title">Transformative Potential</h3>
                                                     </div>
-                                    
+
                                                     <div class="single-item-box">
                                                     </div>
                                                 </div>
                                             </div>
-                                    
+
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                                 <div class="card card-fix">
                                                     <div class="card-detaile">
                                                         <h3 class="card-title">Token Economics</h3>
                                                         <!-- <h3 class="card-title">Fundamentals</h3> -->
                                                     </div>
-                                    
+
                                                     <div class="single-item-box">
                                                         <ul class="list-unstyled">
                                                             <li>
@@ -346,10 +326,9 @@
                                                                     <div class="item-head">
                                                                         <h6>Circulating supply</h6>
                                                                     </div>
-                                                                    <span class="item-price">{{coin.circulating_supply | number : '1.0-2'}} (%)</span>
+                                                                    <span class="item-price">{{coin.circulating_supply | number : '1.0-2'}}</span>
                                                                 </div>
                                                             </li>
-                                    
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -358,7 +337,7 @@
                                                                     <span class="item-price">{{coin.total_supply | number : '1.0-2'}}</span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -367,7 +346,16 @@
                                                                     <span class="item-price">{{coin.max_supply | number : '1.0-2'}}</span>
                                                                 </div>
                                                             </li>
-                                    
+
+                                                            <li>
+                                                                <div class="item-child">
+                                                                    <div class="item-head">
+                                                                        <h6>Circulating vs total</h6>
+                                                                    </div>
+                                                                    <span class="item-price">{{(coin.circulating_supply/coin.total_supply)*100 | number : '1.0-2'}}%</span>
+                                                                </div>
+                                                            </li>
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -376,7 +364,7 @@
                                                                     <span class="item-price">{{coin.product_status}}</span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -385,7 +373,7 @@
                                                                     <span class="item-price">{{coin.org_structure}}</span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -394,7 +382,7 @@
                                                                     <span class="item-price" style="margin-left: 10%">{{coin.consensus_method}}</span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
@@ -403,18 +391,18 @@
                                                                     <span class="item-price">{{coin.algorithm}}</span>
                                                                 </div>
                                                             </li>
-                                    
+
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
-                                    
+
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                                 <div class="card card-fix">
                                                     <div class="card-detaile">
                                                         <h3 class="card-title">Timing</h3>
                                                     </div>
-                                    
+
                                                     <div class="single-item-box">
                                                     </div>
                                                 </div>
