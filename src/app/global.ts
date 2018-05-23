@@ -24,6 +24,7 @@ export const exchangelist = 'exchangelist';
 export const getsinglecoingraph = 'getsinglecoingraph';
 export const getsinglecoin = 'getsinglecoin';
 export const coinceolist = 'coinceolist';
+export const getgithubdata = 'getgithubdata';
 
 /*************************** Favorite Page ************************************/
 export const favoritecoinlist = 'favoritecoinlist';

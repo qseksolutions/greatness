@@ -1802,7 +1802,8 @@ svg {
     overflow: hidden;
 }
 .card-fix{
-    height: 360px;
+    height: 100%;
+    margin-bottom: 0px;
 }
 /*---single-page-end---*/
 

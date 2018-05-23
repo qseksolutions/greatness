@@ -15,6 +15,7 @@ $('body').on('mouseenter mouseleave', '.dropdown', function (e) {
     }, 300);
 });
 $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
     $('.selectpicker').select2();
     $("#sel_cat").select2({
         placeholder: "Select categories...",
@@ -37,5 +38,6 @@ $(document).ready(function () {
         allowClear: true
     });
 
-    $('[data-toggle="tooltip"]').tooltip()
+    
 });
+

@@ -103,7 +103,7 @@
 
                                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                         <div class="row">
-                                            <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-4">
                                                 <div class="card card-fix">
                                                     <div class="card-detaile">
                                                         <h3 class="card-title">Team Experience</h3>
@@ -199,7 +199,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-4">
                                                 <div class="card card-fix">
                                                     <div class="card-detaile">
                                                         <h3 class="card-title">Theoritical Soundness</h3>
@@ -210,7 +210,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-4">
                                                 <div class="card card-fix">
                                                     <div class="card-detaile">
                                                         <h3 class="card-title">Total Addressable Market</h3>
@@ -221,67 +221,65 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-3 mb-4">
                                                 <div class="card card-fix">
                                                     <div class="card-detaile">
                                                         <h3 class="card-title">Technological Progress</h3>
                                                     </div>
-
-                                                    <div class="single-item-box">
+                                                    
+                                                    <div class="single-item-box" *ngIf="gitdata">
                                                         <ul class="list-unstyled">
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
-                                                                        <h6>Product development status (i.e. stage)</h6>
+                                                                        <h6>Stargazers</h6>
                                                                     </div>
-                                                                    <span class="item-point">50</span>
+                                                                    <span class="item-price">{{gitdata.stars_count | number : '1.0-2'}}</span>
                                                                 </div>
                                                             </li>
 
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
-                                                                        <h6>Have they open sourced their code?</h6>
+                                                                        <h6>Forks</h6>
                                                                     </div>
-                                                                    <span class="item-point">20</span>
+                                                                    <span class="item-price">{{gitdata.forks_count | number : '1.0-2'}}</span>
                                                                 </div>
                                                             </li>
 
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
-                                                                        <h6>Have they published a Product roadmap?</h6>
+                                                                        <h6>commits</h6>
                                                                     </div>
-                                                                    <span class="item-point">5</span>
+                                                                    <span class="item-price">{{gitdata.totalcommit | number : '1.0-2'}}</span>
                                                                 </div>
                                                             </li>
 
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
-                                                                        <h6>Is their Product roadmap up to date?</h6>
+                                                                        <h6>Subscribers</h6>
                                                                     </div>
-                                                                    <span class="item-point">5</span>
+                                                                    <span class="item-price">{{gitdata.subscribers_count | number : '1.0-2'}}</span>
                                                                 </div>
                                                             </li>
 
                                                             <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
-                                                                        <h6>Product age (Today’s date - Release date)</h6>
+                                                                        <div [chart]="techchart"></div>
                                                                     </div>
-                                                                    <span class="item-point">10</span>
                                                                 </div>
                                                             </li>
-
-                                                            <li>
+                                                            
+                                                            <!-- <li>
                                                                 <div class="item-child">
                                                                     <div class="item-head">
-                                                                        <h6>Have they published a Whitepaper?</h6>
+                                                                        
                                                                     </div>
-                                                                    <span class="item-point">10</span>
                                                                 </div>
-                                                            </li>
+                                                            </li> -->
 
                                                         </ul>
                                                     </div>
