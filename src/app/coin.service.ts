@@ -32,6 +32,7 @@ export class CoinService {
   getsinglecoin: any = myGlobals.getsinglecoin;
   coinceolist: any = myGlobals.coinceolist;
   getgithubdata: any = myGlobals.getgithubdata;
+  getcoinsociallink: any = myGlobals.getcoinsociallink;
   
   /************************** Single Page ******************************/
   favoritecoinlist: any = myGlobals.favoritecoinlist;
@@ -233,6 +234,14 @@ export class CoinService {
     const options = new RequestOptions({ headers: headers });
     
     return this.http.get(this.api_url + this.getgithubdata + '?coin_id=' + coin, options)
+    .map((response: Response) => response.json());
+  }
+  
+  coinsociallink(coin) {
+    const headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    const options = new RequestOptions({ headers: headers });
+    
+    return this.http.get(this.api_url + this.getcoinsociallink + '?coin_id=' + coin, options)
     .map((response: Response) => response.json());
   }
   

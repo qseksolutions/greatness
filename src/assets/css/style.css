@@ -1726,7 +1726,8 @@ svg {
 }
 .team-child,
 .token-child,
-.item-child{
+.item-child ,
+.social-item-child{
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
@@ -1736,8 +1737,18 @@ svg {
     padding: 10px 0px;
     border-bottom: solid 1px #cccccc;
 }
+.social-head-box {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
 .token-child,
-.item-child{
+.item-child {
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
@@ -1746,6 +1757,43 @@ svg {
 .single-item-box li:last-child .item-child{
     border-bottom:none;
     padding-bottom: 0px; 
+}
+.item-count {
+    width: 33.33%;
+}
+.social-head-box div.item-count {
+    text-align: right;
+}
+.item-count:nth-child(2){
+    text-align: center;
+}
+.item-count:nth-child(3){
+    text-align: right;
+}
+.social_grid {
+    margin-bottom: 20px;
+}
+.social_grid:last-child{
+    margin-bottom: 0px;
+}
+.social_heading {
+    position: relative;
+    color: #111111;
+    /* padding: 5px 0px; */
+}
+.social_heading i {
+    margin-right: 5px;
+    font-size: 18px;
+    color: #04b290;
+}
+.social_heading:after {
+    position: absolute;
+    content: "";
+    left: -15px;
+    height: 100%;
+    width: 3px;
+    background-color: #04b290;
+    top: 0;
 }
 .memb-post {
     font-weight: 500;

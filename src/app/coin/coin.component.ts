@@ -37,11 +37,15 @@ export class CoinComponent implements OnInit {
   ceodata: any;
   gitdata: any;
   commitdata: any;
+  socialdata: any;
 
 
   constructor(private coinservice: CoinService, private router: Router, toasterService: ToasterService, private http: Http, private titleService: Title, private datePipe: DatePipe, private meta: Meta) {
     $('.header_part').hide();
     $('.header_part').removeClass('collapse show');
+    setTimeout(() => {
+      $('[data-toggle="tooltip"]').tooltip();
+    }, 2000);
 
     this.toasterService = toasterService;
 
@@ -121,6 +125,21 @@ export class CoinComponent implements OnInit {
             color: '#04b290'
           }]
         });
+        this.coinservice.coinsociallink(this.coin.symbol).subscribe(resData => {
+        // this.coinservice.coinsociallink('DOGE').subscribe(resData => {
+          if (resData.status == true) {
+            this.socialdata = resData.data;
+            if (resData.data.facebook != '') {
+              this.socialdata.facebook = JSON.parse(resData.data.facebook)
+            }
+            if (resData.data.reddit != '') {
+              this.socialdata.reddit = JSON.parse(resData.data.reddit)
+            }
+            if (resData.data.twitter != '') {
+              this.socialdata.twitter = JSON.parse(resData.data.twitter)
+            }
+          }
+        });
       }
       else {
         this.coin =  '';
@@ -130,7 +149,7 @@ export class CoinComponent implements OnInit {
       if (resData.status == true) {
         this.ceodata = resData.data;
       }
-    }); 
+    });  
     this.graphone();    
   }
 
@@ -142,7 +161,6 @@ export class CoinComponent implements OnInit {
       if (response.status == true) {
         this.market_cap = response.data.market_cap_by_available_supply;
         this.price_usd = response.data.price_usd;
-        console.log(this.price_usd);
         this.volume_usd = response.data.volume_usd;
         this.chart = new StockChart({
           title: {
@@ -267,7 +285,6 @@ export class CoinComponent implements OnInit {
 
         this.gitdata['totalcommit'] = totalcommit;
         this.commitdata = graphcommit;
-        console.log(this.commitdata);
         this.techchart = new StockChart({
           chart: {
             height: 150,
